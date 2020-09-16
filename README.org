@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 #+TITLE:     (λmacs)
-#+SUBTITLE:  (λmacs) is Emacs for Clojure development on Mac OSx.
+#+SUBTITLE:  (λmacs) is Emacs for Clojure development on macOS X.
 #+AUTHOR:    Bruno Bonacci
 #+EMAIL:     bruno.bonacci@gmail.com
 #+LANGUAGE:  en
@@ -10,11 +10,14 @@
 # ------------------------------------------------------------------------------
 * Intro
 
-(λmacs) is Emacs for Clojure development on Mac OSx.
+(λmacs) is Emacs for Clojure development on macOS X.
 
 #+NAME:   fig:lambdamacs logo
 [[./assets/lambdamacs_600.png]]
 
+Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html][documentation online]].
+
+** Motivation
 ** Installation
 
 ** Configuration
@@ -65,6 +68,15 @@
 
 ** Contribution
 ** References
+The code in this repo has is the sum of my personal experience and
+the following references:
+
+- [[https://github.com/bbatsov/prelude][Emacs Prelude]] - A great Emacs distribution
+- [[https://github.com/bbatsov/emacs.d][@bbastov .emacs.d]] - Bozhidar's Emacs config
+- [[https://github.com/overtone/emacs-live][emacs-live]] - Another Emacs distribution
+- [[https://github.com/rougier/emacs-gtd][Get Things Done with Emacs]] - From which I took the beautiful CSS (thanks) for org-mode
+
+/Thank you to all of you!/
 
 ** License
 Copyright © 2020 Bruno Bonacci
