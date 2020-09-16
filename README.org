@@ -12,11 +12,8 @@
 
 (λmacs) is Emacs for Clojure development on Mac OSx.
 
-#+NAME:   fig:logo
-#+ATTR_ORG: :width 600
-#+ATTR_HTML: :width 600
-[[./assets/lambdamacs.png]]
-
+#+NAME:   fig:lambdamacs logo
+[[./assets/lambdamacs_600.png]]
 
 ** Installation
 
