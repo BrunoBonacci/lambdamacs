@@ -2,9 +2,9 @@
 ;; User preferences and personal configuration
 ;;
 
-
-(setq user-full-name    "Firstname Lastname"
-      user-mail-address "your-email@email.org")
+;; add your name and email address
+;; (setq user-full-name    "Firstname Lastname"
+;;       user-mail-address "your-email@email.org")
 
 
 
