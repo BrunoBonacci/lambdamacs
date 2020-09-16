@@ -15,12 +15,91 @@
 #+NAME:   fig:lambdamacs logo
 [[./assets/lambdamacs_600.png]]
 
-Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html][documentation online]].
+- Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html][documentation online]].
+- Check the code on [[https://github.com/BrunoBonacci/lambdamacs][Github]].
 
 ** Motivation
+For a number of years I've been using Emacs as my primary/only IDE.  I
+used a number of "/distributions/" readily available on internet such
+as [[https://github.com/overtone/emacs-live][emacs-live]] and [[https://github.com/bbatsov/prelude][Prelude]] of which I made my own extension [[https://github.com/BrunoBonacci/preludex][Preludex]],
+and I watched the birth of [[https://www.spacemacs.org/][Spacemacs]] and the new challenger
+[[https://github.com/hlissner/doom-emacs][doom-emacs]].
+
+Over time each of these distributions grew larger and larger
+and it became hard to keep the configuration up-to-date
+but still minimal (just what you need).
+
+So I decided to build my own out of the best pieces of all of them.
+
+If you are new to Emacs, it is probably best if you start with one of
+the more popular distributions so that you get enough community
+support. If only you need is to develop Clojure, and have enough
+tooling support feel free to use my configuration.
+
 ** Installation
 
+- Download and install [[https://emacsformacosx.com/][Emacs For Mac OS X]] if you don't have it yet!
+
+- Backup your previous installation:
+#+begin_src sh
+mv ~/.emacs.d ~/.emacs.d-backup
+#+end_src
+
+- Clone ~(λmacs)~
+#+begin_src sh
+git clone https://github.com/BrunoBonacci/lambdamacs.git ~/.emacs.d
+#+end_src
+
+- Install platform tools
+Some platform tools are used to enhance the user experience and to
+support some features.
+#+begin_src sh
+brew install the_silver_searcher aspell
+#+end_src
+
+- That's all, start hacking!
+
+If you want you can customize your configuration (see next section).
+
 ** Configuration
+
+There are a number of configurable options to setup ~(λmacs)~ just
+right for your environment.
+
+- First configure your name and email:
+
+#+begin_src elisp
+;; add your name and email address
+(setq user-full-name    "Firstname Lastname"
+      user-mail-address "your-email@email.org")
+#+end_src
+
+- Install a nice looking font and pick a size:
+Here some suggestions:
+
+  - [[https://github.com/powerline/fonts/tree/master/RobotoMono][Roboto Mono]]
+  - [[https://github.com/tonsky/FiraCode][Fira Code]]
+  - [[https://rubjo.github.io/victor-mono/][Victor Mono]]
+
+#+begin_src elisp
+(setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
+(setq lambdamacs/default-font-size 150)
+#+end_src
+
+- Select your favorite theme
+There are a number a themes already installed see [[https://github.com/hlissner/emacs-doom-themes][the full list]] and
+see [[https://github.com/hlissner/emacs-doom-themes/tree/screenshots][theme screenshots]].  I'd recommend to pick your favorite as default
+and use a light theme as alternative. It can be useful sometimes to
+switch to the alternative for example if you make a
+presentation. Light themes work better with projectors.
+
+#+begin_src elisp
+(setq lambdamacs/default-theme 'doom-moonlight)
+(setq lambdamacs/alternative-theme 'doom-one-light)
+#+end_src
+
+You can switch between themes by typing ~M-x switch-theme-to-alternative~
+and switch back to the default theme with ~M-x switch-theme-to-default~
 
 ** Packages installed
 
@@ -28,7 +107,7 @@ Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamac
  |------------------------+---------------------------------------------------------------|
  | ~TODO: WSD~            | WebSequenceDiagrams                                           |
  | ~TODO: bookmarks~      | Code bookmarks                                                |
- | ~TODO: restclient~     |                                                               |
+ | ~TODO: restclient~     | Turn simple text buffer into HTTP REST calls                  |
  | ~TODO: yas-snippet~    | Code snippets                                                 |
  | ~cider~                | CIDER the best IDE for Clojude development                    |
  | ~clj-refactor~         | Cider companion for refactoring                               |
@@ -36,6 +115,7 @@ Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamac
  | ~doom-theme~           | a collection of well curated themes                           |
  | ~forge~                | Magit extension for Pull Requests and Issues                  |
  | ~magit~                | Git controls                                                  |
+ | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~) |
  | ~multiple-cursors~     | Multple cursors for editing                                   |
  | ~outline-presentation~ | Use org-mode to make a presentation                           |
  | ~paredit~              | Can't develop Clojure without structural editing              |
@@ -44,10 +124,9 @@ Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamac
  | ~sticky-windows~       | Stick windows in place (no auto close)                        |
  | ~switch-java~          | Enables to select the JVM version while inside emacs          |
  | ~treemacs~             | Project tree navigation                                       |
+ | ~undo-tree~            | Powerful multi-state undo                                     |
  | ~wgrep~                | Editable search buffers                                       |
  | ~witespace~            | To clean trailing whitespaces in the code                     |
- | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~) |
- | ~undo-tree~            | Powerful multi-state undo                                     |
 
 - TODO:
 - [ ] bookmarks
@@ -67,6 +146,10 @@ Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamac
 * Get involved
 
 ** Contribution
+This is my personal setup, I don't mind you using it and I'd
+appreciate feedbacks and suggestions on how to improve it!
+Issue a PR, and if it works for me, I'll merge it!
+
 ** References
 The code in this repo has is the sum of my personal experience and
 the following references:
@@ -79,5 +162,5 @@ the following references:
 /Thank you to all of you!/
 
 ** License
-Copyright © 2020 Bruno Bonacci
-Distributed under the GNU General Public License, version 3
+Copyright © 2020 Bruno Bonacci and contributors.
+Distributed under the GNU General Public License, version 3.

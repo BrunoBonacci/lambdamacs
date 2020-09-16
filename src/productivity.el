@@ -26,3 +26,17 @@
     (append-to-file default-message nil "~/.TODO.org"))
 ;; open all existing ones
 (mapcar 'find-file  (directory-files "~/" t "^.TODO.*.org"))
+
+
+
+;;
+;; Autogenerate html on-save for org-mode
+;;
+(defun org-autogenerate-html-on-save ()
+  (interactive)
+  (if (memq 'org-html-export-to-html after-save-hook)
+      (progn
+        (remove-hook 'after-save-hook 'org-html-export-to-html t)
+        (message "Disabled org html export on save for current buffer..."))
+    (add-hook 'after-save-hook 'org-html-export-to-html nil t)
+    (message "Enabled org html export on save for current buffer...")))

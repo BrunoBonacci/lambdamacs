@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-16 Wed 16:11 -->
+<!-- 2020-09-16 Wed 19:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(λmacs)</title>
@@ -21,57 +21,182 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge9b1e27">Intro</a>
+<li><a href="#orgf95b983">Intro</a>
 <ul>
-<li><a href="#org46c19dc">Motivation</a></li>
-<li><a href="#orgebf409a">Installation</a></li>
-<li><a href="#org4fdedc9">Configuration</a></li>
-<li><a href="#org93bf8d4">Packages installed</a></li>
-<li><a href="#orgfcfac35">Keybindings</a></li>
+<li><a href="#orgc6932a9">Motivation</a></li>
+<li><a href="#orgeba6936">Installation</a></li>
+<li><a href="#orgc677a34">Configuration</a></li>
+<li><a href="#orge7e5ce5">Packages installed</a></li>
+<li><a href="#org76adf3f">Keybindings</a></li>
 </ul>
 </li>
-<li><a href="#orga623993">Get involved</a>
+<li><a href="#org615cb16">Get involved</a>
 <ul>
-<li><a href="#orge2565cc">Contribution</a></li>
-<li><a href="#org9a1ca7c">References</a></li>
-<li><a href="#orgc61a1e0">License</a></li>
+<li><a href="#orgaed2804">Contribution</a></li>
+<li><a href="#org0a62aef">References</a></li>
+<li><a href="#orgb0f3891">License</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge9b1e27" class="outline-2">
-<h2 id="orge9b1e27">Intro</h2>
-<div class="outline-text-2" id="text-orge9b1e27">
+<div id="outline-container-orgf95b983" class="outline-2">
+<h2 id="orgf95b983">Intro</h2>
+<div class="outline-text-2" id="text-orgf95b983">
 <p>
 (λmacs) is Emacs for Clojure development on macOS X.
 </p>
 
 
-<div id="orga59c7be" class="figure">
+<div id="orgea721f2" class="figure">
 <p><img src="./assets/lambdamacs_600.png" alt="lambdamacs_600.png" />
 </p>
 </div>
 
+<ul class="org-ul">
+<li>Check <a href="https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html">documentation online</a>.</li>
+<li>Check the code on <a href="https://github.com/BrunoBonacci/lambdamacs">Github</a>.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc6932a9" class="outline-3">
+<h3 id="orgc6932a9">Motivation</h3>
+<div class="outline-text-3" id="text-orgc6932a9">
 <p>
-Check <a href="https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html">documentation online</a>.
+For a number of years I've been using Emacs as my primary/only IDE.  I
+used a number of "<i>distributions</i>" readily available on internet such
+as <a href="https://github.com/overtone/emacs-live">emacs-live</a> and <a href="https://github.com/bbatsov/prelude">Prelude</a> of which I made my own extension <a href="https://github.com/BrunoBonacci/preludex">Preludex</a>,
+and I watched the birth of <a href="https://www.spacemacs.org/">Spacemacs</a> and the new challenger
+<a href="https://github.com/hlissner/doom-emacs">doom-emacs</a>.
+</p>
+
+<p>
+Over time each of these distributions grew larger and larger
+and it became hard to keep the configuration up-to-date
+but still minimal (just what you need).
+</p>
+
+<p>
+So I decided to build my own out of the best pieces of all of them.
+</p>
+
+<p>
+If you are new to Emacs, it is probably best if you start with one of
+the more popular distributions so that you get enough community
+support. If only you need is to develop Clojure, and have enough
+tooling support feel free to use my configuration.
 </p>
 </div>
-
-<div id="outline-container-org46c19dc" class="outline-3">
-<h3 id="org46c19dc">Motivation</h3>
-</div>
-<div id="outline-container-orgebf409a" class="outline-3">
-<h3 id="orgebf409a">Installation</h3>
 </div>
 
-<div id="outline-container-org4fdedc9" class="outline-3">
-<h3 id="org4fdedc9">Configuration</h3>
+<div id="outline-container-orgeba6936" class="outline-3">
+<h3 id="orgeba6936">Installation</h3>
+<div class="outline-text-3" id="text-orgeba6936">
+<ul class="org-ul">
+<li>Download and install <a href="https://emacsformacosx.com/">Emacs For Mac OS X</a> if you don't have it yet!</li>
+
+<li>Backup your previous installation:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">mv ~/.emacs.d ~/.emacs.d-backup
+</pre>
 </div>
 
-<div id="outline-container-org93bf8d4" class="outline-3">
-<h3 id="org93bf8d4">Packages installed</h3>
-<div class="outline-text-3" id="text-org93bf8d4">
+<ul class="org-ul">
+<li>Clone <code>(λmacs)</code></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">git clone https://github.com/BrunoBonacci/lambdamacs.git ~/.emacs.d
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Install platform tools</li>
+</ul>
+<p>
+Some platform tools are used to enhance the user experience and to
+support some features.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">brew install the_silver_searcher aspell
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>That's all, start hacking!</li>
+</ul>
+
+<p>
+If you want you can customize your configuration (see next section).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc677a34" class="outline-3">
+<h3 id="orgc677a34">Configuration</h3>
+<div class="outline-text-3" id="text-orgc677a34">
+<p>
+There are a number of configurable options to setup <code>(λmacs)</code> just
+right for your environment.
+</p>
+
+<ul class="org-ul">
+<li>First configure your name and email:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; add your name and email address
+(setq user-full-name    "Firstname Lastname"
+      user-mail-address "your-email@email.org")
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Install a nice looking font and pick a size:</li>
+</ul>
+<p>
+Here some suggestions:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/powerline/fonts/tree/master/RobotoMono">Roboto Mono</a></li>
+<li><a href="https://github.com/tonsky/FiraCode">Fira Code</a></li>
+<li><a href="https://rubjo.github.io/victor-mono/">Victor Mono</a></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
+(setq lambdamacs/default-font-size 150)
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Select your favorite theme</li>
+</ul>
+<p>
+There are a number a themes already installed see <a href="https://github.com/hlissner/emacs-doom-themes">the full list</a> and
+see <a href="https://github.com/hlissner/emacs-doom-themes/tree/screenshots">theme screenshots</a>.  I'd recommend to pick your favorite as default
+and use a light theme as alternative. It can be useful sometimes to
+switch to the alternative for example if you make a
+presentation. Light themes work better with projectors.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(setq lambdamacs/default-theme 'doom-moonlight)
+(setq lambdamacs/alternative-theme 'doom-one-light)
+</pre>
+</div>
+
+<p>
+You can switch between themes by typing <code>M-x switch-theme-to-alternative</code>
+and switch back to the default theme with <code>M-x switch-theme-to-default</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge7e5ce5" class="outline-3">
+<h3 id="orge7e5ce5">Packages installed</h3>
+<div class="outline-text-3" id="text-orge7e5ce5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -99,7 +224,7 @@ Check <a href="https://htmlpreview.github.io/?https://github.com/BrunoBonacci/la
 
 <tr>
 <td class="org-left"><code>TODO: restclient</code></td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Turn simple text buffer into HTTP REST calls</td>
 </tr>
 
 <tr>
@@ -135,6 +260,11 @@ Check <a href="https://htmlpreview.github.io/?https://github.com/BrunoBonacci/la
 <tr>
 <td class="org-left"><code>magit</code></td>
 <td class="org-left">Git controls</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>markdown</code></td>
+<td class="org-left">Markdown mode support with TOC and Live preview (via <code>flymd</code>)</td>
 </tr>
 
 <tr>
@@ -178,6 +308,11 @@ Check <a href="https://htmlpreview.github.io/?https://github.com/BrunoBonacci/la
 </tr>
 
 <tr>
+<td class="org-left"><code>undo-tree</code></td>
+<td class="org-left">Powerful multi-state undo</td>
+</tr>
+
+<tr>
 <td class="org-left"><code>wgrep</code></td>
 <td class="org-left">Editable search buffers</td>
 </tr>
@@ -185,16 +320,6 @@ Check <a href="https://htmlpreview.github.io/?https://github.com/BrunoBonacci/la
 <tr>
 <td class="org-left"><code>witespace</code></td>
 <td class="org-left">To clean trailing whitespaces in the code</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>markdown</code></td>
-<td class="org-left">Markdown mode support with TOC and Live preview (via <code>flymd</code>)</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>undo-tree</code></td>
-<td class="org-left">Powerful multi-state undo</td>
 </tr>
 </tbody>
 </table>
@@ -216,21 +341,29 @@ Check <a href="https://htmlpreview.github.io/?https://github.com/BrunoBonacci/la
 </div>
 
 
-<div id="outline-container-orgfcfac35" class="outline-3">
-<h3 id="orgfcfac35">Keybindings</h3>
+<div id="outline-container-org76adf3f" class="outline-3">
+<h3 id="org76adf3f">Keybindings</h3>
 </div>
 </div>
 
-<div id="outline-container-orga623993" class="outline-2">
-<h2 id="orga623993">Get involved</h2>
-<div class="outline-text-2" id="text-orga623993">
+<div id="outline-container-org615cb16" class="outline-2">
+<h2 id="org615cb16">Get involved</h2>
+<div class="outline-text-2" id="text-org615cb16">
 </div>
-<div id="outline-container-orge2565cc" class="outline-3">
-<h3 id="orge2565cc">Contribution</h3>
+<div id="outline-container-orgaed2804" class="outline-3">
+<h3 id="orgaed2804">Contribution</h3>
+<div class="outline-text-3" id="text-orgaed2804">
+<p>
+This is my personal setup, I don't mind you using it and I'd
+appreciate feedbacks and suggestions on how to improve it!
+Issue a PR, and if it works for me, I'll merge it!
+</p>
 </div>
-<div id="outline-container-org9a1ca7c" class="outline-3">
-<h3 id="org9a1ca7c">References</h3>
-<div class="outline-text-3" id="text-org9a1ca7c">
+</div>
+
+<div id="outline-container-org0a62aef" class="outline-3">
+<h3 id="org0a62aef">References</h3>
+<div class="outline-text-3" id="text-org0a62aef">
 <p>
 The code in this repo has is the sum of my personal experience and
 the following references:
@@ -249,12 +382,12 @@ the following references:
 </div>
 </div>
 
-<div id="outline-container-orgc61a1e0" class="outline-3">
-<h3 id="orgc61a1e0">License</h3>
-<div class="outline-text-3" id="text-orgc61a1e0">
+<div id="outline-container-orgb0f3891" class="outline-3">
+<h3 id="orgb0f3891">License</h3>
+<div class="outline-text-3" id="text-orgb0f3891">
 <p>
-Copyright © 2020 Bruno Bonacci
-Distributed under the GNU General Public License, version 3
+Copyright © 2020 Bruno Bonacci and contributors.
+Distributed under the GNU General Public License, version 3.
 </p>
 </div>
 </div>

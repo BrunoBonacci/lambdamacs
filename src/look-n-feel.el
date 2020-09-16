@@ -103,3 +103,16 @@
 (use-package hl-todo
   :init
   (global-hl-todo-mode 1))
+
+
+;;
+;; Function to switch between themes
+;;
+(defun switch-theme-to-default ()
+  (interactive)
+  (load-theme lambdamacs/default-theme t))
+
+
+(defun switch-theme-to-alternative ()
+  (interactive)
+  (load-theme lambdamacs/alternative-theme t))

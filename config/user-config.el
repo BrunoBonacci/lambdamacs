@@ -12,16 +12,18 @@
 
 ;; themes to use
 ;; suggestion: choose a dark and a light one, you will be switch between them
-;; using TODO:
+;; using `M-x switch-theme-to-default'
+;; and `~M-x switch-theme-to-alternative'
 (setq lambdamacs/default-theme 'doom-moonlight)
-(setq lambdamacs/alternative-theme 'doom-nord-light)
+(setq lambdamacs/alternative-theme 'doom-one-light)
 
 ;; directory where to save temp stuff
 (setq lambdamacs/save-place ".save")
 
-
-;; disable clojure ligatures
+;; Clojure ligatures are enabled by default,
+;; if you find them distracting you can disable them here.
 ;;(setq lambdamacs/clojure-disable-font-locking t)
 
 ;; base directory where all the JDK versions are installed
+;; use `M-x switch-java' to select the JVM to use
 (setq JAVA_BASE "/Library/Java/JavaVirtualMachines")
