@@ -71,7 +71,7 @@
   (set-face-background 'show-paren-match nil)
   (set-face-foreground 'show-paren-match "firebrick1")
   (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-  (add-hook 'clojure-mode-hook #'sshow-paren-mode)
+  (add-hook 'clojure-mode-hook #'show-paren-mode)
   (add-hook 'emacs-lisp-mode-hook #'show-paren-mode))
 
 

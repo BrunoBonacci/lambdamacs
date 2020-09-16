@@ -23,7 +23,6 @@
          ("\\.edn\\'" . clojure-mode))
   :init
   (add-hook 'clojure-mode-hook #'yas-minor-mode)
-  (add-hook 'clojure-mode-hook #'linum-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'smartparens-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
@@ -69,6 +68,10 @@
     (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
     (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
     (add-hook 'clojure-mode-hook          #'enable-paredit-mode)))
+
+
+;;  highlights all occurences in the buffer of the word under the point.
+(load "idle-highlight-mode.el")
 
 
 
@@ -249,7 +252,7 @@
 ;; ------------------------------------------------------------
 ;; Cider send expression to REPL buffer
 ;; ------------------------------------------------------------
-
+(require 'cider)
 ;;
 ;; This sends a sexp to the REPL buffer
 ;; credits: http://timothypratley.blogspot.co.uk/2015/07/seven-specialty-emacs-settings-with-big.html
