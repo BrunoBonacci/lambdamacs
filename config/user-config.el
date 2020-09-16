@@ -3,7 +3,7 @@
 ;;
 
 
-(setq user-full-name "Firstname Lastname"
+(setq user-full-name    "Firstname Lastname"
       user-mail-address "your-email@email.org")
 
 
