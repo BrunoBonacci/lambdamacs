@@ -140,8 +140,41 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 - [ ] winmode?? save windows / toggle-zoom
 - [ ] code rtf pygments
 
-
 ** Keybindings
+Here is the list of keybindings which are added by this configuration.
+/All standard keybindings are valid, plus the default keybindings of the pacakge installed/.
+
+Here is how to read the keybindings:
+- ~C-x~ - /means/ ~Ctrl~ + ~x~
+- ~C-x 1~ - /means/ ~Ctrl~ + ~x~ followed by ~1~
+- ~M-x~ - /means/ ~Meta~ + ~x~ or ~Alt~ + ~x~ or ~Option~ + ~x~
+- ~s-x~ - /means/ ~Super~ + ~x~ or ~Command ⌘~ + ~x~
+- ~SPC~ - is *space bar*
+- ~RET~ - is *reutrn key*
+
+Here the keybindings added/defined by ~(λmacs)~:
+
+| Mode           | Key         | Action                                                | Module             |
+|----------------+-------------+-------------------------------------------------------+--------------------|
+| *              | ~⌘-c~       | Copy selected region (more natural)                   | ~cua-mode~         |
+| *              | ~⌘-v~       | Paste selected region (more natural)                  | ~cua-mode~         |
+| *              | ~M-y~       | Browse the content of the ~kill-ring~                 | ~browse-kill-ring~ |
+| *              | ~C-=~       | Expands the selection to the larger surrounding form. | ~expand-region~    |
+| *              | ~C-x 9~     | Locks the window in place so that it can't be closed. | ~sticky-windows~   |
+| *              | ~C-u C-x 0~ | Closes a locked window (via ~C-x 9~)                  | ~sticky-windows~   |
+| *              | ~C-x p~     | Open *Prodigy*'s status buffer (start/stop processes) | ~prodigy~          |
+| *              | ~C-x t t~   | Open *Treemacs* project tree.                         | ~treemacs~         |
+| *              | ~C-x C-/~   | Open *dired* explorer for the current file.           | ~(λmacs)~          |
+| *              | ~C-x g~     | Open *Magit* status                                   | ~magit~            |
+| *              | ~C-x M-g~   | Minibuffer popup with *Magit* dispatch functions      | ~magit~            |
+| *              | ~C-c p~     | *Projectile*'s prefix                                 | ~projectile~       |
+| *              | ~s-p~       | *Projectile*'s alternative prefix                     | ~projectile~       |
+| ~clojure-mode~ | ~C-M-SPC~   | Removes all the blanks between two forms except one   | ~(λmacs)~          |
+| ~clojure-mode~ | ~C-c C-r~   | Prefix for Clojure refactoring functions              | ~clj-refactor~     |
+| *              | ~C-RET~     | Toggle rectangular selection                          | ~cua-mode~         |
+| *              |             |                                                       |                    |
+
+
 
 * Get involved
 

@@ -108,6 +108,12 @@
 (setq cua-enable-cua-keys nil)
 
 
+;;
+;; browse the content of the kill-ring
+;;
+(use-package browse-kill-ring
+  :init
+  (browse-kill-ring-default-keybindings))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

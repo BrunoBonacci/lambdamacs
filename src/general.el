@@ -11,6 +11,9 @@
 ;; warn when opening files bigger than 50MB
 (setq large-file-warning-threshold 50000000)
 
+;; replace buffer-menu with ibuffer
+(global-set-key (kbd "C-x C-b") #'ibuffer)
+
 ;;
 ;; gpg password in minibuffer
 ;;
@@ -267,7 +270,7 @@
 ;; until you explicitly ask for it.
 ;;
 ;; Bindings
-;; C-c 9 - Mark as sticky
-;; C-u C-c 0 - cloase sticky window
+;; C-x 9 - Mark as sticky
+;; C-u C-x 0 - close sticky window
 ;;
 (load "sticky-windows.el")
