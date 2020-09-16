@@ -1,0 +1,28 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                  ----==| P R O D U C T I V I T Y |==----                   ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;
+;; .TODO.org
+;;
+;; automatically open .TODO.org scripts at startup
+(setq default-message
+      "
+* org-mode is a great tool, use it for your own notes (press TAB on this line)
+** org-mode key-bindings http://orgmode.org/orgcard.txt
+** Documentation: http://orgmode.org/
+** Good cheatsheet: http://orgmode.org/orgcard.pdf
+** Video tutorials:
+  - https://vimeo.com/15269391
+  - https://www.youtube.com/watch?v=6W82EdwQhxU
+  - https://www.youtube.com/watch?v=fgizHHd7nOo
+  - https://www.youtube.com/watch?v=bzZ09dAbLEE
+")
+
+;; if not exists create one
+(if (not (file-exists-p "~/.TODO.org"))
+    (append-to-file default-message nil "~/.TODO.org"))
+;; open all existing ones
+(mapcar 'find-file  (directory-files "~/" t "^.TODO.*.org"))

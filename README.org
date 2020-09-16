@@ -1,0 +1,74 @@
+# ------------------------------------------------------------------------------
+#+TITLE:     (λmacs)
+#+SUBTITLE:  (λmacs) is Emacs for Clojure development on Mac OSx.
+#+AUTHOR:    Bruno Bonacci
+#+EMAIL:     bruno.bonacci@gmail.com
+#+LANGUAGE:  en
+#+STARTUP:   content showstars indent inlineimages hideblocks
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./assets/GTD.css" />
+#+OPTIONS:   toc:2 html-scripts:nil num:nil html-postamble:nil html-style:nil ^:nil
+# ------------------------------------------------------------------------------
+* Intro
+
+(λmacs) is Emacs for Clojure development on Mac OSx.
+
+#+NAME:   fig:logo
+#+ATTR_ORG: :width 600
+#+ATTR_HTML: :width 600
+[[./assets/lambdamacs.png]]
+
+
+** Installation
+
+** Configuration
+
+** Packages installed
+
+ | Package                | Purpose                                                       |
+ |------------------------+---------------------------------------------------------------|
+ | ~TODO: WSD~            | WebSequenceDiagrams                                           |
+ | ~TODO: bookmarks~      | Code bookmarks                                                |
+ | ~TODO: restclient~     |                                                               |
+ | ~TODO: yas-snippet~    | Code snippets                                                 |
+ | ~cider~                | CIDER the best IDE for Clojude development                    |
+ | ~clj-refactor~         | Cider companion for refactoring                               |
+ | ~doom-modeline~        | cool minimalistic modeline                                    |
+ | ~doom-theme~           | a collection of well curated themes                           |
+ | ~forge~                | Magit extension for Pull Requests and Issues                  |
+ | ~magit~                | Git controls                                                  |
+ | ~multiple-cursors~     | Multple cursors for editing                                   |
+ | ~outline-presentation~ | Use org-mode to make a presentation                           |
+ | ~paredit~              | Can't develop Clojure without structural editing              |
+ | ~prodigy~              | Local process management                                      |
+ | ~projectile~           | Useful functions for working with projecs                     |
+ | ~sticky-windows~       | Stick windows in place (no auto close)                        |
+ | ~switch-java~          | Enables to select the JVM version while inside emacs          |
+ | ~treemacs~             | Project tree navigation                                       |
+ | ~wgrep~                | Editable search buffers                                       |
+ | ~witespace~            | To clean trailing whitespaces in the code                     |
+ | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~) |
+ | ~undo-tree~            | Powerful multi-state undo                                     |
+
+- TODO:
+- [ ] bookmarks
+- [ ] restclient
+- [ ] yas-snippet
+- [ ] flycheck
+- [ ] flyspell
+- [ ] eldoc?
+- [ ] paradox
+- [ ] command-log
+- [ ] winmode?? save windows / toggle-zoom
+- [ ] code rtf pygments
+
+
+** Keybindings
+
+* Get involved
+
+** Contribution
+** References
+
+** License
+Copyright © 2020 Bruno Bonacci
+Distributed under the GNU General Public License, version 3
