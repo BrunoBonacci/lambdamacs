@@ -123,3 +123,28 @@
              "/usr/bin/open"
              (list "-a" "firefox" url))))
   (setq flymd-browser-open-function 'my-flymd-browser-function))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                     ----==| Y A S N I P P E T |==----                      ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package yasnippet                  ; Snippets
+  :config
+  (setq
+   yas-verbosity 1                      ; No need to be so verbose
+   yas-wrap-around-region t)
+
+  (add-to-list 'yas-snippet-dirs 'yasnippet-snippets-dir t)
+  (add-to-list 'yas-snippet-dirs (expand-file-name "yas" user-emacs-directory) t)
+
+  (yas-reload-all)
+  (yas-global-mode))
+
+;;
+;; Collection of snippets
+;;
+(use-package yasnippet-snippets)

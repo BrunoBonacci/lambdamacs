@@ -1,0 +1,7 @@
+#name: with-open
+# --
+(with-open [rdr  (io/reader ${1:file-in})
+            wrtr (io/writer ${2:file-out})]
+  (doseq [line (line-seq rdr)]
+    ${0:(println line)}
+    (.write wrtr (str line \newline))))

@@ -13,7 +13,9 @@
 
 (λmacs) is Emacs for Clojure development on macOS X.
 
-#+NAME:   fig:lambdamacs logo
+#+NAME: fig:lambdamacs logo
+#+ATTR_ORG:  :width 600
+#+ATTR_HTML: :width 600
 [[./assets/lambdamacs_600.png]]
 
 - Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html][documentation online]].
@@ -40,6 +42,13 @@ tooling support feel free to use my configuration.
 ** Installation
 
 - Download and install [[https://emacsformacosx.com/][Emacs For Mac OS X]] if you don't have it yet!
+Alternatively you can install it via:
+#+begin_src sh
+sudo mkdir /usr/local/Frameworks
+sudo chown $(whoami):admin /usr/local/Frameworks
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@27 --with-no-frame-refocus --with-modern-icon --with-xwidgets
+#+end_src
 
 - Backup your previous installation:
 #+begin_src sh
@@ -113,6 +122,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 ├── modules/   - packages which are not available in MELPA
 ├── src/       - package installation and configuration
 ├── assets/    - Assets for this project (images, css, etc)
+├── yas/       - Custom Yasnippets
 └── .save/     - Locally saved items (history, items etc.)
 #+end_example
 
@@ -148,14 +158,15 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 - TODO:
 - [ ] bookmarks
 - [ ] restclient
-- [ ] yas-snippet
 - [ ] wsd
 - [ ] flycheck
 - [ ] flyspell
 - [ ] eldoc?
-- [ ] winmode?? save windows / toggle-zoom
+- [ ] winner-mode?? workgroups / toggle-zoom
 - [ ] code rtf pygments
 - [ ] lsp-java??
+- [ ] daemon setup
+- [ ] company?
 
 ** Keybindings
 Here is the list of keybindings which are added by this configuration.
@@ -191,11 +202,12 @@ Here the keybindings added/defined by ~(λmacs)~:
 | ~clojure-mode~ | ~C-c C-r~   | Prefix for Clojure refactoring functions              | ~clj-refactor~     |
 | ~clojure-mode~ | ~s-b~       | Adds a nice comment box with current line.            |                    |
 
-** Features
+
+* Features
 
 Here some features implemented/available in ~(λmacs)~
 
-*** Switch Java version
+** Switch Java version
 
 ~(λmacs)~ focus is on Clojure development. Clojure is a JVM hosted
 language. JVM release process has been traditionally quite slow, but
@@ -243,6 +255,18 @@ Here other commands you can run:
 You can see a usage demo here:
 
 [[http://blog.brunobonacci.com/images/switch-java.gif]]
+
+** Custom yasnippets
+~yasnippets~ is a templating minor-mode with allows to define code
+templates and complete them with a few keystrokes. Think about the
+repetitve structures in your code. Check out [[https://www.youtube.com/watch?v=ZCGmZK4V7Sg][this demo on Youtube]]. It
+works across languages and there are plenty of predefine templates
+[[http://andreacrotti.github.io/yasnippet-snippets/snippets.html][Here]] the is a list of all most of the boundled snippets.
+
+However if you want to define your own snippets you can drop them in
+=~/.emacs.d/yas= folder divided by major-mode. If you are unfamiliar
+with the templating language used by ~yasnippet~ you can check
+the [[http://joaotavora.github.io/yasnippet/snippet-development.html][official online documentation]].
 
 
 * Get involved

@@ -181,6 +181,19 @@
   (which-key-mode +1))
 
 
+;;
+;; Copy the full path of the current file into the clipboard
+;; credit: https://stackoverflow.com/questions/2416655/file-path-to-clipboard-in-emacs
+;;
+(defun copy-file-path-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file path '%s' to the clipboard." filename))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -287,3 +300,20 @@
 (use-package paradox
   :config
   (paradox-enable))
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ----==| W I N D O W   M G M T |==----                    ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;
+;; Allows to move the windows transposing them
+;;
+(use-package transpose-frame
+  :bind
+  ("C-c s" . flop-frame))
