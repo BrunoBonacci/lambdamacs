@@ -123,6 +123,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~bookmarks~            | Code bookmarks                                                      |
  | ~cider~                | CIDER the best IDE for Clojude development                          |
  | ~clj-refactor~         | Cider companion for refactoring                                     |
+ | ~command-log~          | Displays a buffer with the keys and commands you type               |
  | ~doom-modeline~        | cool minimalistic modeline                                          |
  | ~doom-theme~           | a collection of well curated themes                                 |
  | ~forge~                | Magit extension for Pull Requests and Issues                        |
@@ -130,6 +131,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~)       |
  | ~multiple-cursors~     | Multple cursors for editing                                         |
  | ~outline-presentation~ | Use org-mode to make a presentation                                 |
+ | ~paradox~              | A package manager which makes very easy to update your installation |
  | ~paredit~              | Can't develop Clojure without structural editing                    |
  | ~prodigy~              | Local process management                                            |
  | ~projectile~           | Useful functions for working with projecs                           |
@@ -142,8 +144,6 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~witespace~            | To clean trailing whitespaces in the code                           |
  | ~wsd~                  | WebSequenceDiagrams                                                 |
  | ~yas-snippet~          | Code snippets                                                       |
- | ~paradox~              | A package manager which makes very easy to update your installation |
- | ~command-log~          | Displays a buffer with the keys and commands you type               |
 
 - TODO:
 - [ ] bookmarks
