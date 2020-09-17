@@ -136,6 +136,15 @@
   (browse-kill-ring-default-keybindings))
 
 
+;;
+;; Smart move-beginning-of-line which stops at the first non blank
+;; character if you press C-a you go back to the actual beginning of
+;; the line.
+;;
+(use-package crux
+  :ensure t
+  :bind (([remap move-beginning-of-line] . crux-move-beginning-of-line)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                     ----==| U N D O - T R E E |==----                      ;;

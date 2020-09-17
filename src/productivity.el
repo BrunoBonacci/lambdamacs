@@ -40,3 +40,26 @@
         (message "Disabled org html export on save for current buffer..."))
     (add-hook 'after-save-hook 'org-html-export-to-html nil t)
     (message "Enabled org html export on save for current buffer...")))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ----==| S P E L L - C H E C K |==----                    ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package flyspell
+  :config
+  (setq ispell-program-name "aspell" ; use aspell instead of ispell
+        ispell-extra-args '("--sug-mode=ultra"))
+  (add-hook 'text-mode-hook #'flyspell-mode)
+  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+  (flyspell-mode +1))
+
+
+
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))

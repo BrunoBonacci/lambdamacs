@@ -320,9 +320,6 @@ This is used by pretty-printing commands."
 ;; ------------------------------------------------------------
 ;; Clojure formatting
 ;; ------------------------------------------------------------
-;;
-;; cljfmt on save
-;;
 
 ;;
 ;; Clean Clojure code
@@ -345,6 +342,9 @@ This is used by pretty-printing commands."
     (insert content)))
 
 
+;;
+;; cljfmt on save
+;;
 ;;
 ;; I don't like clojure-mode indentation idea.  to format corretly the
 ;; code it requires a running repl so that it can inspect the
