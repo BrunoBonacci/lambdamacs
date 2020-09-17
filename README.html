@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-17 Thu 22:04 -->
+<!-- 2020-09-17 Thu 22:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(λmacs)</title>
@@ -21,41 +21,42 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9f71874">Intro</a>
+<li><a href="#org4113fd5">Intro</a>
 <ul>
-<li><a href="#org2bd3416">Motivation</a></li>
-<li><a href="#orgc93259b">Installation</a></li>
-<li><a href="#org6ae2844">Configuration</a></li>
-<li><a href="#orgffcb021">Structure</a></li>
-<li><a href="#org9af10a1">Packages installed</a></li>
-<li><a href="#org8900b9d">Keybindings</a></li>
+<li><a href="#org2f98f13">Motivation</a></li>
+<li><a href="#org8f35a16">Installation</a></li>
+<li><a href="#orga138cb5">Configuration</a></li>
+<li><a href="#org44d2a28">Structure</a></li>
+<li><a href="#org0d59be0">Packages installed</a></li>
+<li><a href="#org08a9a9f">Keybindings</a></li>
 </ul>
 </li>
-<li><a href="#orgd7d32b0">Features</a>
+<li><a href="#orgbcb59f3">Features</a>
 <ul>
-<li><a href="#org0b70f67">Switch Java version</a></li>
-<li><a href="#orgdc595dd">Custom yasnippets</a></li>
+<li><a href="#org50d881e">Switch Java version</a></li>
+<li><a href="#orgb273957">Custom yasnippets</a></li>
+<li><a href="#org8111cdb">Restclient</a></li>
 </ul>
 </li>
-<li><a href="#org3c7f6a5">Get involved</a>
+<li><a href="#org55dbc01">Get involved</a>
 <ul>
-<li><a href="#org9089d7c">Contribution</a></li>
-<li><a href="#org755ae9a">References</a></li>
-<li><a href="#org8526d6b">License</a></li>
+<li><a href="#org4135d3b">Contribution</a></li>
+<li><a href="#orgc494079">References</a></li>
+<li><a href="#orgc17cd6f">License</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9f71874" class="outline-2">
-<h2 id="org9f71874">Intro</h2>
-<div class="outline-text-2" id="text-org9f71874">
+<div id="outline-container-org4113fd5" class="outline-2">
+<h2 id="org4113fd5">Intro</h2>
+<div class="outline-text-2" id="text-org4113fd5">
 <p>
 (λmacs) is Emacs for Clojure development on macOS X.
 </p>
 
 
-<div id="orgc17e203" class="figure">
+<div id="org9259324" class="figure">
 <p><img src="./assets/lambdamacs_600.png" alt="lambdamacs_600.png" width="600" />
 </p>
 </div>
@@ -66,9 +67,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org2bd3416" class="outline-3">
-<h3 id="org2bd3416">Motivation</h3>
-<div class="outline-text-3" id="text-org2bd3416">
+<div id="outline-container-org2f98f13" class="outline-3">
+<h3 id="org2f98f13">Motivation</h3>
+<div class="outline-text-3" id="text-org2f98f13">
 <p>
 For a number of years I've been using Emacs as my primary/only IDE.  I
 used a number of "<i>distributions</i>" readily available on internet such
@@ -96,9 +97,9 @@ tooling support feel free to use my configuration.
 </div>
 </div>
 
-<div id="outline-container-orgc93259b" class="outline-3">
-<h3 id="orgc93259b">Installation</h3>
-<div class="outline-text-3" id="text-orgc93259b">
+<div id="outline-container-org8f35a16" class="outline-3">
+<h3 id="org8f35a16">Installation</h3>
+<div class="outline-text-3" id="text-org8f35a16">
 <ul class="org-ul">
 <li>Download and install <a href="https://emacsformacosx.com/">Emacs For Mac OS X</a> if you don't have it yet!</li>
 </ul>
@@ -150,9 +151,9 @@ If you want you can customize your configuration (see next section).
 </p>
 </div>
 </div>
-<div id="outline-container-org6ae2844" class="outline-3">
-<h3 id="org6ae2844">Configuration</h3>
-<div class="outline-text-3" id="text-org6ae2844">
+<div id="outline-container-orga138cb5" class="outline-3">
+<h3 id="orga138cb5">Configuration</h3>
+<div class="outline-text-3" id="text-orga138cb5">
 <p>
 There are a number of configurable options to setup <code>(λmacs)</code> just
 right for your environment.
@@ -216,9 +217,9 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-orgffcb021" class="outline-3">
-<h3 id="orgffcb021">Structure</h3>
-<div class="outline-text-3" id="text-orgffcb021">
+<div id="outline-container-org44d2a28" class="outline-3">
+<h3 id="org44d2a28">Structure</h3>
+<div class="outline-text-3" id="text-org44d2a28">
 <p>
 <code>(λmacs)</code> has the following project structure:
 </p>
@@ -228,7 +229,7 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 ├── init.el    - main emacs init file
 ├── config/    - user configuration and other settings
 ├── modules/   - packages which are not available in MELPA
-├── src/       - package installation and configuration
+├── src/       - packages installation and configuration
 ├── assets/    - Assets for this project (images, css, etc)
 ├── yas/       - Custom Yasnippets
 └── .save/     - Locally saved items (history, items etc.)
@@ -236,9 +237,9 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org9af10a1" class="outline-3">
-<h3 id="org9af10a1">Packages installed</h3>
-<div class="outline-text-3" id="text-org9af10a1">
+<div id="outline-container-org0d59be0" class="outline-3">
+<h3 id="org0d59be0">Packages installed</h3>
+<div class="outline-text-3" id="text-org0d59be0">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -389,7 +390,6 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 <ul class="org-ul">
 <li>TODO:</li>
 <li class="off"><code>[&#xa0;]</code> bookmarks</li>
-<li class="off"><code>[&#xa0;]</code> restclient</li>
 <li class="off"><code>[&#xa0;]</code> wsd</li>
 <li class="off"><code>[&#xa0;]</code> eldoc?</li>
 <li class="off"><code>[&#xa0;]</code> winner-mode?? workgroups / toggle-zoom</li>
@@ -400,12 +400,13 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org8900b9d" class="outline-3">
-<h3 id="org8900b9d">Keybindings</h3>
-<div class="outline-text-3" id="text-org8900b9d">
+<div id="outline-container-org08a9a9f" class="outline-3">
+<h3 id="org08a9a9f">Keybindings</h3>
+<div class="outline-text-3" id="text-org08a9a9f">
 <p>
 Here is the list of keybindings which are added by this configuration.
-<i>All standard keybindings are valid, plus the default keybindings of the pacakge installed</i>.
+<i>All standard keybindings are valid, plus the default keybindings of
+the pacakge installed</i>.
 </p>
 
 <p>
@@ -571,17 +572,17 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 
 
 
-<div id="outline-container-orgd7d32b0" class="outline-2">
-<h2 id="orgd7d32b0">Features</h2>
-<div class="outline-text-2" id="text-orgd7d32b0">
+<div id="outline-container-orgbcb59f3" class="outline-2">
+<h2 id="orgbcb59f3">Features</h2>
+<div class="outline-text-2" id="text-orgbcb59f3">
 <p>
 Here some features implemented/available in <code>(λmacs)</code>
 </p>
 </div>
 
-<div id="outline-container-org0b70f67" class="outline-3">
-<h3 id="org0b70f67">Switch Java version</h3>
-<div class="outline-text-3" id="text-org0b70f67">
+<div id="outline-container-org50d881e" class="outline-3">
+<h3 id="org50d881e">Switch Java version</h3>
+<div class="outline-text-3" id="text-org50d881e">
 <p>
 <code>(λmacs)</code> focus is on Clojure development. Clojure is a JVM hosted
 language. JVM release process has been traditionally quite slow, but
@@ -656,9 +657,9 @@ You can see a usage demo here:
 </div>
 </div>
 
-<div id="outline-container-orgdc595dd" class="outline-3">
-<h3 id="orgdc595dd">Custom yasnippets</h3>
-<div class="outline-text-3" id="text-orgdc595dd">
+<div id="outline-container-orgb273957" class="outline-3">
+<h3 id="orgb273957">Custom yasnippets</h3>
+<div class="outline-text-3" id="text-orgb273957">
 <p>
 <code>yasnippets</code> is a templating minor-mode with allows to define code
 templates and complete them with a few keystrokes. Think about the
@@ -675,16 +676,83 @@ the <a href="http://joaotavora.github.io/yasnippet/snippet-development.html">off
 </p>
 </div>
 </div>
-</div>
+
+<div id="outline-container-org8111cdb" class="outline-3">
+<h3 id="org8111cdb">Restclient</h3>
+<div class="outline-text-3" id="text-org8111cdb">
+<p>
+If you do RESTful services development <code>restclient</code> is going to be
+your best companion.
+</p>
+
+<p>
+<code>restclient</code> turns normal text buffers into executable HTTP requests
+ideal to tests your webservices.
+</p>
+
+<p>
+For example, create an empty buffer, activate the move via <code>M-x
+restclient-mode</code> then write your HTTP requests like:
+</p>
+
+<pre class="example">
+#
+# retrieve your current IP address
+#
+GET http://ifconfig.co/ip
 
 
-<div id="outline-container-org3c7f6a5" class="outline-2">
-<h2 id="org3c7f6a5">Get involved</h2>
-<div class="outline-text-2" id="text-org3c7f6a5">
+#
+# retrieve the geolocation city info
+#
+GET http://ifconfig.co/city
+Accept: text/plain
+
+
+#
+# retrieve all as json
+#
+GET http://ifconfig.co/json
+Content-Type: application/json
+</pre>
+
+<p>
+After each request try to press <code>C-c C-v</code> to execute the request and
+see the response.
+</p>
+
+<p>
+All <code>*.rest</code> files are in <code>restclient-mode</code> by default.
+</p>
+
+<p>
+Here a list of all the keybindings for this mode:
+</p>
+<ul class="org-ul">
+<li><code>C-c C-c</code> : runs the query under the cursor, tries to pretty-print the response (if possible)</li>
+<li><code>C-c C-r</code> : same, but doesn't do anything with the response, just shows the buffer</li>
+<li><code>C-c C-v</code> : same as <code>C-c C-c</code>, but doesn't switch focus to other window</li>
+<li><code>C-c C-p</code> : jump to the previous query</li>
+<li><code>C-c C-n</code> : jump to the next query</li>
+<li><code>C-c C-.</code> : mark the query under the cursor</li>
+<li><code>C-c C-u</code> : copy query under the cursor as a curl command</li>
+<li><code>C-c C-g</code> : start a [helm](<a href="https://emacs-helm.github.io/helm/">https://emacs-helm.github.io/helm/</a>) session with sources for variables and requests (if helm is available, of course)</li>
+<li><code>C-c n n</code> : narrow to region of current request (including headers)</li>
+<li><code>TAB</code>     : hide/show current request body, only if</li>
+<li><code>C-c C-a</code> : show all collapsed regions</li>
+<li><code>C-c C-i</code> : show information on resclient variables at point</li>
+</ul>
 </div>
-<div id="outline-container-org9089d7c" class="outline-3">
-<h3 id="org9089d7c">Contribution</h3>
-<div class="outline-text-3" id="text-org9089d7c">
+</div>
+</div>
+
+<div id="outline-container-org55dbc01" class="outline-2">
+<h2 id="org55dbc01">Get involved</h2>
+<div class="outline-text-2" id="text-org55dbc01">
+</div>
+<div id="outline-container-org4135d3b" class="outline-3">
+<h3 id="org4135d3b">Contribution</h3>
+<div class="outline-text-3" id="text-org4135d3b">
 <p>
 This is my personal setup, I don't mind you using it and I'd
 appreciate feedbacks and suggestions on how to improve it!
@@ -693,9 +761,9 @@ Issue a PR, and if it works for me, I'll merge it!
 </div>
 </div>
 
-<div id="outline-container-org755ae9a" class="outline-3">
-<h3 id="org755ae9a">References</h3>
-<div class="outline-text-3" id="text-org755ae9a">
+<div id="outline-container-orgc494079" class="outline-3">
+<h3 id="orgc494079">References</h3>
+<div class="outline-text-3" id="text-orgc494079">
 <p>
 The code in this repo has is the sum of my personal experience and
 the following references:
@@ -715,9 +783,9 @@ the following references:
 </div>
 </div>
 
-<div id="outline-container-org8526d6b" class="outline-3">
-<h3 id="org8526d6b">License</h3>
-<div class="outline-text-3" id="text-org8526d6b">
+<div id="outline-container-orgc17cd6f" class="outline-3">
+<h3 id="orgc17cd6f">License</h3>
+<div class="outline-text-3" id="text-orgc17cd6f">
 <p>
 Copyright © 2020 Bruno Bonacci and contributors.
 Distributed under the GNU General Public License, version 3.

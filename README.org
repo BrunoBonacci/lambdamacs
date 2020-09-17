@@ -120,7 +120,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 ├── init.el    - main emacs init file
 ├── config/    - user configuration and other settings
 ├── modules/   - packages which are not available in MELPA
-├── src/       - package installation and configuration
+├── src/       - packages installation and configuration
 ├── assets/    - Assets for this project (images, css, etc)
 ├── yas/       - Custom Yasnippets
 └── .save/     - Locally saved items (history, items etc.)
@@ -159,7 +159,6 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 
 - TODO:
 - [ ] bookmarks
-- [ ] restclient
 - [ ] wsd
 - [ ] eldoc?
 - [ ] winner-mode?? workgroups / toggle-zoom
@@ -169,7 +168,8 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 
 ** Keybindings
 Here is the list of keybindings which are added by this configuration.
-/All standard keybindings are valid, plus the default keybindings of the pacakge installed/.
+/All standard keybindings are valid, plus the default keybindings of
+the pacakge installed/.
 
 Here is how to read the keybindings:
 - ~C-x~ - /means/ ~Ctrl~ + ~x~
@@ -268,6 +268,56 @@ However if you want to define your own snippets you can drop them in
 with the templating language used by ~yasnippet~ you can check
 the [[http://joaotavora.github.io/yasnippet/snippet-development.html][official online documentation]].
 
+** Restclient
+
+If you do RESTful services development ~restclient~ is going to be
+your best companion.
+
+~restclient~ turns normal text buffers into executable HTTP requests
+ideal to tests your webservices.
+
+For example, create an empty buffer, activate the move via ~M-x
+restclient-mode~ then write your HTTP requests like:
+
+#+begin_example
+#
+# retrieve your current IP address
+#
+GET http://ifconfig.co/ip
+
+
+#
+# retrieve the geolocation city info
+#
+GET http://ifconfig.co/city
+Accept: text/plain
+
+
+#
+# retrieve all as json
+#
+GET http://ifconfig.co/json
+Content-Type: application/json
+#+end_example
+
+After each request try to press ~C-c C-v~ to execute the request and
+see the response.
+
+All ~*.rest~ files are in ~restclient-mode~ by default.
+
+Here a list of all the keybindings for this mode:
+- ~C-c C-c~ : runs the query under the cursor, tries to pretty-print the response (if possible)
+- ~C-c C-r~ : same, but doesn't do anything with the response, just shows the buffer
+- ~C-c C-v~ : same as ~C-c C-c~, but doesn't switch focus to other window
+- ~C-c C-p~ : jump to the previous query
+- ~C-c C-n~ : jump to the next query
+- ~C-c C-.~ : mark the query under the cursor
+- ~C-c C-u~ : copy query under the cursor as a curl command
+- ~C-c C-g~ : start a [helm](https://emacs-helm.github.io/helm/) session with sources for variables and requests (if helm is available, of course)
+- ~C-c n n~ : narrow to region of current request (including headers)
+- ~TAB~     : hide/show current request body, only if
+- ~C-c C-a~ : show all collapsed regions
+- ~C-c C-i~ : show information on resclient variables at point
 
 * Get involved
 

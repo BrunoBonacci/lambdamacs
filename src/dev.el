@@ -148,3 +148,22 @@
 ;; Collection of snippets
 ;;
 (use-package yasnippet-snippets)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                    ----==| R E S T C L I E N T |==----                     ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package restclient)
+
+;;
+;; restclient company--auto-completion
+;;
+(use-package company-restclient
+  :config
+  (add-to-list 'company-backends 'company-restclient)
+  (setq auto-mode-alist
+      (append '(("\\.rest\\'" . restclient-mode)) auto-mode-alist)))
