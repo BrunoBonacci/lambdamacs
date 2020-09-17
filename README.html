@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-16 Wed 20:47 -->
+<!-- 2020-09-17 Thu 11:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(λmacs)</title>
@@ -15,40 +15,42 @@
 <div id="content">
 <h1 class="title">(λmacs)
 <br />
-<span class="subtitle">(λmacs) is Emacs for Clojure development on macOS X.</span>
+<span class="subtitle">Emacs for Clojure development on macOS X.</span>
 </h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd9a10ec">Intro</a>
+<li><a href="#orgfc1c94e">Intro</a>
 <ul>
-<li><a href="#org8c2efe1">Motivation</a></li>
-<li><a href="#orgd2dfe46">Installation</a></li>
-<li><a href="#org85a59ea">Configuration</a></li>
-<li><a href="#org3f5905b">Packages installed</a></li>
-<li><a href="#org07b58c8">Keybindings</a></li>
+<li><a href="#org1ae5d9c">Motivation</a></li>
+<li><a href="#org3ad1bfe">Installation</a></li>
+<li><a href="#org7c62c04">Configuration</a></li>
+<li><a href="#org5e81294">Structure</a></li>
+<li><a href="#org3134fc7">Packages installed</a></li>
+<li><a href="#org25d6de5">Keybindings</a></li>
+<li><a href="#org3e995b0">Features</a></li>
 </ul>
 </li>
-<li><a href="#org0995770">Get involved</a>
+<li><a href="#org4c2f2ff">Get involved</a>
 <ul>
-<li><a href="#orgc0f95a5">Contribution</a></li>
-<li><a href="#orgb9db7d7">References</a></li>
-<li><a href="#org2fead31">License</a></li>
+<li><a href="#orgbc6163b">Contribution</a></li>
+<li><a href="#orga66c73f">References</a></li>
+<li><a href="#org2f66bef">License</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd9a10ec" class="outline-2">
-<h2 id="orgd9a10ec">Intro</h2>
-<div class="outline-text-2" id="text-orgd9a10ec">
+<div id="outline-container-orgfc1c94e" class="outline-2">
+<h2 id="orgfc1c94e">Intro</h2>
+<div class="outline-text-2" id="text-orgfc1c94e">
 <p>
 (λmacs) is Emacs for Clojure development on macOS X.
 </p>
 
 
-<div id="org6686d88" class="figure">
+<div id="orgd0fe802" class="figure">
 <p><img src="./assets/lambdamacs_600.png" alt="lambdamacs_600.png" />
 </p>
 </div>
@@ -59,9 +61,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org8c2efe1" class="outline-3">
-<h3 id="org8c2efe1">Motivation</h3>
-<div class="outline-text-3" id="text-org8c2efe1">
+<div id="outline-container-org1ae5d9c" class="outline-3">
+<h3 id="org1ae5d9c">Motivation</h3>
+<div class="outline-text-3" id="text-org1ae5d9c">
 <p>
 For a number of years I've been using Emacs as my primary/only IDE.  I
 used a number of "<i>distributions</i>" readily available on internet such
@@ -89,9 +91,9 @@ tooling support feel free to use my configuration.
 </div>
 </div>
 
-<div id="outline-container-orgd2dfe46" class="outline-3">
-<h3 id="orgd2dfe46">Installation</h3>
-<div class="outline-text-3" id="text-orgd2dfe46">
+<div id="outline-container-org3ad1bfe" class="outline-3">
+<h3 id="org3ad1bfe">Installation</h3>
+<div class="outline-text-3" id="text-org3ad1bfe">
 <ul class="org-ul">
 <li>Download and install <a href="https://emacsformacosx.com/">Emacs For Mac OS X</a> if you don't have it yet!</li>
 
@@ -131,13 +133,16 @@ If you want you can customize your configuration (see next section).
 </p>
 </div>
 </div>
-
-<div id="outline-container-org85a59ea" class="outline-3">
-<h3 id="org85a59ea">Configuration</h3>
-<div class="outline-text-3" id="text-org85a59ea">
+<div id="outline-container-org7c62c04" class="outline-3">
+<h3 id="org7c62c04">Configuration</h3>
+<div class="outline-text-3" id="text-org7c62c04">
 <p>
 There are a number of configurable options to setup <code>(λmacs)</code> just
 right for your environment.
+</p>
+
+<p>
+To change the configuration file edit <code>config/user-config.el</code>.
 </p>
 
 <ul class="org-ul">
@@ -145,7 +150,7 @@ right for your environment.
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-elisp">;; add your name and email address
+<pre class="src src-emacs-lisp">;; add your name and email address
 (setq user-full-name    "Firstname Lastname"
       user-mail-address "your-email@email.org")
 </pre>
@@ -165,7 +170,7 @@ Here some suggestions:
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
+<pre class="src src-emacs-lisp">(setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
 (setq lambdamacs/default-font-size 150)
 </pre>
 </div>
@@ -182,7 +187,7 @@ presentation. Light themes work better with projectors.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(setq lambdamacs/default-theme 'doom-moonlight)
+<pre class="src src-emacs-lisp">(setq lambdamacs/default-theme 'doom-moonlight)
 (setq lambdamacs/alternative-theme 'doom-one-light)
 </pre>
 </div>
@@ -194,9 +199,28 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org3f5905b" class="outline-3">
-<h3 id="org3f5905b">Packages installed</h3>
-<div class="outline-text-3" id="text-org3f5905b">
+<div id="outline-container-org5e81294" class="outline-3">
+<h3 id="org5e81294">Structure</h3>
+<div class="outline-text-3" id="text-org5e81294">
+<p>
+<code>(λmacs)</code> has the following project structure:
+</p>
+
+<pre class="example">
+.emacs.d
+├── init.el    - main emacs init file
+├── config/    - user configuration and other settings
+├── modules/   - packages which are not available in MELPA
+├── src/       - package installation and configuration
+├── assets/    - Assets for this project (images, css, etc)
+└── .save/     - Locally saved items (history, items etc.)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3134fc7" class="outline-3">
+<h3 id="org3134fc7">Packages installed</h3>
+<div class="outline-text-3" id="text-org3134fc7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -213,23 +237,8 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><code>TODO: WSD</code></td>
-<td class="org-left">WebSequenceDiagrams</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>TODO: bookmarks</code></td>
+<td class="org-left"><code>bookmarks</code></td>
 <td class="org-left">Code bookmarks</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>TODO: restclient</code></td>
-<td class="org-left">Turn simple text buffer into HTTP REST calls</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>TODO: yas-snippet</code></td>
-<td class="org-left">Code snippets</td>
 </tr>
 
 <tr>
@@ -293,6 +302,11 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </tr>
 
 <tr>
+<td class="org-left"><code>restclient</code></td>
+<td class="org-left">Turn simple text buffer into HTTP REST calls</td>
+</tr>
+
+<tr>
 <td class="org-left"><code>sticky-windows</code></td>
 <td class="org-left">Stick windows in place (no auto close)</td>
 </tr>
@@ -321,6 +335,26 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 <td class="org-left"><code>witespace</code></td>
 <td class="org-left">To clean trailing whitespaces in the code</td>
 </tr>
+
+<tr>
+<td class="org-left"><code>wsd</code></td>
+<td class="org-left">WebSequenceDiagrams</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>yas-snippet</code></td>
+<td class="org-left">Code snippets</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>paradox</code></td>
+<td class="org-left">A package manager which makes very easy to update your installation</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>command-log</code></td>
+<td class="org-left">Displays a buffer with the keys and commands you type</td>
+</tr>
 </tbody>
 </table>
 
@@ -329,20 +363,20 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 <li class="off"><code>[&#xa0;]</code> bookmarks</li>
 <li class="off"><code>[&#xa0;]</code> restclient</li>
 <li class="off"><code>[&#xa0;]</code> yas-snippet</li>
+<li class="off"><code>[&#xa0;]</code> wsd</li>
 <li class="off"><code>[&#xa0;]</code> flycheck</li>
 <li class="off"><code>[&#xa0;]</code> flyspell</li>
 <li class="off"><code>[&#xa0;]</code> eldoc?</li>
-<li class="off"><code>[&#xa0;]</code> paradox</li>
-<li class="off"><code>[&#xa0;]</code> command-log</li>
 <li class="off"><code>[&#xa0;]</code> winmode?? save windows / toggle-zoom</li>
 <li class="off"><code>[&#xa0;]</code> code rtf pygments</li>
+<li class="off"><code>[&#xa0;]</code> lsp-java??</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org07b58c8" class="outline-3">
-<h3 id="org07b58c8">Keybindings</h3>
-<div class="outline-text-3" id="text-org07b58c8">
+<div id="outline-container-org25d6de5" class="outline-3">
+<h3 id="org25d6de5">Keybindings</h3>
+<div class="outline-text-3" id="text-org25d6de5">
 <p>
 Here is the list of keybindings which are added by this configuration.
 <i>All standard keybindings are valid, plus the default keybindings of the pacakge installed</i>.
@@ -388,14 +422,14 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 <tr>
 <td class="org-left">*</td>
 <td class="org-left"><code>⌘-c</code></td>
-<td class="org-left">Copy selected region (more natural)</td>
+<td class="org-left">Copy selected region (like macOS - more natural)</td>
 <td class="org-left"><code>cua-mode</code></td>
 </tr>
 
 <tr>
 <td class="org-left">*</td>
 <td class="org-left"><code>⌘-v</code></td>
-<td class="org-left">Paste selected region (more natural)</td>
+<td class="org-left">Paste selected region (like macOS - more natural)</td>
 <td class="org-left"><code>cua-mode</code></td>
 </tr>
 
@@ -411,6 +445,13 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 <td class="org-left"><code>C-=</code></td>
 <td class="org-left">Expands the selection to the larger surrounding form.</td>
 <td class="org-left"><code>expand-region</code></td>
+</tr>
+
+<tr>
+<td class="org-left">*</td>
+<td class="org-left"><code>C-RET</code></td>
+<td class="org-left">Toggle rectangular selection</td>
+<td class="org-left"><code>cua-mode</code></td>
 </tr>
 
 <tr>
@@ -478,7 +519,7 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 
 <tr>
 <td class="org-left"><code>clojure-mode</code></td>
-<td class="org-left"><code>C-M-SPC</code></td>
+<td class="org-left"><code>M-SPC</code></td>
 <td class="org-left">Removes all the blanks between two forms except one</td>
 <td class="org-left"><code>(λmacs)</code></td>
 </tr>
@@ -491,33 +532,111 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 </tr>
 
 <tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-RET</code></td>
-<td class="org-left">Toggle rectangular selection</td>
-<td class="org-left"><code>cua-mode</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>clojure-mode</code></td>
+<td class="org-left"><code>s-b</code></td>
+<td class="org-left">Adds a nice comment box with current line.</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+
+<div id="outline-container-org3e995b0" class="outline-3">
+<h3 id="org3e995b0">Features</h3>
+<div class="outline-text-3" id="text-org3e995b0">
+<p>
+Here some features implemented/available in <code>(λmacs)</code>
+</p>
+</div>
+
+<div id="outline-container-orga4a9b70" class="outline-4">
+<h4 id="orga4a9b70">Switch Java version</h4>
+<div class="outline-text-4" id="text-orga4a9b70">
+<p>
+<code>(λmacs)</code> focus is on Clojure development. Clojure is a JVM hosted
+language. JVM release process has been traditionally quite slow, but
+in the recent years Oracle and OpenJDK have speed up the release
+process to roughly every 6 months.
+</p>
+
+<p>
+For this reason it is common to having the need to use/try different
+version of the underlying JVM while working on a Clojure project.
+</p>
+
+<p>
+Emacs doesn't have a facility to do this and, to my knowledge, there
+is package that handles this. For this reason I wrote a module that
+offers this possibility and described the solution in this blog post:
+<a href="http://blog.brunobonacci.com/2020/07/02/switching-between-multiple-jdk-in-emacs/">Switching between multiple Java JDK versions in Emacs</a>.
+</p>
+
+<p>
+You can read more about the solution in the blog post but here I will
+only describe how it works.
+</p>
+
+<p>
+Firstly you need to tell <code>(λmacs)</code> where your JDKs are installed.
+Typically on a macOS the default location is:
+<code>/Library/Java/JavaVirtualMachines</code>.
+</p>
+
+<p>
+If this is the location where are your JDK versions are installed then
+you don't need to change the configuration, otherwise select the
+appropriate folder in the <code>config/user-config.el</code> file.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">;; base directory where all the JDK versions are installed
+;; use `M-x switch-java' to select the JVM to use
+(setq JAVA_BASE "/Library/Java/JavaVirtualMachines")
+</pre>
+</div>
+
+<p>
+Once you set the base directory where all your JDKs are installed and
+evaluated the form, to select a JVM to use you can just run: <code>M-x
+switch-java</code> which will show the list of available JVMs. Once you
+select one JDK, it will update the <code>$JVM_HOME</code> environment variable
+and use it whenever you start a new REPL or java application.
+</p>
+
+<p>
+Here other commands you can run:
+</p>
+
+<ul class="org-ul">
+<li><code>M-x switch-java</code> select a JDK from a list of available ones</li>
+<li><code>M-x switch-java-default</code> will select the system default JDK (the
+one in use prior any selection)</li>
+<li><code>M-x switch-java-which-version?</code> displays the JDK currently in use.</li>
+</ul>
+
+<p>
+You can see a usage demo here:
+</p>
+
+
+<div class="figure">
+<p><img src="http://blog.brunobonacci.com/images/switch-java.gif" alt="switch-java.gif" />
+</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
-
-<div id="outline-container-org0995770" class="outline-2">
-<h2 id="org0995770">Get involved</h2>
-<div class="outline-text-2" id="text-org0995770">
+<div id="outline-container-org4c2f2ff" class="outline-2">
+<h2 id="org4c2f2ff">Get involved</h2>
+<div class="outline-text-2" id="text-org4c2f2ff">
 </div>
-<div id="outline-container-orgc0f95a5" class="outline-3">
-<h3 id="orgc0f95a5">Contribution</h3>
-<div class="outline-text-3" id="text-orgc0f95a5">
+<div id="outline-container-orgbc6163b" class="outline-3">
+<h3 id="orgbc6163b">Contribution</h3>
+<div class="outline-text-3" id="text-orgbc6163b">
 <p>
 This is my personal setup, I don't mind you using it and I'd
 appreciate feedbacks and suggestions on how to improve it!
@@ -526,9 +645,9 @@ Issue a PR, and if it works for me, I'll merge it!
 </div>
 </div>
 
-<div id="outline-container-orgb9db7d7" class="outline-3">
-<h3 id="orgb9db7d7">References</h3>
-<div class="outline-text-3" id="text-orgb9db7d7">
+<div id="outline-container-orga66c73f" class="outline-3">
+<h3 id="orga66c73f">References</h3>
+<div class="outline-text-3" id="text-orga66c73f">
 <p>
 The code in this repo has is the sum of my personal experience and
 the following references:
@@ -538,7 +657,7 @@ the following references:
 <li><a href="https://github.com/bbatsov/prelude">Emacs Prelude</a> - A great Emacs distribution</li>
 <li><a href="https://github.com/bbatsov/emacs.d">@bbastov .emacs.d</a> - Bozhidar's Emacs config</li>
 <li><a href="https://github.com/overtone/emacs-live">emacs-live</a> - Another Emacs distribution</li>
-<li><a href="https://github.com/rougier/emacs-gtd">Get Things Done with Emacs</a> - From which I took the beautiful CSS (thanks) for org-mode</li>
+<li><a href="https://github.com/rougier/emacs-gtd">Get Things Done with Emacs</a> - From which I took the beautiful CSS for org-mode (thanks).</li>
 </ul>
 
 <p>
@@ -547,9 +666,9 @@ the following references:
 </div>
 </div>
 
-<div id="outline-container-org2fead31" class="outline-3">
-<h3 id="org2fead31">License</h3>
-<div class="outline-text-3" id="text-org2fead31">
+<div id="outline-container-org2f66bef" class="outline-3">
+<h3 id="org2f66bef">License</h3>
+<div class="outline-text-3" id="text-org2f66bef">
 <p>
 Copyright © 2020 Bruno Bonacci and contributors.
 Distributed under the GNU General Public License, version 3.

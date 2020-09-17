@@ -1,6 +1,7 @@
+# -*- after-save-hook: org-html-export-to-html; org-export-in-background: t; -*-
 # ------------------------------------------------------------------------------
 #+TITLE:     (λmacs)
-#+SUBTITLE:  (λmacs) is Emacs for Clojure development on macOS X.
+#+SUBTITLE:  Emacs for Clojure development on macOS X.
 #+AUTHOR:    Bruno Bonacci
 #+EMAIL:     bruno.bonacci@gmail.com
 #+LANGUAGE:  en
@@ -60,15 +61,16 @@ brew install the_silver_searcher aspell
 - That's all, start hacking!
 
 If you want you can customize your configuration (see next section).
-
 ** Configuration
 
 There are a number of configurable options to setup ~(λmacs)~ just
 right for your environment.
 
+To change the configuration file edit =config/user-config.el=.
+
 - First configure your name and email:
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 ;; add your name and email address
 (setq user-full-name    "Firstname Lastname"
       user-mail-address "your-email@email.org")
@@ -81,7 +83,7 @@ Here some suggestions:
   - [[https://github.com/tonsky/FiraCode][Fira Code]]
   - [[https://rubjo.github.io/victor-mono/][Victor Mono]]
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
 (setq lambdamacs/default-font-size 150)
 #+end_src
@@ -93,7 +95,7 @@ and use a light theme as alternative. It can be useful sometimes to
 switch to the alternative for example if you make a
 presentation. Light themes work better with projectors.
 
-#+begin_src elisp
+#+begin_src emacs-lisp
 (setq lambdamacs/default-theme 'doom-moonlight)
 (setq lambdamacs/alternative-theme 'doom-one-light)
 #+end_src
@@ -101,44 +103,59 @@ presentation. Light themes work better with projectors.
 You can switch between themes by typing ~M-x switch-theme-to-alternative~
 and switch back to the default theme with ~M-x switch-theme-to-default~
 
+** Structure
+~(λmacs)~ has the following project structure:
+
+#+begin_example
+.emacs.d
+├── init.el    - main emacs init file
+├── config/    - user configuration and other settings
+├── modules/   - packages which are not available in MELPA
+├── src/       - package installation and configuration
+├── assets/    - Assets for this project (images, css, etc)
+└── .save/     - Locally saved items (history, items etc.)
+#+end_example
+
 ** Packages installed
 
- | Package                | Purpose                                                       |
- |------------------------+---------------------------------------------------------------|
- | ~TODO: WSD~            | WebSequenceDiagrams                                           |
- | ~TODO: bookmarks~      | Code bookmarks                                                |
- | ~TODO: restclient~     | Turn simple text buffer into HTTP REST calls                  |
- | ~TODO: yas-snippet~    | Code snippets                                                 |
- | ~cider~                | CIDER the best IDE for Clojude development                    |
- | ~clj-refactor~         | Cider companion for refactoring                               |
- | ~doom-modeline~        | cool minimalistic modeline                                    |
- | ~doom-theme~           | a collection of well curated themes                           |
- | ~forge~                | Magit extension for Pull Requests and Issues                  |
- | ~magit~                | Git controls                                                  |
- | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~) |
- | ~multiple-cursors~     | Multple cursors for editing                                   |
- | ~outline-presentation~ | Use org-mode to make a presentation                           |
- | ~paredit~              | Can't develop Clojure without structural editing              |
- | ~prodigy~              | Local process management                                      |
- | ~projectile~           | Useful functions for working with projecs                     |
- | ~sticky-windows~       | Stick windows in place (no auto close)                        |
- | ~switch-java~          | Enables to select the JVM version while inside emacs          |
- | ~treemacs~             | Project tree navigation                                       |
- | ~undo-tree~            | Powerful multi-state undo                                     |
- | ~wgrep~                | Editable search buffers                                       |
- | ~witespace~            | To clean trailing whitespaces in the code                     |
+ | Package                | Purpose                                                             |
+ |------------------------+---------------------------------------------------------------------|
+ | ~bookmarks~            | Code bookmarks                                                      |
+ | ~cider~                | CIDER the best IDE for Clojude development                          |
+ | ~clj-refactor~         | Cider companion for refactoring                                     |
+ | ~doom-modeline~        | cool minimalistic modeline                                          |
+ | ~doom-theme~           | a collection of well curated themes                                 |
+ | ~forge~                | Magit extension for Pull Requests and Issues                        |
+ | ~magit~                | Git controls                                                        |
+ | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~)       |
+ | ~multiple-cursors~     | Multple cursors for editing                                         |
+ | ~outline-presentation~ | Use org-mode to make a presentation                                 |
+ | ~paredit~              | Can't develop Clojure without structural editing                    |
+ | ~prodigy~              | Local process management                                            |
+ | ~projectile~           | Useful functions for working with projecs                           |
+ | ~restclient~           | Turn simple text buffer into HTTP REST calls                        |
+ | ~sticky-windows~       | Stick windows in place (no auto close)                              |
+ | ~switch-java~          | Enables to select the JVM version while inside emacs                |
+ | ~treemacs~             | Project tree navigation                                             |
+ | ~undo-tree~            | Powerful multi-state undo                                           |
+ | ~wgrep~                | Editable search buffers                                             |
+ | ~witespace~            | To clean trailing whitespaces in the code                           |
+ | ~wsd~                  | WebSequenceDiagrams                                                 |
+ | ~yas-snippet~          | Code snippets                                                       |
+ | ~paradox~              | A package manager which makes very easy to update your installation |
+ | ~command-log~          | Displays a buffer with the keys and commands you type               |
 
 - TODO:
 - [ ] bookmarks
 - [ ] restclient
 - [ ] yas-snippet
+- [ ] wsd
 - [ ] flycheck
 - [ ] flyspell
 - [ ] eldoc?
-- [ ] paradox
-- [ ] command-log
 - [ ] winmode?? save windows / toggle-zoom
 - [ ] code rtf pygments
+- [ ] lsp-java??
 
 ** Keybindings
 Here is the list of keybindings which are added by this configuration.
@@ -156,10 +173,11 @@ Here the keybindings added/defined by ~(λmacs)~:
 
 | Mode           | Key         | Action                                                | Module             |
 |----------------+-------------+-------------------------------------------------------+--------------------|
-| *              | ~⌘-c~       | Copy selected region (more natural)                   | ~cua-mode~         |
-| *              | ~⌘-v~       | Paste selected region (more natural)                  | ~cua-mode~         |
+| *              | ~⌘-c~       | Copy selected region (like macOS - more natural)      | ~cua-mode~         |
+| *              | ~⌘-v~       | Paste selected region (like macOS - more natural)     | ~cua-mode~         |
 | *              | ~M-y~       | Browse the content of the ~kill-ring~                 | ~browse-kill-ring~ |
 | *              | ~C-=~       | Expands the selection to the larger surrounding form. | ~expand-region~    |
+| *              | ~C-RET~     | Toggle rectangular selection                          | ~cua-mode~         |
 | *              | ~C-x 9~     | Locks the window in place so that it can't be closed. | ~sticky-windows~   |
 | *              | ~C-u C-x 0~ | Closes a locked window (via ~C-x 9~)                  | ~sticky-windows~   |
 | *              | ~C-x p~     | Open *Prodigy*'s status buffer (start/stop processes) | ~prodigy~          |
@@ -169,11 +187,62 @@ Here the keybindings added/defined by ~(λmacs)~:
 | *              | ~C-x M-g~   | Minibuffer popup with *Magit* dispatch functions      | ~magit~            |
 | *              | ~C-c p~     | *Projectile*'s prefix                                 | ~projectile~       |
 | *              | ~s-p~       | *Projectile*'s alternative prefix                     | ~projectile~       |
-| ~clojure-mode~ | ~C-M-SPC~   | Removes all the blanks between two forms except one   | ~(λmacs)~          |
+| ~clojure-mode~ | ~M-SPC~     | Removes all the blanks between two forms except one   | ~(λmacs)~          |
 | ~clojure-mode~ | ~C-c C-r~   | Prefix for Clojure refactoring functions              | ~clj-refactor~     |
-| *              | ~C-RET~     | Toggle rectangular selection                          | ~cua-mode~         |
-| *              |             |                                                       |                    |
+| ~clojure-mode~ | ~s-b~       | Adds a nice comment box with current line.            |                    |
 
+** Features
+
+Here some features implemented/available in ~(λmacs)~
+
+*** Switch Java version
+
+~(λmacs)~ focus is on Clojure development. Clojure is a JVM hosted
+language. JVM release process has been traditionally quite slow, but
+in the recent years Oracle and OpenJDK have speed up the release
+process to roughly every 6 months.
+
+For this reason it is common to having the need to use/try different
+version of the underlying JVM while working on a Clojure project.
+
+Emacs doesn't have a facility to do this and, to my knowledge, there
+is package that handles this. For this reason I wrote a module that
+offers this possibility and described the solution in this blog post:
+[[http://blog.brunobonacci.com/2020/07/02/switching-between-multiple-jdk-in-emacs/][Switching between multiple Java JDK versions in Emacs]].
+
+You can read more about the solution in the blog post but here I will
+only describe how it works.
+
+Firstly you need to tell ~(λmacs)~ where your JDKs are installed.
+Typically on a macOS the default location is:
+=/Library/Java/JavaVirtualMachines=.
+
+If this is the location where are your JDK versions are installed then
+you don't need to change the configuration, otherwise select the
+appropriate folder in the =config/user-config.el= file.
+
+#+begin_src emacs-lisp
+;; base directory where all the JDK versions are installed
+;; use `M-x switch-java' to select the JVM to use
+(setq JAVA_BASE "/Library/Java/JavaVirtualMachines")
+#+end_src
+
+Once you set the base directory where all your JDKs are installed and
+evaluated the form, to select a JVM to use you can just run: ~M-x
+switch-java~ which will show the list of available JVMs. Once you
+select one JDK, it will update the =$JVM_HOME= environment variable
+and use it whenever you start a new REPL or java application.
+
+Here other commands you can run:
+
+- ~M-x switch-java~ select a JDK from a list of available ones
+- ~M-x switch-java-default~ will select the system default JDK (the
+  one in use prior any selection)
+- ~M-x switch-java-which-version?~ displays the JDK currently in use.
+
+You can see a usage demo here:
+
+[[http://blog.brunobonacci.com/images/switch-java.gif]]
 
 
 * Get involved
@@ -190,7 +259,7 @@ the following references:
 - [[https://github.com/bbatsov/prelude][Emacs Prelude]] - A great Emacs distribution
 - [[https://github.com/bbatsov/emacs.d][@bbastov .emacs.d]] - Bozhidar's Emacs config
 - [[https://github.com/overtone/emacs-live][emacs-live]] - Another Emacs distribution
-- [[https://github.com/rougier/emacs-gtd][Get Things Done with Emacs]] - From which I took the beautiful CSS (thanks) for org-mode
+- [[https://github.com/rougier/emacs-gtd][Get Things Done with Emacs]] - From which I took the beautiful CSS for org-mode (thanks).
 
 /Thank you to all of you!/
 

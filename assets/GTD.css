@@ -266,7 +266,11 @@ pre::before {
     content: "";
 }
 pre.src-lisp::before { content: "lisp"; }
+pre.src-elisp::before { content: "elisp"; }
+pre.src-emacs-lisp::before { content: "elisp"; }
 pre.src-org::before { content: "org"; }
+pre.src-sh::before { content: "sh"; }
+pre.src-bash::before { content: "bash"; }
 
 pre {
     color: #00008b;

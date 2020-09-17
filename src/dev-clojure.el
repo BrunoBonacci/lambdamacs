@@ -354,6 +354,7 @@ This is used by pretty-printing commands."
 ;; indented form is always 2 spaces over indipendently of the form
 ;; name.
 ;;
+;; TODO: add a configuration option
 (defun cljfmt ()
   (when (or (eq major-mode 'clojure-mode)
             (eq major-mode 'clojurescript-mode))

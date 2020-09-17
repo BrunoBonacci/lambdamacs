@@ -69,19 +69,4 @@
   (message (concat "Java HOME: " (getenv "JAVA_HOME"))))
 
 
-;;
-;; Version used in (my) perf measurement
-;;
-;; TODO: remove this
-(defun switch-java8-perf ()
-  (interactive)
-  ;; store original PATH and JAVA_HOME
-  (switch-java--save-env)
-
-  (setenv "JAVA_HOME" (concat JAVA_BASE "/graalvm-ce-java08-19.3.0.2/Contents/Home"))
-  (setenv "PATH" (concat (concat (getenv "JAVA_HOME") "/bin/java") ":" SW_JAVA_PATH))
-  ;; show version
-  (switch-java-which-version?))
-
-
 ;;; switch-java.el ends here
