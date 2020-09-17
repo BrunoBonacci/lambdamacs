@@ -46,6 +46,9 @@
   :bind ("C-=" . er/expand-region))
 
 
+;;
+;; Removes these idious trailing whitespaces in your code
+;;
 (use-package whitespace
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
@@ -56,6 +59,10 @@
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
 
+;;
+;; Creates multiple cursors in the buffer and allows to edit content
+;; in different places at the same time.
+;;
 (use-package multiple-cursors
   :bind
   (("C-M-s-. C-M-s-." . mc/edit-lines)
@@ -64,11 +71,24 @@
    ("C-c C-<" . mc/mark-all-like-this)))
 
 
-
+;;
+;; Allows to expand your marking selection by pressing the number of
+;; items/sexp to mark after the current
+;;
 (use-package easy-kill
   :init
   (global-set-key [remap kill-ring-save] 'easy-kill)
   (global-set-key [remap mark-sexp] 'easy-mark))
+
+;;
+;; When searching and replacing it shows the matches in the buffer
+;;
+(use-package anzu
+  :ensure t
+  :bind (("M-%" . anzu-query-replace)
+         ("C-M-%" . anzu-query-replace-regexp))
+  :config
+  (global-anzu-mode))
 
 
 ;; hippie expand / completion

@@ -1,8 +1,9 @@
 /packages/
-/save/
 /projectile-bookmarks.eld
 /transient/
 /forge-database.sqlite
-/.save/
+.save/
 /.mc-lists.el
 /runemacs.sh
+/config/custom-config.el
+/config/post-init.el

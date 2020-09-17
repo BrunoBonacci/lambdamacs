@@ -54,6 +54,10 @@
 (add-to-list 'load-path lambdamacs-conf-dir)
 (add-to-list 'load-path lambdamacs-modules-dir)
 
+(defun loadx (file)
+  "load a configuration file if it exists."
+  (if (file-exists-p (expand-file-name file lambdamacs-conf-dir))
+      (load-file (expand-file-name file lambdamacs-conf-dir))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -61,13 +65,15 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(load "user-config.el")    ;; Load user preferences
-(load "look-n-feel.el")    ;; visual aspects
-(load "editor.el")         ;; editor settings
-(load "general.el")        ;; general settings
-(load "dev.el")            ;; common dev tools
-(load "dev-clojure.el")    ;; clojure settings
-(load "productivity.el")   ;; org-mode and productivity tools
+(load  "user-config.el")    ;; Load user preferences
+(loadx "custom-config.el")  ;; load custom configuration if present
+(load  "look-n-feel.el")    ;; visual aspects
+(load  "editor.el")         ;; editor settings
+(load  "general.el")        ;; general settings
+(load  "dev.el")            ;; common dev tools
+(load  "dev-clojure.el")    ;; clojure settings
+(load  "productivity.el")   ;; org-mode and productivity tools
+(loadx "post-init.el")      ;; load custom post configuration if present
 
 
 ;;; init.el ends here
