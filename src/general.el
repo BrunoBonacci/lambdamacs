@@ -132,8 +132,7 @@
 (use-package saveplace
   :config
   (setq save-place-file
-        (expand-file-name "saveplace"
-                          (expand-file-name lambdamacs/save-place user-emacs-directory)))
+        (expand-file-name "saveplace" lambdamacs-save-dir))
   ;; activate it for all buffers
   (setq-default save-place t))
 
@@ -146,15 +145,13 @@
         savehist-autosave-interval 60
         ;; keep the home clean
         savehist-file
-        (expand-file-name "savehist"
-                          (expand-file-name lambdamacs/save-place user-emacs-directory)))
+        (expand-file-name "savehist" lambdamacs-save-dir))
   (savehist-mode +1))
 
 (use-package recentf
   :config
   (setq recentf-save-file
-        (expand-file-name "recentf"
-                          (expand-file-name lambdamacs/save-place user-emacs-directory))
+        (expand-file-name "recentf" lambdamacs-save-dir)
         recentf-max-saved-items 500
         recentf-max-menu-items 15
         ;; disable recentf-cleanup on Emacs start, because it can cause
@@ -338,3 +335,19 @@
   ;; is displayed on top (happens near the bottom of windows)
   (setq company-tooltip-flip-when-above t)
   (global-company-mode))
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                  ----==| S T A R T   D A E M O N |==----                   ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;
+;; start daemon server
+;;
+;; Start server and set directory
+(setq server-socket-dir (format "/tmp/emacs%d" (user-uid)))
+(server-start)

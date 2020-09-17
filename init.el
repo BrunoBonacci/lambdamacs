@@ -46,6 +46,7 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(setq lambdamacs-save-dir    (expand-file-name lambdamacs/save-place user-emacs-directory))
 
 (setq lambdamacs-dir         (expand-file-name "src" user-emacs-directory))
 (setq lambdamacs-conf-dir    (expand-file-name "config" user-emacs-directory))
@@ -72,6 +73,7 @@
 (load  "general.el")        ;; general settings
 (load  "dev.el")            ;; common dev tools
 (load  "dev-clojure.el")    ;; clojure settings
+(load  "dev-java.el")       ;; settings for java development
 (load  "productivity.el")   ;; org-mode and productivity tools
 (loadx "post-init.el")      ;; load custom post configuration if present
 
