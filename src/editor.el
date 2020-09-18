@@ -137,13 +137,16 @@
 
 
 ;;
-;; Smart move-beginning-of-line which stops at the first non blank
+;; - Smart move-beginning-of-line which stops at the first non blank
 ;; character if you press C-a you go back to the actual beginning of
 ;; the line.
-;;
+;; - Open a shell terminal
+;; - Open recent file
 (use-package crux
   :ensure t
-  :bind (([remap move-beginning-of-line] . crux-move-beginning-of-line)))
+  :bind (([remap move-beginning-of-line] . crux-move-beginning-of-line)
+         ("C-c t" . crux-visit-term-buffer)
+         ("s-r"   . crux-recentf-find-file)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;

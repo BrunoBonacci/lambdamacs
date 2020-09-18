@@ -1,4 +1,4 @@
-# -*- after-save-hook: org-html-export-to-html; org-export-in-background: t; -*-
+# -*- after-save-hook: org-html-export-to-html; -*-
 # ------------------------------------------------------------------------------
 #+TITLE:     (λmacs)
 #+SUBTITLE:  Emacs for Clojure development on macOS X.
@@ -14,8 +14,8 @@
 (λmacs) is Emacs for Clojure development on macOS X.
 
 #+NAME: fig:lambdamacs logo
-#+ATTR_ORG:  :width 600
-#+ATTR_HTML: :width 600
+#+ATTR_ORG:  :width 800
+#+ATTR_HTML: :width 800
 [[./assets/lambdamacs_600.png]]
 
 - Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html][documentation online]].
@@ -163,6 +163,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 - [ ] eldoc?
 - [ ] winner-mode?? workgroups / toggle-zoom
 - [ ] code rtf pygments
+- [ ] repl image hack
 
 ** Keybindings
 Here is the list of keybindings which are added by this configuration.
@@ -179,25 +180,33 @@ Here is how to read the keybindings:
 
 Here the keybindings added/defined by ~(λmacs)~:
 
-| Mode           | Key         | Action                                                | Module             |
-|----------------+-------------+-------------------------------------------------------+--------------------|
-| *              | ~⌘-c~       | Copy selected region (like macOS - more natural)      | ~cua-mode~         |
-| *              | ~⌘-v~       | Paste selected region (like macOS - more natural)     | ~cua-mode~         |
-| *              | ~M-y~       | Browse the content of the ~kill-ring~                 | ~browse-kill-ring~ |
-| *              | ~C-=~       | Expands the selection to the larger surrounding form. | ~expand-region~    |
-| *              | ~C-RET~     | Toggle rectangular selection                          | ~cua-mode~         |
-| *              | ~C-x 9~     | Locks the window in place so that it can't be closed. | ~sticky-windows~   |
-| *              | ~C-u C-x 0~ | Closes a locked window (via ~C-x 9~)                  | ~sticky-windows~   |
-| *              | ~C-x p~     | Open *Prodigy*'s status buffer (start/stop processes) | ~prodigy~          |
-| *              | ~C-x t t~   | Open *Treemacs* project tree.                         | ~treemacs~         |
-| *              | ~C-x C-/~   | Open *dired* explorer for the current file.           | ~(λmacs)~          |
-| *              | ~C-x g~     | Open *Magit* status                                   | ~magit~            |
-| *              | ~C-x M-g~   | Minibuffer popup with *Magit* dispatch functions      | ~magit~            |
-| *              | ~C-c p~     | *Projectile*'s prefix                                 | ~projectile~       |
-| *              | ~s-p~       | *Projectile*'s alternative prefix                     | ~projectile~       |
-| ~clojure-mode~ | ~M-SPC~     | Removes all the blanks between two forms except one   | ~(λmacs)~          |
-| ~clojure-mode~ | ~C-c C-r~   | Prefix for Clojure refactoring functions              | ~clj-refactor~     |
-| ~clojure-mode~ | ~s-b~       | Adds a nice comment box with current line.            | ~(λmacs)~          |
+| Mode or group  | Key                | Action                                                | Module             |
+|----------------+--------------------+-------------------------------------------------------+--------------------|
+| ~clojure-mode~ | ~M-SPC~            | Removes all the blanks between two forms except one   | ~(λmacs)~          |
+| ~clojure-mode~ | ~s-b~              | Adds a nice comment box with current line.            | ~(λmacs)~          |
+| ~clojure-mode~ | ~C-c C-r~          | Prefix for Clojure refactoring functions              | ~clj-refactor~     |
+| editor         | ~M-y~              | Browse the content of the ~kill-ring~                 | ~browse-kill-ring~ |
+| editor         | ~C-a~              | Smart beginning of the line (non blank)               | ~crux~             |
+| editor         | ~⌘-c~              | Copy selected region (like macOS - more natural)      | ~cua-mode~         |
+| editor         | ~⌘-v~              | Paste selected region (like macOS - more natural)     | ~cua-mode~         |
+| editor         | ~C-RET~            | Toggle rectangular selection                          | ~cua-mode~         |
+| editor         | ~C-=~              | Expands the selection to the larger surrounding form. | ~expand-region~    |
+| editor         | ~M-/~ or ~s-/~     | Hippie expansion (completion)                         | ~hippie~           |
+| editor         | ~C->~              | multi-cursor mark next like this                      | ~multiple-cursors~ |
+| editor         | ~C-<~              | multi-cursor mark previous like this                  | ~multiple-cursors~ |
+| editor         | ~C-c C-<~          | multi-cursor mark all like this                       | ~multiple-cursors~ |
+| editor         | ~C-M-s-. C-M-s-.~  | Adds a cursor on each line of a multi-line selection  | ~multiple-cursors~ |
+| files/buffers  | ~C-x C-/~          | Open *dired* explorer for the current file.           | ~(λmacs)~          |
+| files/buffers  | ~C-c t~            | Open a shell terminal                                 | ~crux~             |
+| files/buffers  | ~s-r~              | Open a recently opened file                           | ~crux~             |
+| files/buffers  | ~C-u C-x 0~        | Closes a locked window (via ~C-x 9~)                  | ~sticky-windows~   |
+| files/buffers  | ~C-x t t~          | Open *Treemacs* project tree.                         | ~treemacs~         |
+| files/buffers | ~M-s-~ + ~← → ↑ ↓~ | Move between windows (same keys as iTerm)             | ~(λmacs)~          |
+| processes      | ~C-x p~            | Open *Prodigy*'s status buffer (start/stop processes) | ~prodigy~          |
+| project        | ~C-x g~            | Open *Magit* status                                   | ~magit~            |
+| project        | ~C-x M-g~          | Minibuffer popup with *Magit* dispatch functions      | ~magit~            |
+| project        | ~C-c p~  or ~s-p~  | *Projectile*'s prefix                                 | ~projectile~       |
+| project        | ~C-x 9~            | Locks the window in place so that it can't be closed. | ~sticky-windows~   |
 
 
 
@@ -316,6 +325,7 @@ Here a list of all the keybindings for this mode:
 - ~TAB~     : hide/show current request body, only if
 - ~C-c C-a~ : show all collapsed regions
 - ~C-c C-i~ : show information on resclient variables at point
+
 
 * Get involved
 

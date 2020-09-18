@@ -12,6 +12,7 @@
 ;;
 ;;
 ;;
+;;; Code:
 
 ;; load logo.
 (find-file-read-only
@@ -46,7 +47,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(setq lambdamacs-save-dir    (expand-file-name lambdamacs/save-place user-emacs-directory))
 
 (setq lambdamacs-dir         (expand-file-name "src" user-emacs-directory))
 (setq lambdamacs-conf-dir    (expand-file-name "config" user-emacs-directory))
@@ -87,7 +87,20 @@
 ;;
 ;; recompile all if not compiled
 ;;
-(if (not (file-exists-p (concat buffer-file-name "c")))
-    (byte-compile-all-init-dir))
+;;(if (not (file-exists-p (concat buffer-file-name "c")))
+;;    (byte-compile-all-init-dir))
 
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(exec-path-from-shell yasnippet-snippets which-key use-package undo-tree treemacs-projectile treemacs-magit treemacs-icons-dired transpose-frame super-save smartparens rainbow-delimiters prodigy pinentry parinfer paradox markdown-toc lsp-ui lsp-java ivy-rich hl-todo helpful helm-ag git-timemachine forge flymd flycheck expand-region easy-kill doom-themes doom-modeline crux counsel company-restclient command-log-mode clj-refactor cider-eval-sexp-fu browse-kill-ring beacon anzu ag)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

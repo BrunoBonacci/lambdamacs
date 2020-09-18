@@ -4,6 +4,8 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(setq lambdamacs-save-dir    (expand-file-name lambdamacs/save-place user-emacs-directory))
+
 ;; reduce the frequency of garbage collection by making it happen on
 ;; each 20MB of allocated data (the default is on every 0.76MB)
 (setq gc-cons-threshold 20000000)
@@ -41,6 +43,14 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+
+;;
+;; Fixing PATH and env var issues
+;;
+(use-package exec-path-from-shell
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;

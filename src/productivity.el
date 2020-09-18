@@ -49,17 +49,19 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package flyspell
-  :config
-  (setq ispell-program-name "aspell" ; use aspell instead of ispell
-        ispell-extra-args '("--sug-mode=ultra"))
-  (add-hook 'text-mode-hook #'flyspell-mode)
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-  (flyspell-mode +1))
+;;
+;; Apparently this is part of Emacs default so no need to install it.
+;;
+(setq ispell-program-name "aspell" ; use aspell instead of ispell
+      ispell-extra-args '("--sug-mode=ultra"))
+(add-hook 'text-mode-hook #'flyspell-mode)
+(add-hook 'prog-mode-hook #'flyspell-prog-mode)
+(flyspell-mode +1)
 
 
 
 (use-package flycheck
-  :ensure t
+  :init
+  (setq flycheck-temp-prefix (expand-file-name "flycheck" temporary-file-directory))
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))

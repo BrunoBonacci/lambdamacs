@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-18 Fri 10:18 -->
+<!-- 2020-09-18 Fri 16:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(λmacs)</title>
@@ -21,43 +21,43 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9bff9f5">Intro</a>
+<li><a href="#orgac0f5cb">Intro</a>
 <ul>
-<li><a href="#org97ff334">Motivation</a></li>
-<li><a href="#orgaf1e5e0">Installation</a></li>
-<li><a href="#orgbbda802">Configuration</a></li>
-<li><a href="#org2fa4b44">Structure</a></li>
-<li><a href="#org9f8548f">Packages installed</a></li>
-<li><a href="#org1fb9dbc">Keybindings</a></li>
+<li><a href="#org6e4e821">Motivation</a></li>
+<li><a href="#org94e596e">Installation</a></li>
+<li><a href="#org9898831">Configuration</a></li>
+<li><a href="#orgb80af0a">Structure</a></li>
+<li><a href="#orgcfab0ea">Packages installed</a></li>
+<li><a href="#org5e440e5">Keybindings</a></li>
 </ul>
 </li>
-<li><a href="#org7b5727f">Features</a>
+<li><a href="#org95a64cc">Features</a>
 <ul>
-<li><a href="#orge5c2c9d">Switch Java version</a></li>
-<li><a href="#org2953520">Custom yasnippets</a></li>
-<li><a href="#org85d1b75">Restclient</a></li>
+<li><a href="#org739020d">Switch Java version</a></li>
+<li><a href="#org25e1a21">Custom yasnippets</a></li>
+<li><a href="#orgec21a66">Restclient</a></li>
 </ul>
 </li>
-<li><a href="#org0a92568">Get involved</a>
+<li><a href="#org30af607">Get involved</a>
 <ul>
-<li><a href="#orgce80601">Contribution</a></li>
-<li><a href="#org68596d7">References</a></li>
-<li><a href="#org60a1012">License</a></li>
+<li><a href="#org3e6a25f">Contribution</a></li>
+<li><a href="#org65d27eb">References</a></li>
+<li><a href="#org9b04da9">License</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9bff9f5" class="outline-2">
-<h2 id="org9bff9f5">Intro</h2>
-<div class="outline-text-2" id="text-org9bff9f5">
+<div id="outline-container-orgac0f5cb" class="outline-2">
+<h2 id="orgac0f5cb">Intro</h2>
+<div class="outline-text-2" id="text-orgac0f5cb">
 <p>
 (λmacs) is Emacs for Clojure development on macOS X.
 </p>
 
 
-<div id="orgbe8afbe" class="figure">
-<p><img src="./assets/lambdamacs_600.png" alt="lambdamacs_600.png" width="600" />
+<div id="org3aa4442" class="figure">
+<p><img src="./assets/lambdamacs_600.png" alt="lambdamacs_600.png" width="800" />
 </p>
 </div>
 
@@ -67,9 +67,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org97ff334" class="outline-3">
-<h3 id="org97ff334">Motivation</h3>
-<div class="outline-text-3" id="text-org97ff334">
+<div id="outline-container-org6e4e821" class="outline-3">
+<h3 id="org6e4e821">Motivation</h3>
+<div class="outline-text-3" id="text-org6e4e821">
 <p>
 For a number of years I've been using Emacs as my primary/only IDE.  I
 used a number of "<i>distributions</i>" readily available on internet such
@@ -97,9 +97,9 @@ tooling support feel free to use my configuration.
 </div>
 </div>
 
-<div id="outline-container-orgaf1e5e0" class="outline-3">
-<h3 id="orgaf1e5e0">Installation</h3>
-<div class="outline-text-3" id="text-orgaf1e5e0">
+<div id="outline-container-org94e596e" class="outline-3">
+<h3 id="org94e596e">Installation</h3>
+<div class="outline-text-3" id="text-org94e596e">
 <ul class="org-ul">
 <li>Download and install <a href="https://emacsformacosx.com/">Emacs For Mac OS X</a> if you don't have it yet!</li>
 </ul>
@@ -151,9 +151,9 @@ If you want you can customize your configuration (see next section).
 </p>
 </div>
 </div>
-<div id="outline-container-orgbbda802" class="outline-3">
-<h3 id="orgbbda802">Configuration</h3>
-<div class="outline-text-3" id="text-orgbbda802">
+<div id="outline-container-org9898831" class="outline-3">
+<h3 id="org9898831">Configuration</h3>
+<div class="outline-text-3" id="text-org9898831">
 <p>
 There are a number of configurable options to setup <code>(λmacs)</code> just
 right for your environment.
@@ -217,9 +217,9 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org2fa4b44" class="outline-3">
-<h3 id="org2fa4b44">Structure</h3>
-<div class="outline-text-3" id="text-org2fa4b44">
+<div id="outline-container-orgb80af0a" class="outline-3">
+<h3 id="orgb80af0a">Structure</h3>
+<div class="outline-text-3" id="text-orgb80af0a">
 <p>
 <code>(λmacs)</code> has the following project structure:
 </p>
@@ -237,9 +237,9 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org9f8548f" class="outline-3">
-<h3 id="org9f8548f">Packages installed</h3>
-<div class="outline-text-3" id="text-org9f8548f">
+<div id="outline-container-orgcfab0ea" class="outline-3">
+<h3 id="orgcfab0ea">Packages installed</h3>
+<div class="outline-text-3" id="text-orgcfab0ea">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -394,13 +394,14 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 <li class="off"><code>[&#xa0;]</code> eldoc?</li>
 <li class="off"><code>[&#xa0;]</code> winner-mode?? workgroups / toggle-zoom</li>
 <li class="off"><code>[&#xa0;]</code> code rtf pygments</li>
+<li class="off"><code>[&#xa0;]</code> repl image hack</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1fb9dbc" class="outline-3">
-<h3 id="org1fb9dbc">Keybindings</h3>
-<div class="outline-text-3" id="text-org1fb9dbc">
+<div id="outline-container-org5e440e5" class="outline-3">
+<h3 id="org5e440e5">Keybindings</h3>
+<div class="outline-text-3" id="text-org5e440e5">
 <p>
 Here is the list of keybindings which are added by this configuration.
 <i>All standard keybindings are valid, plus the default keybindings of
@@ -437,7 +438,7 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Mode or group</th>
 <th scope="col" class="org-left">Key</th>
 <th scope="col" class="org-left">Action</th>
 <th scope="col" class="org-left">Module</th>
@@ -445,107 +446,16 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 </thead>
 <tbody>
 <tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>⌘-c</code></td>
-<td class="org-left">Copy selected region (like macOS - more natural)</td>
-<td class="org-left"><code>cua-mode</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>⌘-v</code></td>
-<td class="org-left">Paste selected region (like macOS - more natural)</td>
-<td class="org-left"><code>cua-mode</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>M-y</code></td>
-<td class="org-left">Browse the content of the <code>kill-ring</code></td>
-<td class="org-left"><code>browse-kill-ring</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-=</code></td>
-<td class="org-left">Expands the selection to the larger surrounding form.</td>
-<td class="org-left"><code>expand-region</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-RET</code></td>
-<td class="org-left">Toggle rectangular selection</td>
-<td class="org-left"><code>cua-mode</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-x 9</code></td>
-<td class="org-left">Locks the window in place so that it can't be closed.</td>
-<td class="org-left"><code>sticky-windows</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-u C-x 0</code></td>
-<td class="org-left">Closes a locked window (via <code>C-x 9</code>)</td>
-<td class="org-left"><code>sticky-windows</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-x p</code></td>
-<td class="org-left">Open <b>Prodigy</b>'s status buffer (start/stop processes)</td>
-<td class="org-left"><code>prodigy</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-x t t</code></td>
-<td class="org-left">Open <b>Treemacs</b> project tree.</td>
-<td class="org-left"><code>treemacs</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-x C-/</code></td>
-<td class="org-left">Open <b>dired</b> explorer for the current file.</td>
+<td class="org-left"><code>clojure-mode</code></td>
+<td class="org-left"><code>M-SPC</code></td>
+<td class="org-left">Removes all the blanks between two forms except one</td>
 <td class="org-left"><code>(λmacs)</code></td>
 </tr>
 
 <tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-x g</code></td>
-<td class="org-left">Open <b>Magit</b> status</td>
-<td class="org-left"><code>magit</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-x M-g</code></td>
-<td class="org-left">Minibuffer popup with <b>Magit</b> dispatch functions</td>
-<td class="org-left"><code>magit</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>C-c p</code></td>
-<td class="org-left"><b>Projectile</b>'s prefix</td>
-<td class="org-left"><code>projectile</code></td>
-</tr>
-
-<tr>
-<td class="org-left">*</td>
-<td class="org-left"><code>s-p</code></td>
-<td class="org-left"><b>Projectile</b>'s alternative prefix</td>
-<td class="org-left"><code>projectile</code></td>
-</tr>
-
-<tr>
 <td class="org-left"><code>clojure-mode</code></td>
-<td class="org-left"><code>M-SPC</code></td>
-<td class="org-left">Removes all the blanks between two forms except one</td>
+<td class="org-left"><code>s-b</code></td>
+<td class="org-left">Adds a nice comment box with current line.</td>
 <td class="org-left"><code>(λmacs)</code></td>
 </tr>
 
@@ -557,10 +467,157 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 </tr>
 
 <tr>
-<td class="org-left"><code>clojure-mode</code></td>
-<td class="org-left"><code>s-b</code></td>
-<td class="org-left">Adds a nice comment box with current line.</td>
+<td class="org-left">editor</td>
+<td class="org-left"><code>M-y</code></td>
+<td class="org-left">Browse the content of the <code>kill-ring</code></td>
+<td class="org-left"><code>browse-kill-ring</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>C-a</code></td>
+<td class="org-left">Smart beginning of the line (non blank)</td>
+<td class="org-left"><code>crux</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>⌘-c</code></td>
+<td class="org-left">Copy selected region (like macOS - more natural)</td>
+<td class="org-left"><code>cua-mode</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>⌘-v</code></td>
+<td class="org-left">Paste selected region (like macOS - more natural)</td>
+<td class="org-left"><code>cua-mode</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>C-RET</code></td>
+<td class="org-left">Toggle rectangular selection</td>
+<td class="org-left"><code>cua-mode</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>C-=</code></td>
+<td class="org-left">Expands the selection to the larger surrounding form.</td>
+<td class="org-left"><code>expand-region</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>M-/</code> or <code>s-/</code></td>
+<td class="org-left">Hippie expansion (completion)</td>
+<td class="org-left"><code>hippie</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>C-&gt;</code></td>
+<td class="org-left">multi-cursor mark next like this</td>
+<td class="org-left"><code>multiple-cursors</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>C-&lt;</code></td>
+<td class="org-left">multi-cursor mark previous like this</td>
+<td class="org-left"><code>multiple-cursors</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>C-c C-&lt;</code></td>
+<td class="org-left">multi-cursor mark all like this</td>
+<td class="org-left"><code>multiple-cursors</code></td>
+</tr>
+
+<tr>
+<td class="org-left">editor</td>
+<td class="org-left"><code>C-M-s-. C-M-s-.</code></td>
+<td class="org-left">Adds a cursor on each line of a multi-line selection</td>
+<td class="org-left"><code>multiple-cursors</code></td>
+</tr>
+
+<tr>
+<td class="org-left">files/buffers</td>
+<td class="org-left"><code>C-x C-/</code></td>
+<td class="org-left">Open <b>dired</b> explorer for the current file.</td>
 <td class="org-left"><code>(λmacs)</code></td>
+</tr>
+
+<tr>
+<td class="org-left">files/buffers</td>
+<td class="org-left"><code>C-c t</code></td>
+<td class="org-left">Open a shell terminal</td>
+<td class="org-left"><code>crux</code></td>
+</tr>
+
+<tr>
+<td class="org-left">files/buffers</td>
+<td class="org-left"><code>s-r</code></td>
+<td class="org-left">Open a recently opened file</td>
+<td class="org-left"><code>crux</code></td>
+</tr>
+
+<tr>
+<td class="org-left">files/buffers</td>
+<td class="org-left"><code>C-u C-x 0</code></td>
+<td class="org-left">Closes a locked window (via <code>C-x 9</code>)</td>
+<td class="org-left"><code>sticky-windows</code></td>
+</tr>
+
+<tr>
+<td class="org-left">files/buffers</td>
+<td class="org-left"><code>C-x t t</code></td>
+<td class="org-left">Open <b>Treemacs</b> project tree.</td>
+<td class="org-left"><code>treemacs</code></td>
+</tr>
+
+<tr>
+<td class="org-left">files/buffers</td>
+<td class="org-left"><code>M-s-</code> + <code>← → ↑ ↓</code></td>
+<td class="org-left">Move between windows (same keys as iTerm)</td>
+<td class="org-left"><code>(λmacs)</code></td>
+</tr>
+
+<tr>
+<td class="org-left">processes</td>
+<td class="org-left"><code>C-x p</code></td>
+<td class="org-left">Open <b>Prodigy</b>'s status buffer (start/stop processes)</td>
+<td class="org-left"><code>prodigy</code></td>
+</tr>
+
+<tr>
+<td class="org-left">project</td>
+<td class="org-left"><code>C-x g</code></td>
+<td class="org-left">Open <b>Magit</b> status</td>
+<td class="org-left"><code>magit</code></td>
+</tr>
+
+<tr>
+<td class="org-left">project</td>
+<td class="org-left"><code>C-x M-g</code></td>
+<td class="org-left">Minibuffer popup with <b>Magit</b> dispatch functions</td>
+<td class="org-left"><code>magit</code></td>
+</tr>
+
+<tr>
+<td class="org-left">project</td>
+<td class="org-left"><code>C-c p</code>  or <code>s-p</code></td>
+<td class="org-left"><b>Projectile</b>'s prefix</td>
+<td class="org-left"><code>projectile</code></td>
+</tr>
+
+<tr>
+<td class="org-left">project</td>
+<td class="org-left"><code>C-x 9</code></td>
+<td class="org-left">Locks the window in place so that it can't be closed.</td>
+<td class="org-left"><code>sticky-windows</code></td>
 </tr>
 </tbody>
 </table>
@@ -570,17 +627,17 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 
 
 
-<div id="outline-container-org7b5727f" class="outline-2">
-<h2 id="org7b5727f">Features</h2>
-<div class="outline-text-2" id="text-org7b5727f">
+<div id="outline-container-org95a64cc" class="outline-2">
+<h2 id="org95a64cc">Features</h2>
+<div class="outline-text-2" id="text-org95a64cc">
 <p>
 Here some features implemented/available in <code>(λmacs)</code>
 </p>
 </div>
 
-<div id="outline-container-orge5c2c9d" class="outline-3">
-<h3 id="orge5c2c9d">Switch Java version</h3>
-<div class="outline-text-3" id="text-orge5c2c9d">
+<div id="outline-container-org739020d" class="outline-3">
+<h3 id="org739020d">Switch Java version</h3>
+<div class="outline-text-3" id="text-org739020d">
 <p>
 <code>(λmacs)</code> focus is on Clojure development. Clojure is a JVM hosted
 language. JVM release process has been traditionally quite slow, but
@@ -655,9 +712,9 @@ You can see a usage demo here:
 </div>
 </div>
 
-<div id="outline-container-org2953520" class="outline-3">
-<h3 id="org2953520">Custom yasnippets</h3>
-<div class="outline-text-3" id="text-org2953520">
+<div id="outline-container-org25e1a21" class="outline-3">
+<h3 id="org25e1a21">Custom yasnippets</h3>
+<div class="outline-text-3" id="text-org25e1a21">
 <p>
 <code>yasnippets</code> is a templating minor-mode with allows to define code
 templates and complete them with a few keystrokes. Think about the
@@ -675,9 +732,9 @@ the <a href="http://joaotavora.github.io/yasnippet/snippet-development.html">off
 </div>
 </div>
 
-<div id="outline-container-org85d1b75" class="outline-3">
-<h3 id="org85d1b75">Restclient</h3>
-<div class="outline-text-3" id="text-org85d1b75">
+<div id="outline-container-orgec21a66" class="outline-3">
+<h3 id="orgec21a66">Restclient</h3>
+<div class="outline-text-3" id="text-orgec21a66">
 <p>
 If you do RESTful services development <code>restclient</code> is going to be
 your best companion.
@@ -744,13 +801,14 @@ Here a list of all the keybindings for this mode:
 </div>
 </div>
 
-<div id="outline-container-org0a92568" class="outline-2">
-<h2 id="org0a92568">Get involved</h2>
-<div class="outline-text-2" id="text-org0a92568">
+
+<div id="outline-container-org30af607" class="outline-2">
+<h2 id="org30af607">Get involved</h2>
+<div class="outline-text-2" id="text-org30af607">
 </div>
-<div id="outline-container-orgce80601" class="outline-3">
-<h3 id="orgce80601">Contribution</h3>
-<div class="outline-text-3" id="text-orgce80601">
+<div id="outline-container-org3e6a25f" class="outline-3">
+<h3 id="org3e6a25f">Contribution</h3>
+<div class="outline-text-3" id="text-org3e6a25f">
 <p>
 This is my personal setup, I don't mind you using it and I'd
 appreciate feedbacks and suggestions on how to improve it!
@@ -759,9 +817,9 @@ Issue a PR, and if it works for me, I'll merge it!
 </div>
 </div>
 
-<div id="outline-container-org68596d7" class="outline-3">
-<h3 id="org68596d7">References</h3>
-<div class="outline-text-3" id="text-org68596d7">
+<div id="outline-container-org65d27eb" class="outline-3">
+<h3 id="org65d27eb">References</h3>
+<div class="outline-text-3" id="text-org65d27eb">
 <p>
 The code in this repo has is the sum of my personal experience and
 the following references:
@@ -781,9 +839,9 @@ the following references:
 </div>
 </div>
 
-<div id="outline-container-org60a1012" class="outline-3">
-<h3 id="org60a1012">License</h3>
-<div class="outline-text-3" id="text-org60a1012">
+<div id="outline-container-org9b04da9" class="outline-3">
+<h3 id="org9b04da9">License</h3>
+<div class="outline-text-3" id="text-org9b04da9">
 <p>
 Copyright © 2020 Bruno Bonacci and contributors.
 Distributed under the GNU General Public License, version 3.
