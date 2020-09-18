@@ -163,8 +163,6 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 - [ ] eldoc?
 - [ ] winner-mode?? workgroups / toggle-zoom
 - [ ] code rtf pygments
-- [ ] lsp-java??
-- [ ] daemon setup
 
 ** Keybindings
 Here is the list of keybindings which are added by this configuration.

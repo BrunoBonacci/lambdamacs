@@ -78,4 +78,16 @@
 (loadx "post-init.el")      ;; load custom post configuration if present
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                     ----==| R E C O M P I L E |==----                      ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;
+;; recompile all if not compiled
+;;
+(if (not (file-exists-p (concat buffer-file-name "c")))
+    (byte-compile-all-init-dir))
+
 ;;; init.el ends here
