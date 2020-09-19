@@ -14,6 +14,33 @@
 
 (use-package git-timemachine)
 
+;;
+;; Open the current project in the browser (on Github)
+;; Credit @dotemacs: https://gist.github.com/dotemacs/9a0433341e75e01461c9
+;;
+(defun parse-url (url)
+  "convert a git remote location as a HTTP URL"
+  (if (string-match "^http" url)
+      url
+    (replace-regexp-in-string "\\(.*\\)@\\(.*\\):\\(.*\\)\\(\\.git?\\)"
+                              "https://\\2/\\3"
+                              url)))
+
+
+(defun magit-open-repo ()
+  "open remote repo URL"
+  (interactive)
+  (let ((url (magit-get "remote" "origin" "url")))
+    (progn
+      (browse-url (parse-url url))
+      (message "opening repo %s" url))))
+
+
+(add-hook 'magit-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-o") 'magit-open-repo)))
+
+
 
 ;;
 ;; config projectile

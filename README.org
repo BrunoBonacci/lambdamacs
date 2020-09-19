@@ -160,7 +160,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 
 - TODO:
 - [ ] wsd
-- [ ] winner-mode?? workgroups / toggle-zoom
+- [ ] winner-mode / workgroups / persp-mode / toggle-zoom ??
 - [ ] code rtf pygments
 - [ ] repl image hack
 
@@ -210,6 +210,7 @@ Here the keybindings added/defined by ~(λmacs)~:
 | processes      | ~C-x p~            | Open *Prodigy*'s status buffer (start/stop processes) | ~prodigy~          |
 | project        | ~C-x g~            | Open *Magit* status                                   | ~magit~            |
 | project        | ~C-x M-g~          | Minibuffer popup with *Magit* dispatch functions      | ~magit~            |
+| project        | ~C-x g~ + ~C-o~    | Open the current project in Github                    | ~magit~            |
 | project        | ~C-c p~  or ~s-p~  | *Projectile*'s prefix                                 | ~projectile~       |
 | project        | ~C-x 9~            | Locks the window in place so that it can't be closed. | ~sticky-windows~   |
 
