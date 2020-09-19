@@ -109,10 +109,12 @@
 ;; Function to switch between themes
 ;;
 (defun switch-theme-to-default ()
+  "Switched to the selected default theme. check `lambdamacs/default-theme'."
   (interactive)
   (load-theme lambdamacs/default-theme t))
 
 
 (defun switch-theme-to-alternative ()
+  "Switched to the selected alternative theme, check `lambdamacs/alternative-theme'"
   (interactive)
   (load-theme lambdamacs/alternative-theme t))

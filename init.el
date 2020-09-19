@@ -55,6 +55,8 @@
 (add-to-list 'load-path lambdamacs-conf-dir)
 (add-to-list 'load-path lambdamacs-modules-dir)
 
+(setq custom-file (expand-file-name "emacs-custom.el" lambdamacs-conf-dir))
+
 (defun loadx (file)
   "load a configuration file if it exists."
   (if (file-exists-p (expand-file-name file lambdamacs-conf-dir))
@@ -76,6 +78,7 @@
 (load  "dev-java.el")       ;; settings for java development
 (load  "productivity.el")   ;; org-mode and productivity tools
 (loadx "post-init.el")      ;; load custom post configuration if present
+(loadx "emacs-custom.el")   ;; load emacs customizations
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -91,16 +94,3 @@
 ;;    (byte-compile-all-init-dir))
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(exec-path-from-shell yasnippet-snippets which-key use-package undo-tree treemacs-projectile treemacs-magit treemacs-icons-dired transpose-frame super-save smartparens rainbow-delimiters prodigy pinentry parinfer paradox markdown-toc lsp-ui lsp-java ivy-rich hl-todo helpful helm-ag git-timemachine forge flymd flycheck expand-region easy-kill doom-themes doom-modeline crux counsel company-restclient command-log-mode clj-refactor cider-eval-sexp-fu browse-kill-ring beacon anzu ag)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

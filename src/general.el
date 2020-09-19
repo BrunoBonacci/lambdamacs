@@ -4,6 +4,7 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; Code:
 (setq lambdamacs-save-dir    (expand-file-name lambdamacs/save-place user-emacs-directory))
 
 ;; reduce the frequency of garbage collection by making it happen on
@@ -373,6 +374,41 @@
   ;; is displayed on top (happens near the bottom of windows)
   (setq company-tooltip-flip-when-above t)
   (global-company-mode))
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                     ----==| B O O K M A R K S |==----                      ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(use-package bm
+  :init
+  (setq
+   bm-restore-repository-on-load t
+   bm-repository-file (expand-file-name "bm-bookmarks" lambdamacs-save-dir)
+   bm-buffer-persistence t
+   bm-restore-repository-on-load t
+   bm-cycle-all-buffers t
+   bm-in-lifo-order t
+   bm-persistent-face 'bm-face)
+
+  :bind
+  (("s-1" . 'bm-toggle)
+   ("s-2" . 'bm-previous)
+   ("s-3" . 'bm-next)
+   ("s-5" . 'bm-bookmark-regexp)
+   ("s-0" . 'bm-remove-all-current-buffer)
+   ("s-)" . 'bm-remove-all-all-buffers))
+  :config
+  (add-hook 'after-save-hook   #'(lambda nil
+                                   (bm-buffer-save-all)
+                                   (bm-repository-save)))
+  (add-hook 'find-file-hooks   #'bm-buffer-restore)
+  (add-hook 'after-revert-hook #'bm-buffer-restore))
 
 
 

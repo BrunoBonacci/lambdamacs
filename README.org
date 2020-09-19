@@ -130,6 +130,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 
  | Package                | Purpose                                                             |
  |------------------------+---------------------------------------------------------------------|
+ | ~bm~                   | Bookmarks management                                                |
  | ~bookmarks~            | Code bookmarks                                                      |
  | ~cider~                | CIDER the best IDE for Clojude development                          |
  | ~clj-refactor~         | Cider companion for refactoring                                     |
@@ -158,9 +159,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~yas-snippet~          | Code snippets                                                       |
 
 - TODO:
-- [ ] bookmarks
 - [ ] wsd
-- [ ] eldoc?
 - [ ] winner-mode?? workgroups / toggle-zoom
 - [ ] code rtf pygments
 - [ ] repl image hack
@@ -196,12 +195,18 @@ Here the keybindings added/defined by ~(λmacs)~:
 | editor         | ~C-<~              | multi-cursor mark previous like this                  | ~multiple-cursors~ |
 | editor         | ~C-c C-<~          | multi-cursor mark all like this                       | ~multiple-cursors~ |
 | editor         | ~C-M-s-. C-M-s-.~  | Adds a cursor on each line of a multi-line selection  | ~multiple-cursors~ |
+| bookmarks      | ~s-1~              | Toggle bookmark                                       | ~bm~               |
+| bookmarks      | ~s-2~              | Cycle previous bookmarks                              | ~bm~               |
+| bookmarks      | ~s-3~              | Cycle next bookmarks                                  | ~bm~               |
+| bookmarks      | ~s-5~              | Create bookmarks by regex                             | ~bm~               |
+| bookmarks      | ~s-0~              | Clear all bookmarks in this buffer                    | ~bm~               |
+| bookmarks      | ~s-S-0~            | Clear all bookmarks in all buffers                    | ~bm~               |
 | files/buffers  | ~C-x C-/~          | Open *dired* explorer for the current file.           | ~(λmacs)~          |
 | files/buffers  | ~C-c t~            | Open a shell terminal                                 | ~crux~             |
 | files/buffers  | ~s-r~              | Open a recently opened file                           | ~crux~             |
 | files/buffers  | ~C-u C-x 0~        | Closes a locked window (via ~C-x 9~)                  | ~sticky-windows~   |
 | files/buffers  | ~C-x t t~          | Open *Treemacs* project tree.                         | ~treemacs~         |
-| files/buffers | ~M-s-~ + ~← → ↑ ↓~ | Move between windows (same keys as iTerm)             | ~(λmacs)~          |
+| files/buffers  | ~M-s-~ + ~← → ↑ ↓~ | Move between windows (same keys as iTerm)             | ~(λmacs)~          |
 | processes      | ~C-x p~            | Open *Prodigy*'s status buffer (start/stop processes) | ~prodigy~          |
 | project        | ~C-x g~            | Open *Magit* status                                   | ~magit~            |
 | project        | ~C-x M-g~          | Minibuffer popup with *Magit* dispatch functions      | ~magit~            |
