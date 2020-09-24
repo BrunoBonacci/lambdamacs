@@ -53,6 +53,12 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+
+;;
+;; Set the executable permissions on scripts
+;;
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                           ----==| I V Y |==----                            ;;
