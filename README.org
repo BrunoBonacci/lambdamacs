@@ -332,7 +332,7 @@ Here a list of all the keybindings for this mode:
 - ~C-c C-a~ : show all collapsed regions
 - ~C-c C-i~ : show information on resclient variables at point
 
-** `cljfmt` reformatting
+** ~cljfmt~ auto-format
 The way Cider formats the code isn't particularly nice.  To format the
 code properly you need to have a repl running and the code needs to be
 loaded. Because of this the formatting changes depending on which
