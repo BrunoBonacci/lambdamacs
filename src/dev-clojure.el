@@ -354,14 +354,23 @@ This is used by pretty-printing commands."
 ;; indented form is always 2 spaces over indipendently of the form
 ;; name.
 ;;
-;; TODO: add a configuration option
 (defun cljfmt ()
-  (when (or (eq major-mode 'clojure-mode)
-            (eq major-mode 'clojurescript-mode))
+  (when (and lambdamacs/cljfmt-reformat-on-save
+         (or (eq major-mode 'clojure-mode)
+             (eq major-mode 'clojurescript-mode)))
     (shell-command-to-string (format "cljfmt fix %s --indents ~/.lein/cljfmt-indents.clj --no-remove-surrounding-whitespace --no-remove-consecutive-blank-lines" buffer-file-name))
     (revert-buffer :ignore-auto :noconfirm)))
 
-(add-hook 'after-save-hook #'cljfmt) ;;TODO: add config var
+(add-hook 'after-save-hook #'cljfmt)
+
+
+(defun cljfmt-toggle-reformat ()
+  (interactive)
+  ;; toggle the value
+  (setq lambdamacs/cljfmt-reformat-on-save
+        (not lambdamacs/cljfmt-reformat-on-save))
+  (message "cljfmt is now %s." (if lambdamacs/cljfmt-reformat-on-save "enabled" "disabled")))
+
 
 
 ;; ------------------------------------------------------------

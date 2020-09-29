@@ -24,6 +24,21 @@
 ;; if you find them distracting you can disable them here.
 ;;(setq lambdamacs/clojure-disable-font-locking t)
 
+
+;; The way Cider formats the code isn't particularly nice.  To format
+;; the code properly you need to have a repl running and the code
+;; needs to be loaded. Because of this the formatting changes
+;; depending on which state your IDE is. I think thi is a bad idea.  I
+;; rather have a less appealing formatting, but which can be done
+;; without having to load/compile the code.  (λmacs) performs a
+;; reformatting of the code on save with a definition which doesn't
+;; take into account which particular form you are in.  However there
+;; are times this is not convenient, like when working on someonelse
+;; code. To disable the code-reformat set the following variable to
+;; `nil' You can toggle the value with `M-x cljfmt-toggle-reformat`.
+(setq lambdamacs/cljfmt-reformat-on-save t)
+
+
 ;; base directory where all the JDK versions are installed
 ;; use `M-x switch-java' to select the JVM to use
 (setq JAVA_BASE "/Library/Java/JavaVirtualMachines")
