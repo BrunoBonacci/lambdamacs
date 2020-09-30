@@ -146,6 +146,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~outline-presentation~ | Use org-mode to make a presentation                                 |
  | ~paradox~              | A package manager which makes very easy to update your installation |
  | ~paredit~              | Can't develop Clojure without structural editing                    |
+ | ~password-generator~   | Generate strong random passwords                                    |
  | ~prodigy~              | Local process management                                            |
  | ~projectile~           | Useful functions for working with projecs                           |
  | ~restclient~           | Turn simple text buffer into HTTP REST calls                        |
