@@ -346,7 +346,7 @@ This is used by pretty-printing commands."
 ;; cljfmt on save
 ;;
 ;;
-;; I don't like clojure-mode indentation idea.  to format corretly the
+;; I don't like clojure-mode indentation idea.  to format correctly the
 ;; code it requires a running repl so that it can inspect the
 ;; formatting rules for macro and style/indent hints.
 ;;

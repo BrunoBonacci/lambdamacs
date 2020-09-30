@@ -28,6 +28,13 @@
 
 
 ;;
+;; Install password generator
+;;
+(use-package password-generator)
+
+
+
+;;
 ;; Automatically save buffer when losing focus
 ;;
 (use-package super-save
