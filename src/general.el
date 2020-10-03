@@ -217,7 +217,9 @@
 ;;
 ;; display keys/commands
 ;;
-(use-package command-log-mode)
+(use-package command-log-mode
+  :init
+  (setq command-log-mode-key-binding-open-log nil))
 
 
 ;;
