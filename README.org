@@ -366,11 +366,13 @@ Issue a PR, and if it works for me, I'll merge it!
 The code in this repo has is the sum of my personal experience and
 the following references:
 
-- [[https://github.com/bbatsov/prelude][Emacs Prelude]] - A great Emacs distribution
-- [[https://github.com/bbatsov/emacs.d][@bbastov .emacs.d]] - Bozhidar's Emacs config
-- [[https://github.com/overtone/emacs-live][emacs-live]] - Another Emacs distribution
-- [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org][@daviwil dotfiles]] - David Wilson's Emacs config
+- [[https://github.com/bbatsov/prelude][Emacs Prelude]] - A great Emacs distribution.
+- [[https://github.com/bbatsov/emacs.d][@bbastov .emacs.d]] - Bozhidar's Emacs config.
+- [[https://github.com/overtone/emacs-live][emacs-live]] - Another Emacs distribution.
+- [[https://github.com/daviwil/dotfiles/blob/master/Emacs.org][@daviwil dotfiles]] - David Wilson's Emacs config.
+- Easily, [[https://github.com/rougier/elegant-emacs][the most elegant Emacs]] out there!
 - [[https://github.com/rougier/emacs-gtd][Get Things Done with Emacs]] - From which I took the beautiful CSS for org-mode (thanks).
+
 
 /Thank you to all of you!/
 
