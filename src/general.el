@@ -66,6 +66,19 @@
 ;;
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
+
+;;
+;; minibuffer long
+;;
+(defun switch-to-minibuffer ()
+  "Switch to minibuffer window."
+  (interactive)
+  (if (active-minibuffer-window)
+      (select-window (active-minibuffer-window))
+    (error "Minibuffer is not active")))
+
+(global-set-key "\C-co" 'switch-to-minibuffer) ;; Bind to `C-c o'
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                           ----==| I V Y |==----                            ;;
@@ -91,16 +104,18 @@
          ("C-k" . ivy-previous-line)
          ("C-d" . ivy-reverse-i-search-kill))
   :config
-  (ivy-mode 1))
+  (ivy-mode 1)
+  (setq enable-recursive-minibuffers t))
 
 
 ;;
 ;; Commands descriptions for M-x commands
 ;;
 (use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
+  :bind (("M-x"     . counsel-M-x)
+         ("C-x b"   . counsel-ibuffer)
          ("C-x C-f" . counsel-find-file)
+         ("C-x j"   . counsel-imenu)
          :map minibuffer-local-map
          ("C-r" . 'counsel-minibuffer-history)))
 

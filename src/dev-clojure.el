@@ -27,7 +27,17 @@
   (add-hook 'clojure-mode-hook #'smartparens-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'clojure-mode-hook #'eldoc-mode)
-  (add-hook 'clojure-mode-hook #'idle-highlight-mode))
+  (add-hook 'clojure-mode-hook #'idle-highlight-mode)
+  :config
+  (setq clojure-indent-style 'always-indent))
+
+
+(defun cider-open-result-window ()
+  (interactive)
+  (let (old-buf (current-buffer))
+    (when (get-buffer "*cider-result*")
+      (pop-to-buffer "*cider-result*" nil nil)
+      (switch-to-buffer-other-window old-buf))))
 
 
 (use-package cider
@@ -35,6 +45,9 @@
   :defer t
   :init (add-hook 'cider-mode-hook #'clj-refactor-mode)
   :diminish subword-mode
+  :bind (:map cider-mode-map
+              ("C-c r" . cider-open-result-window)
+              ("C-c j" . counsel-imenu))
   :config
   (setq nrepl-log-messages t
         cider-repl-display-in-current-window t
@@ -42,7 +55,8 @@
         cider-prompt-save-file-on-load 'always-save
         cider-font-lock-dynamically '(macro core function var)
         nrepl-hide-special-buffers t
-        cider-overlays-use-font-lock t)
+        cider-overlays-use-font-lock t
+        cider-dynamic-indentation nil)
   (cider-repl-toggle-pretty-printing))
 
 
