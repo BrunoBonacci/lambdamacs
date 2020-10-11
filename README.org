@@ -18,7 +18,7 @@
 #+ATTR_HTML: :width 800
 [[./assets/lambdamacs_600.png]]
 
-- Check [[https://htmlpreview.github.io/?https://github.com/BrunoBonacci/lambdamacs/blob/master/README.html][documentation online]].
+- Check [[https://rawcdn.githack.com/BrunoBonacci/lambdamacs/master/README.html][documentation online]].
 - Check the code on [[https://github.com/BrunoBonacci/lambdamacs][Github]].
 
 ** Motivation
