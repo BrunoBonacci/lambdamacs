@@ -9,3 +9,8 @@
 /config/post-init.el
 *.elc
 /preload.el
+/projectile.cache
+/config/emacs-custom.el
+/async-bytecomp.log
+/.lsp-session-v1
+/.dap-breakpoints
