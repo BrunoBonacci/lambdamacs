@@ -196,6 +196,7 @@ Here the keybindings added/defined by ~(λmacs)~:
 | editor         | ~C-<~              | multi-cursor mark previous like this                  | ~multiple-cursors~ |
 | editor         | ~C-c C-<~          | multi-cursor mark all like this                       | ~multiple-cursors~ |
 | editor         | ~C-M-s-. C-M-s-.~  | Adds a cursor on each line of a multi-line selection  | ~multiple-cursors~ |
+| editor         | ~C-x j~            | Jump to section in buffer (depends on current mode)   | ~counsel~          |
 | bookmarks      | ~s-1~              | Toggle bookmark                                       | ~bm~               |
 | bookmarks      | ~s-2~              | Cycle previous bookmarks                              | ~bm~               |
 | bookmarks      | ~s-3~              | Cycle next bookmarks                                  | ~bm~               |
