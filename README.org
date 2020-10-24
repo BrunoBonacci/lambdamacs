@@ -130,6 +130,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
 
  | Package                | Purpose                                                             |
  |------------------------+---------------------------------------------------------------------|
+ | ~avy~                  | Jump where you want (like ace-jump)                                 |
  | ~bm~                   | Bookmarks management                                                |
  | ~bookmarks~            | Code bookmarks                                                      |
  | ~cider~                | CIDER the best IDE for Clojude development                          |
@@ -158,6 +159,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~witespace~            | To clean trailing whitespaces in the code                           |
  | ~wsd~                  | WebSequenceDiagrams                                                 |
  | ~yas-snippet~          | Code snippets                                                       |
+
 
 - TODO:
 - [ ] wsd
@@ -197,6 +199,9 @@ Here the keybindings added/defined by ~(λmacs)~:
 | editor         | ~C-c C-<~          | multi-cursor mark all like this                       | ~multiple-cursors~ |
 | editor         | ~C-M-s-. C-M-s-.~  | Adds a cursor on each line of a multi-line selection  | ~multiple-cursors~ |
 | editor         | ~C-x j~            | Jump to section in buffer (depends on current mode)   | ~counsel~          |
+| editor         | ~s-j~ + char       | Jumps to the word starting with the given char        | ~avy~              |
+| editor         | ~s-.~ + char       | Jumps to the location selected with the given char    | ~avy~              |
+| editor         | ~s-w~ + char       | Jumps to the window selected with the given char      | ~avy~              |
 | bookmarks      | ~s-1~              | Toggle bookmark                                       | ~bm~               |
 | bookmarks      | ~s-2~              | Cycle previous bookmarks                              | ~bm~               |
 | bookmarks      | ~s-3~              | Cycle next bookmarks                                  | ~bm~               |

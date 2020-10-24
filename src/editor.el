@@ -164,3 +164,18 @@
   (setq undo-tree-auto-save-history t)
   :config
   (global-undo-tree-mode))
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ----==| J U M P   A R O U N D |==----                    ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package avy
+  :init
+  (global-set-key (kbd "s-j") 'avy-goto-word-or-subword-1)
+  (global-set-key (kbd "s-.") 'avy-goto-char)
+  (global-set-key (kbd "s-w") 'ace-window))
