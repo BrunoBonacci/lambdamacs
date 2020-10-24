@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: pre block
+# key: #pre
+# --
+#+begin_src ascii
+$0
+#+end_src

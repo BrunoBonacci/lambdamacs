@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: image-800
+# key: #img8
+# --
+#+CAPTION: ${1:image caption}
+#+ATTR_HTML: :width 800
+#+ATTR_ORG: :width 800
+[[${0:./image/path.png}]]
