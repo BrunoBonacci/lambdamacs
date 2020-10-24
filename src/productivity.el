@@ -45,6 +45,10 @@
     (message "Enabled org html export on save for current buffer...")))
 
 
+;;
+;; Allow image resize on inline preview
+;;
+(setq org-image-actual-width nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -68,3 +72,20 @@
   (setq flycheck-temp-prefix (expand-file-name "flycheck" temporary-file-directory))
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                      ----==| G R A P H V I Z |==----                       ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 2)
+  (setq graphviz-dot-view-edit-command nil)
+  (setq graphviz-dot-view-command "dot -Tpng %s")
+  (setq graphviz-dot-save-before-view t))
