@@ -105,7 +105,10 @@
          ("C-d" . ivy-reverse-i-search-kill))
   :config
   (ivy-mode 1)
-  (setq enable-recursive-minibuffers t))
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (global-set-key (kbd "<f6>") 'ivy-resume))
+
 
 
 ;;
