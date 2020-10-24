@@ -3,9 +3,8 @@
 #+TITLE:     (λmacs)
 #+SUBTITLE:  Emacs for Clojure development on macOS X.
 #+AUTHOR:    Bruno Bonacci
-#+EMAIL:     bruno.bonacci@gmail.com
 #+LANGUAGE:  en
-#+STARTUP:   content showstars indent inlineimages hideblocks
+#+STARTUP:   content showstars indent inlineimages showblocks
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./assets/GTD.css" />
 #+OPTIONS:   toc:2 html-scripts:nil num:nil html-postamble:nil html-style:nil ^:nil
 # ------------------------------------------------------------------------------

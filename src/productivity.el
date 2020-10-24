@@ -49,6 +49,15 @@
 ;; Allow image resize on inline preview
 ;;
 (setq org-image-actual-width nil)
+(setq org-startup-with-inline-images t)
+(setq org-startup-with-latex-preview t)
+
+;;
+;; Don't ask permissions to export as HTML file on save
+;;
+(add-to-list 'safe-local-variable-values
+             '(after-save-hook . org-html-export-to-html))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;

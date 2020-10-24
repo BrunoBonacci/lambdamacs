@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: doc setup
+# key: #setup
+# --
+# -*- after-save-hook: org-html-export-to-html; -*-
+# ------------------------------------------------------------------------------
+#+TITLE:     ${1:title}
+#+SUBTITLE:  ${2:sub title}
+# ------------------------------------------------------------------------------
+#+LANGUAGE:  en
+#+STARTUP:   showeverything showstars indent inlineimages showblocks latexpreview
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/BrunoBonacci/org-doc/master/assets/GTD.css" />
+#+OPTIONS:   toc:2 html-scripts:nil num:nil html-postamble:nil html-style:nil ^:nil
+# ------------------------------------------------------------------------------
+$0
