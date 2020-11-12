@@ -132,6 +132,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~avy~                  | Jump where you want (like ace-jump)                                 |
  | ~bm~                   | Bookmarks management                                                |
  | ~bookmarks~            | Code bookmarks                                                      |
+ | ~carbon-now-sh~        | Generate images from code snippets, useful for presentations.       |
  | ~cider~                | CIDER the best IDE for Clojude development                          |
  | ~clj-refactor~         | Cider companion for refactoring                                     |
  | ~command-log~          | Displays a buffer with the keys and commands you type               |
@@ -140,6 +141,7 @@ and switch back to the default theme with ~M-x switch-theme-to-default~
  | ~flycheck~             | Run checks on the fly                                               |
  | ~flyspell~             | Spell checking                                                      |
  | ~forge~                | Magit extension for Pull Requests and Issues                        |
+ | ~google-this~          | Quickly Google something at point                                   |
  | ~magit~                | Git controls                                                        |
  | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~)       |
  | ~multiple-cursors~     | Multiple cursors for editing                                        |
@@ -219,6 +221,7 @@ Here the keybindings added/defined by ~(λmacs)~:
 | project        | ~C-x g~ + ~C-o~    | Open the current project in Github                    | ~magit~            |
 | project        | ~C-c p~  or ~s-p~  | *Projectile*'s prefix                                 | ~projectile~       |
 | project        | ~C-x 9~            | Locks the window in place so that it can't be closed. | ~sticky-windows~   |
+| all            | ~s-g~              | Google word or region at point                        | ~google-this~      |
 
 
 

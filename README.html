@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-24 Sat 12:32 -->
+<!-- 2020-11-12 Thu 19:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>(λmacs)</title>
@@ -21,43 +21,43 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org802ffe4">Intro</a>
+<li><a href="#orge65c649">Intro</a>
 <ul>
-<li><a href="#org6fe1690">Motivation</a></li>
-<li><a href="#org3ae2e26">Installation</a></li>
-<li><a href="#orgb96cc13">Configuration</a></li>
-<li><a href="#org8060960">Structure</a></li>
-<li><a href="#org97fe21b">Packages installed</a></li>
-<li><a href="#org43d0c9c">Keybindings</a></li>
+<li><a href="#org8f8df5d">Motivation</a></li>
+<li><a href="#org0d8b3c2">Installation</a></li>
+<li><a href="#orgf0ede09">Configuration</a></li>
+<li><a href="#orga5d8923">Structure</a></li>
+<li><a href="#orgf446a3f">Packages installed</a></li>
+<li><a href="#orgaadb289">Keybindings</a></li>
 </ul>
 </li>
-<li><a href="#org2054f17">Features</a>
+<li><a href="#orgca8e730">Features</a>
 <ul>
-<li><a href="#orgd33678a">Switch Java version</a></li>
-<li><a href="#org65894c2">Custom yasnippets</a></li>
-<li><a href="#org124956f">Restclient</a></li>
-<li><a href="#org343c28c"><code>cljfmt</code> auto-format</a></li>
+<li><a href="#orgdc87a6d">Switch Java version</a></li>
+<li><a href="#org56723a4">Custom yasnippets</a></li>
+<li><a href="#orgc7420ce">Restclient</a></li>
+<li><a href="#orgef54665"><code>cljfmt</code> auto-format</a></li>
 </ul>
 </li>
-<li><a href="#org5f34c7a">Get involved</a>
+<li><a href="#org14750e4">Get involved</a>
 <ul>
-<li><a href="#orgf7176a7">Contribution</a></li>
-<li><a href="#org7206b59">References</a></li>
-<li><a href="#org4ca6ae2">License</a></li>
+<li><a href="#org35aabc6">Contribution</a></li>
+<li><a href="#orgd765139">References</a></li>
+<li><a href="#org96943c1">License</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org802ffe4" class="outline-2">
-<h2 id="org802ffe4">Intro</h2>
-<div class="outline-text-2" id="text-org802ffe4">
+<div id="outline-container-orge65c649" class="outline-2">
+<h2 id="orge65c649">Intro</h2>
+<div class="outline-text-2" id="text-orge65c649">
 <p>
 (λmacs) is Emacs for Clojure development on macOS X.
 </p>
 
 
-<div id="orgaec0726" class="figure">
+<div id="orgd95a078" class="figure">
 <p><img src="./assets/lambdamacs_600.png" alt="lambdamacs_600.png" width="800" />
 </p>
 </div>
@@ -68,9 +68,9 @@
 </ul>
 </div>
 
-<div id="outline-container-org6fe1690" class="outline-3">
-<h3 id="org6fe1690">Motivation</h3>
-<div class="outline-text-3" id="text-org6fe1690">
+<div id="outline-container-org8f8df5d" class="outline-3">
+<h3 id="org8f8df5d">Motivation</h3>
+<div class="outline-text-3" id="text-org8f8df5d">
 <p>
 For a number of years I've been using Emacs as my primary/only IDE.  I
 used a number of "<i>distributions</i>" readily available on internet such
@@ -98,9 +98,9 @@ tooling support feel free to use my configuration.
 </div>
 </div>
 
-<div id="outline-container-org3ae2e26" class="outline-3">
-<h3 id="org3ae2e26">Installation</h3>
-<div class="outline-text-3" id="text-org3ae2e26">
+<div id="outline-container-org0d8b3c2" class="outline-3">
+<h3 id="org0d8b3c2">Installation</h3>
+<div class="outline-text-3" id="text-org0d8b3c2">
 <ul class="org-ul">
 <li>Download and install <a href="https://emacsformacosx.com/">Emacs For Mac OS X</a> if you don't have it yet!</li>
 </ul>
@@ -152,9 +152,9 @@ If you want you can customize your configuration (see next section).
 </p>
 </div>
 </div>
-<div id="outline-container-orgb96cc13" class="outline-3">
-<h3 id="orgb96cc13">Configuration</h3>
-<div class="outline-text-3" id="text-orgb96cc13">
+<div id="outline-container-orgf0ede09" class="outline-3">
+<h3 id="orgf0ede09">Configuration</h3>
+<div class="outline-text-3" id="text-orgf0ede09">
 <p>
 There are a number of configurable options to setup <code>(λmacs)</code> just
 right for your environment.
@@ -218,9 +218,9 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org8060960" class="outline-3">
-<h3 id="org8060960">Structure</h3>
-<div class="outline-text-3" id="text-org8060960">
+<div id="outline-container-orga5d8923" class="outline-3">
+<h3 id="orga5d8923">Structure</h3>
+<div class="outline-text-3" id="text-orga5d8923">
 <p>
 <code>(λmacs)</code> has the following project structure:
 </p>
@@ -238,9 +238,9 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org97fe21b" class="outline-3">
-<h3 id="org97fe21b">Packages installed</h3>
-<div class="outline-text-3" id="text-org97fe21b">
+<div id="outline-container-orgf446a3f" class="outline-3">
+<h3 id="orgf446a3f">Packages installed</h3>
+<div class="outline-text-3" id="text-orgf446a3f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -269,6 +269,11 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 <tr>
 <td class="org-left"><code>bookmarks</code></td>
 <td class="org-left">Code bookmarks</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>carbon-now-sh</code></td>
+<td class="org-left">Generate images from code snippets, useful for presentations.</td>
 </tr>
 
 <tr>
@@ -309,6 +314,11 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 <tr>
 <td class="org-left"><code>forge</code></td>
 <td class="org-left">Magit extension for Pull Requests and Issues</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>google-this</code></td>
+<td class="org-left">Quickly Google something at point</td>
 </tr>
 
 <tr>
@@ -414,9 +424,9 @@ and switch back to the default theme with <code>M-x switch-theme-to-default</cod
 </div>
 </div>
 
-<div id="outline-container-org43d0c9c" class="outline-3">
-<h3 id="org43d0c9c">Keybindings</h3>
-<div class="outline-text-3" id="text-org43d0c9c">
+<div id="outline-container-orgaadb289" class="outline-3">
+<h3 id="orgaadb289">Keybindings</h3>
+<div class="outline-text-3" id="text-orgaadb289">
 <p>
 Here is the list of keybindings which are added by this configuration.
 <i>All standard keybindings are valid, plus the default keybindings of
@@ -711,6 +721,13 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 <td class="org-left">Locks the window in place so that it can't be closed.</td>
 <td class="org-left"><code>sticky-windows</code></td>
 </tr>
+
+<tr>
+<td class="org-left">all</td>
+<td class="org-left"><code>s-g</code></td>
+<td class="org-left">Google word or region at point</td>
+<td class="org-left"><code>google-this</code></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -719,17 +736,17 @@ Here the keybindings added/defined by <code>(λmacs)</code>:
 
 
 
-<div id="outline-container-org2054f17" class="outline-2">
-<h2 id="org2054f17">Features</h2>
-<div class="outline-text-2" id="text-org2054f17">
+<div id="outline-container-orgca8e730" class="outline-2">
+<h2 id="orgca8e730">Features</h2>
+<div class="outline-text-2" id="text-orgca8e730">
 <p>
 Here some features implemented/available in <code>(λmacs)</code>
 </p>
 </div>
 
-<div id="outline-container-orgd33678a" class="outline-3">
-<h3 id="orgd33678a">Switch Java version</h3>
-<div class="outline-text-3" id="text-orgd33678a">
+<div id="outline-container-orgdc87a6d" class="outline-3">
+<h3 id="orgdc87a6d">Switch Java version</h3>
+<div class="outline-text-3" id="text-orgdc87a6d">
 <p>
 <code>(λmacs)</code> focus is on Clojure development. Clojure is a JVM hosted
 language. JVM release process has been traditionally quite slow, but
@@ -804,9 +821,9 @@ You can see a usage demo here:
 </div>
 </div>
 
-<div id="outline-container-org65894c2" class="outline-3">
-<h3 id="org65894c2">Custom yasnippets</h3>
-<div class="outline-text-3" id="text-org65894c2">
+<div id="outline-container-org56723a4" class="outline-3">
+<h3 id="org56723a4">Custom yasnippets</h3>
+<div class="outline-text-3" id="text-org56723a4">
 <p>
 <code>yasnippets</code> is a templating minor-mode with allows to define code
 templates and complete them with a few keystrokes. Think about the
@@ -824,9 +841,9 @@ the <a href="http://joaotavora.github.io/yasnippet/snippet-development.html">off
 </div>
 </div>
 
-<div id="outline-container-org124956f" class="outline-3">
-<h3 id="org124956f">Restclient</h3>
-<div class="outline-text-3" id="text-org124956f">
+<div id="outline-container-orgc7420ce" class="outline-3">
+<h3 id="orgc7420ce">Restclient</h3>
+<div class="outline-text-3" id="text-orgc7420ce">
 <p>
 If you do RESTful services development <code>restclient</code> is going to be
 your best companion.
@@ -892,9 +909,9 @@ Here a list of all the keybindings for this mode:
 </div>
 </div>
 
-<div id="outline-container-org343c28c" class="outline-3">
-<h3 id="org343c28c"><code>cljfmt</code> auto-format</h3>
-<div class="outline-text-3" id="text-org343c28c">
+<div id="outline-container-orgef54665" class="outline-3">
+<h3 id="orgef54665"><code>cljfmt</code> auto-format</h3>
+<div class="outline-text-3" id="text-orgef54665">
 <p>
 The way Cider formats the code isn't particularly nice.  To format the
 code properly you need to have a repl running and the code needs to be
@@ -926,13 +943,13 @@ You can toggle the value with <code>M-x cljfmt-toggle-reformat</code>.
 </div>
 
 
-<div id="outline-container-org5f34c7a" class="outline-2">
-<h2 id="org5f34c7a">Get involved</h2>
-<div class="outline-text-2" id="text-org5f34c7a">
+<div id="outline-container-org14750e4" class="outline-2">
+<h2 id="org14750e4">Get involved</h2>
+<div class="outline-text-2" id="text-org14750e4">
 </div>
-<div id="outline-container-orgf7176a7" class="outline-3">
-<h3 id="orgf7176a7">Contribution</h3>
-<div class="outline-text-3" id="text-orgf7176a7">
+<div id="outline-container-org35aabc6" class="outline-3">
+<h3 id="org35aabc6">Contribution</h3>
+<div class="outline-text-3" id="text-org35aabc6">
 <p>
 This is my personal setup, I don't mind you using it and I'd
 appreciate feedbacks and suggestions on how to improve it!
@@ -941,9 +958,9 @@ Issue a PR, and if it works for me, I'll merge it!
 </div>
 </div>
 
-<div id="outline-container-org7206b59" class="outline-3">
-<h3 id="org7206b59">References</h3>
-<div class="outline-text-3" id="text-org7206b59">
+<div id="outline-container-orgd765139" class="outline-3">
+<h3 id="orgd765139">References</h3>
+<div class="outline-text-3" id="text-orgd765139">
 <p>
 The code in this repo has is the sum of my personal experience and
 the following references:
@@ -965,9 +982,9 @@ the following references:
 </div>
 </div>
 
-<div id="outline-container-org4ca6ae2" class="outline-3">
-<h3 id="org4ca6ae2">License</h3>
-<div class="outline-text-3" id="text-org4ca6ae2">
+<div id="outline-container-org96943c1" class="outline-3">
+<h3 id="org96943c1">License</h3>
+<div class="outline-text-3" id="text-org96943c1">
 <p>
 Copyright © 2020 Bruno Bonacci and contributors.
 Distributed under the GNU General Public License, version 3.
