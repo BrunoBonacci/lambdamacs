@@ -50,11 +50,14 @@
               ("C-c j" . counsel-imenu))
   :config
   (setq nrepl-log-messages t
-        cider-repl-display-in-current-window t
+        cider-repl-display-in-current-window nil
+        cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-clojure-font-lock t
         cider-prompt-save-file-on-load 'always-save
+        cider-prompt-for-symbol nil
         cider-font-lock-dynamically '(macro core function var)
         nrepl-hide-special-buffers t
+        cider-repl-buffer-size-limit 100000
         cider-overlays-use-font-lock t
         cider-dynamic-indentation nil)
   (cider-repl-toggle-pretty-printing))
@@ -434,3 +437,14 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
   (interactive)
   (just-one-space -1))
 (global-set-key (kbd "M-SPC ") 'live-delete-whitespace-except-one)
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ----==| I N F - C L O J U R E |==----                    ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package inf-clojure)
