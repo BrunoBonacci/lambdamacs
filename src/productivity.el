@@ -4,6 +4,13 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                      ----==| O R G - M O D E |==----                       ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;
 ;; .TODO.org
 ;;
@@ -58,6 +65,95 @@
 (add-to-list 'safe-local-variable-values
              '(after-save-hook . org-html-export-to-html))
 
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                     ----==| O R G - B A B E L |==----                      ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(use-package ob-http)
+(use-package ob-restclient)
+
+;; which languages you can run
+(org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . t)
+    (shell . t)
+    (clojure . t)
+    (http . t)
+    (restclient . t)))
+
+;; don't ask for confirmation
+(setq org-confirm-babel-evaluate nil)
+
+(push '("properties" . conf-unix) org-src-lang-modes)
+(push '("conf" . conf-unix) org-src-lang-modes)
+
+;; https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
+;; https://git.jeremydormitzer.com/jdormit/dotfiles/src/commit/5f9dbe53cea2b37fc89cc49f858f98387da99576/emacs/init.org
+  (with-eval-after-load 'ob-clojure
+    (defcustom org-babel-clojure-backend nil
+      "Backend used to evaluate Clojure code blocks."
+      :group 'org-babel
+      :type '(choice
+              (const :tag "inf-clojure" inf-clojure)
+              (const :tag "cider" cider)
+              (const :tag "slime" slime)
+              (const :tag "bb" bb)
+              (const :tag "Not configured yet" nil)))
+
+    (defun elisp->clj (in)
+      (cond
+       ((listp in) (concat "[" (s-join " " (mapcar #'elisp->clj in)) "]"))
+       (t (format "%s" in))))
+
+    (defun ob-clojure-eval-with-bb (expanded params)
+      "Evaluate EXPANDED code block with PARAMS using babashka."
+      (unless (executable-find "bb")
+        (user-error "Babashka not installed"))
+      (let* ((stdin (let ((stdin (cdr (assq :stdin params))))
+                      (when stdin
+                        (elisp->clj
+                         (org-babel-ref-resolve stdin)))))
+             (input (cdr (assq :input params)))
+             (file (make-temp-file "ob-clojure-bb" nil nil expanded))
+             (command (concat (when stdin (format "echo %s | " (shell-quote-argument stdin)))
+                              (format "bb %s -f %s"
+                                      (cond
+                                       ((equal input "edn") "")
+                                       ((equal input "text") "-i")
+                                       (t ""))
+                                      (shell-quote-argument file))))
+             (result (shell-command-to-string command)))
+        (s-trim result)))
+
+    (defun org-babel-execute:clojure (body params)
+      "Execute a block of Clojure code with Babel."
+      (unless org-babel-clojure-backend
+        (user-error "You need to customize org-babel-clojure-backend"))
+      (let* ((expanded (org-babel-expand-body:clojure body params))
+             (result-params (cdr (assq :result-params params)))
+             result)
+        (setq result
+              (cond
+               ((eq org-babel-clojure-backend 'inf-clojure)
+                (ob-clojure-eval-with-inf-clojure expanded params))
+               ((eq org-babel-clojure-backend 'cider)
+                (ob-clojure-eval-with-cider expanded params))
+               ((eq org-babel-clojure-backend 'slime)
+                (ob-clojure-eval-with-slime expanded params))
+               ((eq org-babel-clojure-backend 'bb)
+                (ob-clojure-eval-with-bb expanded params))))
+        (org-babel-result-cond result-params
+          result
+          (condition-case nil (org-babel-script-escape result)
+            (error result)))))
+
+    (customize-set-variable 'org-babel-clojure-backend 'bb))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
