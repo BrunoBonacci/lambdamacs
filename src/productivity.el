@@ -164,7 +164,7 @@
 ;;
 ;; Apparently this is part of Emacs default so no need to install it.
 ;;
-(setq ispell-program-name "aspell" ; use aspell instead of ispell
+(setq ispell-program-name "aspell"      ; use aspell instead of ispell
       ispell-extra-args '("--sug-mode=ultra"))
 (add-hook 'text-mode-hook #'flyspell-mode)
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
@@ -218,3 +218,13 @@
   :init
   (setq google-this-keybind (kbd "s-g"))
   (google-this-mode 1))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                    ----==| O R G - T R E L L O |==----                     ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package org-trello)
