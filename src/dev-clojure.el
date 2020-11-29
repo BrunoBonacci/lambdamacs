@@ -53,7 +53,7 @@
         cider-repl-display-in-current-window nil
         cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-clojure-font-lock t
-        cider-prompt-save-file-on-load 'always-save
+        cider-save-file-on-load t
         cider-prompt-for-symbol nil
         cider-font-lock-dynamically '(macro core function var)
         nrepl-hide-special-buffers t
