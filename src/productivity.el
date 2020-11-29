@@ -58,6 +58,10 @@
 (setq org-image-actual-width nil)
 (setq org-startup-with-inline-images t)
 (setq org-startup-with-latex-preview t)
+(setq org-startup-folded 'showeverything) ;; showeverything
+(setq org-startup-indented 't)    ;; indent
+(setq org-hide-block-startup nil) ;; showblocks
+(setq org-hide-leading-stars nil) ;; showstars
 
 ;;
 ;; Don't ask permissions to export as HTML file on save
