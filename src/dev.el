@@ -42,6 +42,20 @@
 
 
 
+;; for org knowledge base
+(use-package git-auto-commit-mode)
+
+;;
+;; Don't ask permissions to export as HTML file on save
+;;
+(add-to-list 'safe-local-variable-values
+             '(eval . git-auto-commit-mode))
+(add-to-list 'safe-local-variable-values
+             '(gac-automatically-push-p . t))
+(add-to-list 'safe-local-variable-values
+             '(gac-automatically-push-p . t))
+
+
 ;;
 ;; config projectile
 ;;
