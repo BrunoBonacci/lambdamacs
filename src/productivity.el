@@ -66,7 +66,13 @@
              '(after-save-hook . org-html-export-to-html))
 
 
-
+;;
+;; Export to HTML options
+;;
+(setq org-html-head-include-default-style nil)
+(setq org-html-head-include-scripts nil)
+(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/BrunoBonacci/org-doc/master/assets/GTD.css\" />")
+(setq org-link-file-path-type "relative")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -82,8 +88,10 @@
 (org-babel-do-load-languages
   'org-babel-load-languages
   '((emacs-lisp . t)
+    (org . t)
     (shell . t)
     (clojure . t)
+    (dot . t)
     (http . t)
     (restclient . t)))
 
