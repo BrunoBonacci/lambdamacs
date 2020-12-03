@@ -208,3 +208,17 @@
   (add-to-list 'company-backends 'company-restclient)
   (setq auto-mode-alist
       (append '(("\\.rest\\'" . restclient-mode)) auto-mode-alist)))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                     ----==| T E R R A F O R M |==----                      ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package terraform-mode
+  :config
+  (setq terraform-indent-level 2)
+  :bind (:map terraform-mode-map
+              ("C-c j" . helm-imenu)))
