@@ -392,7 +392,22 @@
   :bind
   ("C-c s" . flop-frame))
 
+;; this is min size before splitting, so the double of what you want
+(setq split-height-threshold 70
+      split-width-threshold  160)
 
+(defun split-window-sensibly-vertically (&optional window)
+    "replacement `split-window-sensibly' function which prefers vertical splits"
+    (interactive)
+    (let ((window (or window (selected-window))))
+        (or (and (window-splittable-p window t)
+                 (with-selected-window window
+                     (split-window-right)))
+            (and (window-splittable-p window)
+                 (with-selected-window window
+                     (split-window-below))))))
+
+(setq split-window-preferred-function #'split-window-sensibly-vertically)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
