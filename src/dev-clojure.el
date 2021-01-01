@@ -32,6 +32,7 @@
   (setq clojure-indent-style 'always-indent))
 
 
+
 (defun cider-open-result-window ()
   (interactive)
   (let (old-buf (current-buffer))
@@ -87,6 +88,7 @@
     (add-hook 'clojure-mode-hook          #'enable-paredit-mode)))
 
 
+
 ;;  highlights all occurences in the buffer of the word under the point.
 (load "idle-highlight-mode.el")
 
@@ -105,6 +107,7 @@
 (add-hook 'nrepl-mode-hook 'my-nrepl-mode-keys)
 
 
+
 ;; Add more natural <up> and <down> key bindings for nrepl mode
 (defun my-cider-mode-keys ()
   "Modify keymaps used by repl."
@@ -112,6 +115,7 @@
   (local-set-key (kbd "<down>") 'cider-repl-next-input))
 
 (add-hook 'cider-repl-mode-hook 'my-cider-mode-keys)
+
 
 
 ;; ------------------------------------------------------------
@@ -122,20 +126,19 @@
 ;; Clojure mode font-locking for partial
 ;; To disable font locking at startup add this in your init.el
 ;;
-;;    (setq lambdamacs/clojure-disable-font-locking t)
+;;    (setq lambdamacs/clojure-disable-font-locking t).
 ;;
 ;; NOTE: to disable font locking once is activated run this
 ;;
-;;    (fset 'old-font-lock-add-keywords (symbol-function 'font-lock-add-keywords))
-;;    (defalias 'font-lock-add-keywords 'ignore)
+;;    (fset 'old-font-lock-add-keywords (symbol-function 'font-lock-add-keywords)) ;
+;;    (defalias 'font-lock-add-keywords 'ignore) ;
 ;;
 ;; And then reopen the buffer.
 ;; To restore run:
 ;;
-;;    (fset 'font-lock-add-keywords 'old-font-lock-add-keywords)
+;;    (fset 'font-lock-add-keywords 'old-font-lock-add-keywords) ;
 ;;
 ;; And then reopen the buffer.
-
 (unless (bound-and-true-p lambdamacs/clojure-disable-font-locking)
 
   (defface clojure-font-locking-ligatures-face
@@ -256,12 +259,13 @@
                                  clojure-font-locking-ligatures-face)))))))
 
 
+
 ;;
 ;; Test the regex here
 ;;
-;; (re-search-forward "[([:blank:]]\\(m?u\\)/\\(log\\*\\|log\\|trace\\)[[:blank:]\n]")
+;; (re-search-forward "[([:blank:]]\\(m?u\\)/\\(log\\*\\|log\\|trace\\)[[:blank:]\n]") ;
 ;;
-;; (partial foo)
+;; (partial foo) ;
 ;;
 
 
@@ -270,6 +274,9 @@
 ;; Cider send expression to REPL buffer
 ;; ------------------------------------------------------------
 (require 'cider)
+
+
+
 ;;
 ;; This sends a sexp to the REPL buffer
 ;; credits: http://timothypratley.blogspot.co.uk/2015/07/seven-specialty-emacs-settings-with-big.html
@@ -286,9 +293,11 @@
     (cider-repl-return)))
 
 
+
 ;; TODO: fix
 ;(define-key cider-mode-map
 ;  (kbd "C-M-;") 'cider-eval-expression-at-point-in-repl)
+
 
 
 (defun cider-eval-last-expression-in-repl ()
@@ -302,9 +311,12 @@
     (insert form)
     (cider-repl-return)))
 
+
+
 ;; TODO: fix
 ;(define-key cider-mode-map
 ;  (kbd "C-;") 'cider-eval-last-expression-in-repl)
+
 
 
 ;; ------------------------------------------------------------
@@ -348,15 +360,28 @@ This is used by pretty-printing commands."
   (save-buffer))
 
 
+
 (defun clean-clojure ()
   (interactive)
-  (clean-clojure-indent)
-  (let* ((content (replace-regexp-in-string
-                   ")\\s-*\n+\\((def[^ ]*\\|(comment\\|(facts?\\|;\\)"
-                   ")\n\n\n\n\\1"
-                   (buffer-string))))
-    (erase-buffer)
-    (insert content)))
+  (save-restriction
+    (clean-clojure-indent)
+    (let* ((pos     (point))
+           (content (replace-regexp-in-string
+                     ")\\s-*\n+\\((def[^ ]*\\|(comment\\|(facts?\\|;\\)"
+                     ")\n\n\n\n\\1"
+                     (buffer-string))))
+      (erase-buffer)
+      (insert content)
+      (goto-char pos))))
+
+
+
+(define-key clojure-mode-map
+  (kbd "C-c C-l") 'clean-clojure)
+
+(define-key cider-mode-map
+  (kbd "C-c C-l") 'clean-clojure)
+
 
 
 ;;
@@ -381,6 +406,7 @@ This is used by pretty-printing commands."
 (add-hook 'after-save-hook #'cljfmt)
 
 
+
 (defun cljfmt-toggle-reformat ()
   (interactive)
   ;; toggle the value
@@ -396,10 +422,14 @@ This is used by pretty-printing commands."
 (defun -pad-center (str len char)
   (store-substring (make-string len char) (/ (- len (length str)) 2) str))
 
+
+
 (defun -trim-string (string)
   "Remove white spaces in beginning and ending of STRING.
 White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
   (replace-regexp-in-string "\\`[ \t\n]*" "" (replace-regexp-in-string "[ \t\n]*\\'" "" string)))
+
+
 
 (defun comment-box (title)
   (let* ((size 80)
@@ -414,6 +444,8 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
               ";;" (-pad-center decor-title (- size 4) ? ) ";;\n"
               ";;" (str-repeat (- size 4) " ") ";;\n"
               (str-repeat 80 ";") "\n"))))
+
+
 
 (defun my-comment-box ()
   "Convert word at point (or selected region) to code box"
@@ -437,7 +469,6 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
   (interactive)
   (just-one-space -1))
 (global-set-key (kbd "M-SPC ") 'live-delete-whitespace-except-one)
-
 
 
 

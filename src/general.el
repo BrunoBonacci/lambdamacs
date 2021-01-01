@@ -23,6 +23,29 @@
 ;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 
+
+;;
+;; Groups buffers by project in iBuffer
+;;
+(use-package ibuffer-projectile
+  :ensure t
+  :config
+  (add-hook 'ibuffer-hook
+    (lambda ()
+      (ibuffer-projectile-set-filter-groups)
+      (unless (eq ibuffer-sorting-mode 'alphabetic)
+        (ibuffer-do-sort-by-alphabetic))))
+
+  (setq ibuffer-formats
+      '((mark modified read-only "  "
+              (name 25 25 :left :elide)
+              " "
+              (size 9 -1 :right)
+              " "
+              ;;(mode 16 16 :left :elide)
+              ;;" "
+              project-relative-file))))
+
 ;;
 ;; gpg password in minibuffer
 ;;
@@ -63,7 +86,7 @@
 ;;
 (use-package exec-path-from-shell
   :init
-  (when (memq window-system '(mac ns x))
+  (when (memq system-type '(darwin))
     (exec-path-from-shell-initialize)))
 
 
@@ -408,6 +431,7 @@
                      (split-window-below))))))
 
 (setq split-window-preferred-function #'split-window-sensibly-vertically)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
