@@ -78,8 +78,8 @@
 (load  "dev-clojure.el")    ;; clojure settings
 (load  "dev-java.el")       ;; settings for java development
 (load  "productivity.el")   ;; org-mode and productivity tools
-(loadx "post-init.el")      ;; load custom post configuration if present
 (loadx "emacs-custom.el")   ;; load emacs customizations
+(loadx "post-init.el")      ;; load custom post configuration if present
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
