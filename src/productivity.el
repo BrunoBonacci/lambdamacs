@@ -78,6 +78,28 @@
 (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/BrunoBonacci/org-doc/master/assets/GTD.css\" />")
 (setq org-link-file-path-type "relative")
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                    ----==| O R G - A G E N D A |==----                     ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(if (file-exists-p "~/org")
+    (setq org-agenda-files (directory-files "~/org" t ".*\.org$")))
+
+(setq org-todo-keywords
+    '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)")))
+
+
+(advice-add 'org-deadline       :after (lambda (&rest _) (org-save-all-org-buffers)))
+(advice-add 'org-schedule       :after (lambda (&rest _) (org-save-all-org-buffers)))
+(advice-add 'org-store-log-note :after (lambda (&rest _) (org-save-all-org-buffers)))
+(advice-add 'org-todo           :after (lambda (&rest _) (org-save-all-org-buffers)))
+
+(define-key global-map (kbd "C-c a") 'org-agenda)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                     ----==| O R G - B A B E L |==----                      ;;
