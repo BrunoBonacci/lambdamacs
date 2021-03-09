@@ -53,7 +53,17 @@
 
 
 ;;
+;; Better bullets
+;;
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+
+;;
 ;; Allow image resize on inline preview
+;; and other visual customisations
 ;;
 (setq org-image-actual-width nil)
 (setq org-startup-with-inline-images t)
@@ -62,6 +72,7 @@
 (setq org-startup-indented 't)    ;; indent
 (setq org-hide-block-startup nil) ;; showblocks
 (setq org-hide-leading-stars nil) ;; showstars
+(setq org-ellipsis " ⤵")
 
 ;;
 ;; Don't ask permissions to export as HTML file on save
