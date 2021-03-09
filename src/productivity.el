@@ -110,6 +110,26 @@
 (advice-add 'org-todo           :after (lambda (&rest _) (org-save-all-org-buffers)))
 
 (define-key global-map (kbd "C-c a") 'org-agenda)
+(define-key global-map (kbd "C-c c") 'org-capture)
+
+(setq org-export-coding-system 'utf-8)
+(setq org-default-notes-file "~/org/tasks.org")
+(setq org-capture-templates
+      '(("t" "Generic TODO item (scheduled)"
+         entry
+         (file org-default-notes-file)
+         "* TODO (%^{SIZE[0-9]}) %? %^g\n  SCHEDULED: %^t\n  %i")
+
+        ("d" "Deadline)"
+         entry
+         (file org-default-notes-file)
+         "* TODO (%^{SIZE[0-9]}) %? %^g\n  DEADLINE: %^t\n  %i")
+
+        ("l" "Linked TODO item"
+         entry
+         (file org-default-notes-file)
+         "* TODO (%^{SIZE[0-9]}) %? %^g\n  SCHEDULED: %^t\n  %i\n  %a")))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
