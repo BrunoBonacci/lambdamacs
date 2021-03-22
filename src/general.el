@@ -26,25 +26,26 @@
 
 ;;
 ;; Groups buffers by project in iBuffer
+;; FIXME: very slow
 ;;
-(use-package ibuffer-projectile
-  :ensure t
-  :config
-  (add-hook 'ibuffer-hook
-    (lambda ()
-      (ibuffer-projectile-set-filter-groups)
-      (unless (eq ibuffer-sorting-mode 'alphabetic)
-        (ibuffer-do-sort-by-alphabetic))))
-
-  (setq ibuffer-formats
-      '((mark modified read-only "  "
-              (name 25 25 :left :elide)
-              " "
-              (size 9 -1 :right)
-              " "
-              ;;(mode 16 16 :left :elide)
-              ;;" "
-              project-relative-file))))
+;; (use-package ibuffer-projectile
+;;   :ensure t
+;;   :config
+;;   (add-hook 'ibuffer-hook
+;;     (lambda ()
+;;       (ibuffer-projectile-set-filter-groups)
+;;       (unless (eq ibuffer-sorting-mode 'alphabetic)
+;;         (ibuffer-do-sort-by-alphabetic))))
+;;
+;;   (setq ibuffer-formats
+;;       '((mark modified read-only "  "
+;;               (name 25 25 :left :elide)
+;;               " "
+;;               (size 9 -1 :right)
+;;               " "
+;;               ;;(mode 16 16 :left :elide)
+;;               ;;" "
+;;               project-relative-file))))
 
 ;;
 ;; gpg password in minibuffer
@@ -369,24 +370,6 @@
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                                                            ;;
-;;                ----==| S T I C K Y - W I N D O W S |==----                 ;;
-;;                                                                            ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;
-;; Allows to fix a window in place so that it is not closed/removed
-;; until you explicitly ask for it.
-;;
-;; Bindings
-;; C-x 9 - Mark as sticky
-;; C-u C-x 0 - close sticky window
-;;
-(load "sticky-windows.el")
-
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
@@ -407,6 +390,16 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;
+;; Allows to fix a window in place so that it is not closed/removed
+;; until you explicitly ask for it.
+;;
+;; Bindings
+;; C-x 9 - Mark as sticky
+;; C-u C-x 0 - close sticky window
+;;
+(load "sticky-windows.el")
+
 
 ;;
 ;; Allows to move the windows transposing them
@@ -415,22 +408,46 @@
   :bind
   ("C-c s" . flop-frame))
 
+;;
+;; FIXME: weird behaviour on small screens
+;;
 ;; this is min size before splitting, so the double of what you want
-(setq split-height-threshold 70
-      split-width-threshold  160)
+;; (setq split-height-threshold 70
+;;       split-width-threshold  160)
+;;
+;; (defun split-window-sensibly-vertically (&optional window)
+;;     "replacement `split-window-sensibly' function which prefers vertical splits"
+;;     (interactive)
+;;     (let ((window (or window (selected-window))))
+;;         (or (and (window-splittable-p window t)
+;;                  (with-selected-window window
+;;                      (split-window-right)))
+;;             (and (window-splittable-p window)
+;;                  (with-selected-window window
+;;                      (split-window-below))))))
+;;
+;; (setq split-window-preferred-function #'split-window-sensibly-vertically)
 
-(defun split-window-sensibly-vertically (&optional window)
-    "replacement `split-window-sensibly' function which prefers vertical splits"
-    (interactive)
-    (let ((window (or window (selected-window))))
-        (or (and (window-splittable-p window t)
-                 (with-selected-window window
-                     (split-window-right)))
-            (and (window-splittable-p window)
-                 (with-selected-window window
-                     (split-window-below))))))
+;;
+;; Popups windows management
+;;
+;; TODO: check/setup shakle: https://depp.brause.cc/shackle/
+;;
+(use-package popper
+  :ensure t
+  :bind (("C-`"   . popper-toggle-latest)
+         ("M-`"   . popper-cycle)
+         ("C-M-`" . popper-toggle-type))
+  :init
+  (setq popper-reference-buffers
+        '("\\*Messages\\*"
+          "\\*helm-ag\\*"
+          "Output\\*$"
+          "^magit: "
+          help-mode
+          compilation-mode))
+  (popper-mode +1))
 
-(setq split-window-preferred-function #'split-window-sensibly-vertically)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
