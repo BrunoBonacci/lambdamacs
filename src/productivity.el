@@ -150,7 +150,8 @@
     (clojure . t)
     (dot . t)
     (http . t)
-    (restclient . t)))
+    (restclient . t)
+    (latex . t)))
 
 ;; don't ask for confirmation
 (setq org-confirm-babel-evaluate nil)
