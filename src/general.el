@@ -520,3 +520,28 @@
 ;; Start server and set directory
 (setq server-socket-dir (format "/tmp/emacs%d" (user-uid)))
 (server-start)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                          ----==| D I F F |==----                           ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;
+;; ediff - don't start another frame
+;;
+(require 'ediff)
+(setq
+ ediff-window-setup-function 'ediff-setup-windows-plain
+ ediff-split-window-function 'split-window-horizontally)
+
+
+;;
+;; ztree install (directory diff)
+;;
+(use-package ztree)
+
+;;; general.el ends here
