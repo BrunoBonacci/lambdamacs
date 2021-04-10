@@ -14,6 +14,8 @@
 
 (use-package git-timemachine)
 
+(use-package github-review)
+
 ;;
 ;; Open the current project in the browser (on Github)
 ;; Credit @dotemacs: https://gist.github.com/dotemacs/9a0433341e75e01461c9

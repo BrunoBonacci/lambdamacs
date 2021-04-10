@@ -179,3 +179,6 @@
   (global-set-key (kbd "s-j") 'avy-goto-word-or-subword-1)
   (global-set-key (kbd "s-.") 'avy-goto-char)
   (global-set-key (kbd "s-w") 'ace-window))
+
+
+;;; editor.el ends here
