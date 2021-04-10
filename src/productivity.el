@@ -294,3 +294,29 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package org-trello)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;          ----==| W E B - S E Q U E N C E - D I A G R A M |==----           ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;
+;; Installing WSD-mode
+;;
+
+(use-package wsd-mode
+  :init
+  (setq wsd-style "roundgreen")
+  (setq wsd-style-altern "napkin")
+  :bind (:map wsd-mode-map
+              ("C-c C-a" . #'wsd-show-diagram-inline-alternative)))
+
+(defun wsd-show-diagram-inline-alternative ()
+  (interactive)
+  (let*
+      ((wsd-style-temp wsd-style))
+    (setq wsd-style wsd-style-altern)
+    (wsd-show-diagram-inline)
+    (setq wsd-style wsd-style-temp)))
