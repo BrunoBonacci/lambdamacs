@@ -74,6 +74,13 @@
 (setq org-hide-leading-stars nil) ;; showstars
 (setq org-ellipsis " ⤵")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ----==| H T M L   E X P O R T |==----                    ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 ;;
 ;; Don't ask permissions to export as HTML file on save
 ;;
@@ -84,10 +91,37 @@
 ;;
 ;; Export to HTML options
 ;;
+;;
 (setq org-html-head-include-default-style nil)
 (setq org-html-head-include-scripts nil)
-(setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/BrunoBonacci/org-doc/master/assets/GTD.css\" />")
+(setq org-html-head "
+<link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/BrunoBonacci/org-doc/master/assets/GTD.css\" />
+<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/github.min.css\">
+
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/clojure.min.js\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/clojure-repl.min.js\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/java.min.js\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/bash.min.js\"></script>
+<script>hljs.highlightAll();</script>")
 (setq org-link-file-path-type "relative")
+
+
+;; Hack to support syntax highlighing
+;;
+;; taken from: https://emacs.stackexchange.com/a/9838
+(defun rasmus/org-html-wrap-blocks-in-code (src backend info)
+  "Wrap a source block in <pre><code class=\"lang\">.</code></pre>"
+  (when (org-export-derived-backend-p backend 'html)
+    (replace-regexp-in-string
+     "\\(</pre>\\)" "</code>\n\\1"
+     (replace-regexp-in-string "<pre class=\"src src-\\([^\"]*?\\)\">"
+                               "<pre>\n<code class=\"\\1\">\n" src))))
+
+(add-to-list 'org-export-filter-src-block-functions
+             'rasmus/org-html-wrap-blocks-in-code)
+
+(setq org-html-htmlize-output-type nil)
 
 
 
@@ -320,3 +354,7 @@
     (setq wsd-style wsd-style-altern)
     (wsd-show-diagram-inline)
     (setq wsd-style wsd-style-temp)))
+
+
+
+;;; productivity ends here

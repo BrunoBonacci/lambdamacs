@@ -5,4 +5,6 @@
 #+CAPTION: ${1:image caption}
 #+ATTR_HTML: :width 800
 #+ATTR_ORG: :width 800
-[[${0:./image/path.png}]]
+[[${2:./images/path.png}]]
+
+$0
