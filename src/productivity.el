@@ -117,7 +117,7 @@
     (replace-regexp-in-string
      "\\(</pre>\\)" "</code>\n\\1"
      (replace-regexp-in-string "<pre class=\"src src-\\([^\"]*?\\)\">"
-                               "<pre>\n<code class=\"\\1\">\n" src))))
+                               "<pre class=\"src src-\\1\">\n<code class=\"\\1\">\n" src))))
 
 (add-to-list 'org-export-filter-src-block-functions
              'rasmus/org-html-wrap-blocks-in-code)
