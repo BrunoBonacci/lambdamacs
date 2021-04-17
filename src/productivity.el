@@ -94,6 +94,7 @@
 ;;
 (setq org-html-head-include-default-style nil)
 (setq org-html-head-include-scripts nil)
+(setq org-export-with-section-numbers nil)
 (setq org-html-head "
 <link rel=\"stylesheet\" type=\"text/css\" href=\"https://rawcdn.githack.com/BrunoBonacci/org-doc/master/assets/GTD.css\" />
 <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/github.min.css\">
