@@ -1,0 +1,8 @@
+#name: defvar
+# --
+% Define "${1:varname}"
+% Usage: \\Def$1{<the value for $1>}
+% Then refer to the value as \\$1
+\newcommand*{\\Def$1}[1]{\def\\$1{#1}}
+
+$0
