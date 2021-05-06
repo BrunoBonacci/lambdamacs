@@ -69,6 +69,9 @@
 (setq org-startup-with-inline-images t)
 (setq org-startup-with-latex-preview t)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+(add-to-list 'org-latex-packages-alist '("sfdefault,light" "roboto" t))
+(add-to-list 'org-latex-packages-alist '("a4paper,margin=2.4cm" "geometry" t))
+(add-to-list 'org-latex-packages-alist '("hidelinks" "hyperref" t))
 (setq org-startup-folded 'showeverything) ;; showeverything
 (setq org-startup-indented 't)    ;; indent
 (setq org-hide-block-startup nil) ;; showblocks
@@ -120,10 +123,10 @@
      (replace-regexp-in-string "<pre class=\"src src-\\([^\"]*?\\)\">"
                                "<pre class=\"src src-\\1\">\n<code class=\"\\1\">\n" src))))
 
-(add-to-list 'org-export-filter-src-block-functions
-             'rasmus/org-html-wrap-blocks-in-code)
+;; (add-to-list 'org-export-filter-src-block-functions
+;;              'rasmus/org-html-wrap-blocks-in-code)
+(setq org-export-filter-src-block-functions '(rasmus/org-html-wrap-blocks-in-code))
 
-(setq org-html-htmlize-output-type nil)
 
 
 
