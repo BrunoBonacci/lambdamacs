@@ -443,7 +443,6 @@
         '("\\*Messages\\*"
           "\\*helm-ag\\*"
           "Output\\*$"
-          "^magit: "
           help-mode
           compilation-mode))
   (popper-mode +1))

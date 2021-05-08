@@ -60,7 +60,8 @@
         nrepl-hide-special-buffers t
         cider-repl-buffer-size-limit 100000
         cider-overlays-use-font-lock t
-        cider-dynamic-indentation nil)
+        cider-dynamic-indentation nil
+        cider-format-code-options '(("indents" ((".*" (("inner" 0)))))))
   (cider-repl-toggle-pretty-printing))
 
 
