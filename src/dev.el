@@ -43,6 +43,14 @@
             (local-set-key (kbd "C-o") 'magit-open-repo)))
 
 
+;;
+;; Browse selected file or lines on github.
+;;
+(use-package browse-at-remote
+  :init
+  (global-set-key (kbd "C-c C-w") 'browse-at-remote)
+  (global-set-key (kbd "C-c C-S-w")   'browse-at-remote-kill))
+
 
 ;; for org knowledge base
 (use-package git-auto-commit-mode)
