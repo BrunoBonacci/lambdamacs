@@ -21,10 +21,21 @@
         :height lambdamacs/default-font-size)
 
 
+;;
+;; Change font size utility function (globally, all windows)
+;;
+(defun set-global-font-size (font-size)
+  "Change font size utility function (globally, all windows)"
+  (interactive
+   (list (read-number "Font size: " (/ lambdamacs/default-font-size 10))))
+  (set-face-attribute 'default nil :height (* font-size 10)))
+
+
 ;; modeline indicators
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
+
 
 ;;
 ;; better modeline
