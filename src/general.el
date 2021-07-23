@@ -433,19 +433,19 @@
 ;;
 ;; TODO: check/setup shakle: https://depp.brause.cc/shackle/
 ;;
-(use-package popper
-  :ensure t
-  :bind (("C-`"   . popper-toggle-latest)
-         ("M-`"   . popper-cycle)
-         ("C-M-`" . popper-toggle-type))
-  :init
-  (setq popper-reference-buffers
-        '("\\*Messages\\*"
-          "\\*helm-ag\\*"
-          "Output\\*$"
-          help-mode
-          compilation-mode))
-  (popper-mode +1))
+;;(use-package popper
+;;  :ensure t
+;;  :bind (("C-`"   . popper-toggle-latest)
+;;         ("M-`"   . popper-cycle)
+;;         ("C-M-`" . popper-toggle-type))
+;;  :init
+;;  (setq popper-reference-buffers
+;;        '("\\*Messages\\*"
+;;          "\\*helm-ag\\*"
+;;          "Output\\*$"
+;;          help-mode
+;;          compilation-mode))
+;;  (popper-mode +1))
 
 
 
