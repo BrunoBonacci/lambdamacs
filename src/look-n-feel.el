@@ -24,7 +24,7 @@
 ;;
 ;; Change font size utility function (globally, all windows)
 ;;
-(defun set-global-font-size (font-size)
+(defun lambdamacs/set-global-font-size (font-size)
   "Change font size utility function (globally, all windows)"
   (interactive
    (list (read-number "Font size: " (/ lambdamacs/default-font-size 10))))
@@ -119,13 +119,13 @@
 ;;
 ;; Function to switch between themes
 ;;
-(defun switch-theme-to-default ()
+(defun lambdamacs/switch-theme-to-default ()
   "Switched to the selected default theme. check `lambdamacs/default-theme'."
   (interactive)
   (load-theme lambdamacs/default-theme t))
 
 
-(defun switch-theme-to-alternative ()
+(defun lambdamacs/switch-theme-to-alternative ()
   "Switched to the selected alternative theme, check `lambdamacs/alternative-theme'"
   (interactive)
   (load-theme lambdamacs/alternative-theme t))

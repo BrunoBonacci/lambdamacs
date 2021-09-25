@@ -109,8 +109,8 @@ presentation. Light themes work better with projectors.
 (setq lambdamacs/alternative-theme 'doom-one-light)
 #+end_src
 
-You can switch between themes by typing ~M-x switch-theme-to-alternative~
-and switch back to the default theme with ~M-x switch-theme-to-default~
+You can switch between themes by typing ~M-x lambdamacs/switch-theme-to-alternative~
+and switch back to the default theme with ~M-x lambdamacs/switch-theme-to-default~
 
 ** Structure
 ~(λmacs)~ has the following project structure:

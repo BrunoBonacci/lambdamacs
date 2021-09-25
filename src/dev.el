@@ -76,7 +76,11 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1)
   (setq projectile-completion-system 'ivy)
-  (setq projectile-generic-command "fd . -0 --type f --color=never"))
+  ;; -L allows to follow symlinks
+  (setq projectile-generic-command "fd . -L -0 --type f --color=never")
+  ;; seems the only one working with symlinks
+  ;; (setq projectile-indexing-method 'native)
+  )
 
 
 ;;

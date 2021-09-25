@@ -128,6 +128,20 @@
 (setq org-export-filter-src-block-functions '(rasmus/org-html-wrap-blocks-in-code))
 
 
+;;
+;; Export to Latex PDF
+;;
+;; source: https://emacs.stackexchange.com/questions/20839/exporting-code-blocks-to-pdf-via-latex
+(add-to-list 'org-latex-packages-alist '("cachedir=/tmp/minted" "minted")) ;; syntax highlighing
+(require 'ox-latex)
+(setq org-latex-listings 'minted)
+(setq org-latex-pdf-process
+      ;; importanto to do this 3 times for reference build up and TOC
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(setq org-src-fontify-natively t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
