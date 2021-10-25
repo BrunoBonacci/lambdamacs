@@ -27,7 +27,6 @@
   (add-hook 'clojure-mode-hook #'smartparens-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'clojure-mode-hook #'eldoc-mode)
-  (add-hook 'clojure-mode-hook #'idle-highlight-mode)
   :config
   (setq clojure-indent-style 'always-indent))
 
@@ -87,12 +86,6 @@
     (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
     (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
     (add-hook 'clojure-mode-hook          #'enable-paredit-mode)))
-
-
-
-;;  highlights all occurences in the buffer of the word under the point.
-(load "idle-highlight-mode.el")
-
 
 
 ;; ------------------------------------------------------------
