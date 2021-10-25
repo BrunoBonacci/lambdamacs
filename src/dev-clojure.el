@@ -125,6 +125,10 @@
         lsp-log-io nil))
 
 
+(define-key lsp-mode-map (kbd "s-l h s") 'lsp-ui-doc-show)
+(define-key lsp-mode-map (kbd "s-l h h") 'lsp-ui-doc-hide)
+(define-key lsp-mode-map (kbd "s-l h q") 'lsp-signature-activate)
+
 
 (use-package lsp-ivy      :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-error-list)
