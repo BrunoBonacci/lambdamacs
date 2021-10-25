@@ -40,6 +40,14 @@
       (switch-to-buffer-other-window old-buf))))
 
 
+(defun lambdamacs/cider-eval-last-sexp-in-repl ()
+  (interactive)
+  (save-excursion
+    (save-window-excursion
+      (setq current-prefix-arg '(4)) ; C-u
+      (call-interactively 'cider-insert-last-sexp-in-repl))))
+
+
 (use-package cider
   :ensure t
   :defer t
@@ -47,12 +55,15 @@
   :diminish subword-mode
   :bind (:map cider-mode-map
               ("C-c r" . cider-open-result-window)
-              ("C-c j" . counsel-imenu))
+              ("C-c j" . counsel-imenu)
+              ("M-;"   . cider-eval-last-sexp-to-repl)
+              ("M-:"   . lambdamacs/cider-eval-last-sexp-in-repl))
   :config
   (setq nrepl-log-messages t
         cider-repl-display-in-current-window nil
         cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-clojure-font-lock t
+        cider-repl-use-content-types t
         cider-save-file-on-load t
         cider-prompt-for-symbol nil
         cider-font-lock-dynamically '(macro core function var)
@@ -415,7 +426,7 @@ This is used by pretty-printing commands."
     (clean-clojure-indent)
     (let* ((pos     (point))
            (content (replace-regexp-in-string
-                     ")\\s-*\n+\\((def[^ ]*\\|(comment\\|(facts?\\|;\\)"
+                     ")\\s-*\n+\\((def[^ ]*\\|(comment\\|(facts?\\|(repl-test\\|;\\)"
                      ")\n\n\n\n\\1"
                      (buffer-string))))
       (erase-buffer)
