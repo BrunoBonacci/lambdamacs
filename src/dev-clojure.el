@@ -64,14 +64,68 @@
   (cider-repl-toggle-pretty-printing))
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ----==| C L O J U R E   L S P |==----                    ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package lsp-mode
+  :hook ((clojure-mode . lsp)
+         (clojurec-mode . lsp)
+         (clojurescript-mode . lsp))
+  :config
+  (setq                                 ; recommended
+   gc-cons-threshold (* 1024 1024 1024)
+   read-process-output-max (* 1024 1024))
+
+  (setq                                 ; features
+   lsp-lens-enable t
+   lsp-lens-place-position 'end-of-line
+   lsp-semantic-tokens-enable t)
+
+  (setq                                 ; conflicting
+   cljr-add-ns-to-blank-clj-files nil
+   cider-eldoc-display-for-symbol-at-point nil)
+
+  (dolist (m '(clojure-mode
+               clojurec-mode
+               clojurescript-mode
+               clojurex-mode))
+    (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
+
+
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-doc-enable   nil
+        ;; lsp-ui-doc-delay    0.2
+        lsp-ui-doc-position 'at-point
+        lsp-ui-doc-include-signature t
+
+        lsp-ui-peek-enable t
+
+        lsp-ui-sideline-show-code-actions nil
+
+        ;; Optimization for large files
+        lsp-file-watch-threshold 10000
+        lsp-log-io nil))
+
+
+
+(use-package lsp-ivy      :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-error-list)
+
 (use-package cider-eval-sexp-fu
   :defer t)
 
-(use-package clj-refactor
-  :defer t
-  :ensure t
-  :diminish clj-refactor-mode
-  :config (cljr-add-keybindings-with-prefix "C-c C-r"))
+;;(use-package clj-refactor
+;;  :defer t
+;;  :ensure t
+;;  :diminish clj-refactor-mode
+;;  :config (cljr-add-keybindings-with-prefix "C-c C-r"))
 
 
 
