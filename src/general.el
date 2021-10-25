@@ -377,9 +377,10 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package paradox
-  :config
-  (paradox-enable))
+;; broken due to: https://github.com/Malabarba/paradox/issues/185
+;;(use-package paradox
+;;  :config
+;;  (paradox-enable))
 
 
 
