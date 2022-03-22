@@ -193,6 +193,7 @@
 
 (use-package ob-http)
 (use-package ob-restclient)
+(use-package ob-mermaid)
 
 ;; which languages you can run
 (org-babel-do-load-languages
@@ -202,6 +203,7 @@
     (shell . t)
     (clojure . t)
     (dot . t)
+    (mermaid . t)
     (http . t)
     (restclient . t)
     (latex . t)))
