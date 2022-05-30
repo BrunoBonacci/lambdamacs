@@ -171,17 +171,17 @@
       '(("t" "Generic TODO item (scheduled)"
          entry
          (file org-default-notes-file)
-         "* TODO (%^{SIZE[0-9]}) %? %^g\n  SCHEDULED: %^t\n  %i")
+         "* TODO (%^{SIZE[0-9]|0}) %? %^g\n  SCHEDULED: %^t\n  %i")
 
         ("d" "Deadline)"
          entry
          (file org-default-notes-file)
-         "* TODO (%^{SIZE[0-9]}) %? %^g\n  DEADLINE: %^t\n  %i")
+         "* TODO (%^{SIZE[0-9]}|0) %? %^g\n  DEADLINE: %^t\n  %i")
 
         ("l" "Linked TODO item"
          entry
          (file org-default-notes-file)
-         "* TODO (%^{SIZE[0-9]}) %? %^g\n  SCHEDULED: %^t\n  %i\n  %a")))
+         "* TODO (%^{SIZE[0-9]}|0) %? %^g\n  SCHEDULED: %^t\n  %i\n  %a")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

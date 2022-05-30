@@ -36,7 +36,7 @@
   (interactive)
   (let (old-buf (current-buffer))
     (when (get-buffer "*cider-result*")
-      (pop-to-buffer "*cider-result*" nil nil)
+      (pop-to-buffer "*cider-result*")
       (switch-to-buffer-other-window old-buf))))
 
 
@@ -60,6 +60,7 @@
               ("M-:"   . lambdamacs/cider-eval-last-sexp-in-repl))
   :config
   (setq nrepl-log-messages t
+        nrepl-hide-special-buffers t
         cider-repl-display-in-current-window nil
         cider-repl-pop-to-buffer-on-connect nil
         cider-repl-use-clojure-font-lock t
@@ -67,12 +68,15 @@
         cider-save-file-on-load t
         cider-prompt-for-symbol nil
         cider-font-lock-dynamically '(macro core function var)
-        nrepl-hide-special-buffers t
         cider-repl-buffer-size-limit 100000
         cider-overlays-use-font-lock t
         cider-dynamic-indentation nil
-        cider-format-code-options '(("indents" ((".*" (("inner" 0)))))))
+        cider-result-use-clojure-font-lock t
+        cider-overlays-use-font-lock nil
+        ;;cider-format-code-options '(("indents" ((".*" (("inner" 0))))))
+        )
   (cider-repl-toggle-pretty-printing))
+
 
 
 
@@ -92,13 +96,19 @@
    read-process-output-max (* 1024 1024))
 
   (setq                                 ; features
-   lsp-lens-enable t
+   lsp-lens-enable nil
    lsp-lens-place-position 'end-of-line
-   lsp-semantic-tokens-enable t)
+   lsp-enable-indentation nil ;; use cider one
+   lsp-semantic-tokens-enable t
+   lsp-headerline-breadcrumb-enable nil
+   lsp-signature-auto-activate '(:on-trigger-char :after-completion :on-server-request)
+   ;;lsp-completion-provider
+   )
 
   (setq                                 ; conflicting
    cljr-add-ns-to-blank-clj-files nil
-   cider-eldoc-display-for-symbol-at-point nil)
+   cider-eldoc-display-for-symbol-at-point nil
+   lsp-enable-indentation nil)
 
   (dolist (m '(clojure-mode
                clojurec-mode
@@ -108,6 +118,8 @@
 
 
 
+;; toggle individual features
+;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
 (use-package lsp-ui
   :commands lsp-ui-mode
   :config
@@ -115,6 +127,9 @@
         ;; lsp-ui-doc-delay    0.2
         lsp-ui-doc-position 'at-point
         lsp-ui-doc-include-signature t
+
+        lsp-ui-doc-show-with-cursor nil ;; not sure
+        lsp-ui-doc-show-with-mouse  nil ;; not sure
 
         lsp-ui-peek-enable t
 
@@ -398,9 +413,9 @@ This is used by pretty-printing commands."
    (lambda (buffer value)
      (cider-emit-into-popup-buffer buffer (ansi-color-apply value) nil t))
    (lambda (buffer out)
-     (cider-emit-into-popup-buffer buffer (ansi-color-apply (concat "\n" out)) nil t))
+     (cider-emit-into-popup-buffer buffer (ansi-color-apply out) nil t))
    (lambda (buffer err)
-     (cider-emit-into-popup-buffer buffer (ansi-color-apply (concat "\n" err)) nil t))
+     (cider-emit-into-popup-buffer buffer (ansi-color-apply err) nil t))
    nil
    nil
    nil

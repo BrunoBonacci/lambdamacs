@@ -36,6 +36,7 @@
 ;;
 ;; reload buffers from disk
 (global-auto-revert-mode t)
+(setq revert-without-query '(".*"))
 
 
 ;;

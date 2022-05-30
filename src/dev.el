@@ -80,6 +80,9 @@
   (setq projectile-generic-command "fd . -L -0 --type f --color=never")
   ;; seems the only one working with symlinks
   ;; (setq projectile-indexing-method 'native)
+
+  (setq projectile-git-command projectile-generic-command)
+  ;;(setq projectile-git-command "git ls-files -zco --exclude-standard")
   )
 
 

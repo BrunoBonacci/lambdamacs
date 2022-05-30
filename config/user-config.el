@@ -7,7 +7,9 @@
 ;;       user-mail-address "your-email@email.org")
 
 ;; system-wide font size
-(setq lambdamacs/default-font "Roboto Mono Thin for Powerline") ;;"Fira Code Retina"
+(setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
+;;(setq lambdamacs/default-font "Victor Mono")
+;;(setq lambdamacs/default-font "Fira Code")
 (setq lambdamacs/default-font-size 150)
 
 ;; themes to use
@@ -36,7 +38,7 @@
 ;; are times this is not convenient, like when working on someone else
 ;; code. To disable the code-reformat set the following variable to
 ;; `nil' You can toggle the value with `M-x cljfmt-toggle-reformat`.
-(setq lambdamacs/cljfmt-reformat-on-save t)
+(setq lambdamacs/cljfmt-reformat-on-save nil)
 
 
 ;; base directory where all the JDK versions are installed
