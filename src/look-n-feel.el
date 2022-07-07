@@ -80,7 +80,7 @@
   :config
   (setq show-paren-delay 0)
   (set-face-background 'show-paren-match nil)
-  (set-face-foreground 'show-paren-match "firebrick1")
+  (set-face-foreground 'show-paren-match "yellow")
   (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
   (add-hook 'clojure-mode-hook #'show-paren-mode)
   (add-hook 'emacs-lisp-mode-hook #'show-paren-mode))

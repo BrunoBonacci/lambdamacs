@@ -64,7 +64,7 @@ git clone https://github.com/BrunoBonacci/lambdamacs.git ~/.emacs.d
 Some platform tools are used to enhance the user experience and to
 support some features.
 #+begin_src sh
-brew install the_silver_searcher aspell
+brew install the_silver_searcher aspell fd
 #+end_src
 
 - That's all, start hacking!
