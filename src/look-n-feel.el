@@ -12,6 +12,12 @@
 (set-fringe-mode 10)        ; Give some breathing room
 (menu-bar-mode -1)          ; Disable the menu bar
 
+;; remove gaps between windows
+(if (<= emacs-major-version 28)
+    (setq frame-resize-pixelwise t)
+  ;; from emacs 29
+  (add-to-list 'default-frame-alist '(undecorated . t)))
+
 ;; disable visible bell
 (setq visible-bell nil)
 
