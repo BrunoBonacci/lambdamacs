@@ -73,6 +73,8 @@
         cider-dynamic-indentation nil
         cider-result-use-clojure-font-lock t
         cider-overlays-use-font-lock nil
+        ;; disable Omit stack traces
+        cider-clojure-cli-global-options "-J-XX:-OmitStackTraceInFastThrow"
         ;;cider-format-code-options '(("indents" ((".*" (("inner" 0))))))
         )
   (cider-repl-toggle-pretty-printing))
@@ -139,10 +141,12 @@
         lsp-file-watch-threshold 10000
         lsp-log-io nil))
 
+(require 'lsp-mode)
+(define-key lsp-mode-map (kbd "s-l h s") '("Show DOC" . lsp-ui-doc-show)) ;;  NOT FULLY WORKING
+(define-key lsp-mode-map (kbd "s-l h h") '("Hide DOC" . lsp-ui-doc-hide))
+(define-key lsp-mode-map (kbd "s-l h p") '("Show DOC in buffer" . lsp-describe-thing-at-point))
+(define-key lsp-mode-map (kbd "s-l h q") '("Show Signature" . lsp-signature-activate))
 
-(define-key lsp-mode-map (kbd "s-l h s") 'lsp-ui-doc-show)
-(define-key lsp-mode-map (kbd "s-l h h") 'lsp-ui-doc-hide)
-(define-key lsp-mode-map (kbd "s-l h q") 'lsp-signature-activate)
 
 
 (use-package lsp-ivy      :commands lsp-ivy-workspace-symbol)

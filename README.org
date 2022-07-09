@@ -42,13 +42,18 @@ tooling support feel free to use my configuration.
 ** Installation
 
 - Download and install [[https://emacsformacosx.com/][Emacs For Mac OS X]] if you don't have it yet!
+
 Alternatively you can install it via:
 #+begin_src sh
 sudo mkdir /usr/local/Frameworks
 sudo chown $(whoami):admin /usr/local/Frameworks
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@27 --with-no-frame-refocus --with-modern-icon --with-xwidgets
+brew install emacs-plus@28 --with-no-frame-refocus --with-xwidgets --with-no-titlebar --with-imagemagick --with-native-comp --with-elrumo2-icon
 #+end_src
+
+You can check [[https://github.com/d12frosted/homebrew-emacs-plus][github://d12frosted/homebrew-emacs-plus]] what each option does.
+
+NOTE: /you can choose your icon here and replace the last argument with the one you want/
 
 - Backup your previous installation:
 #+begin_src sh
