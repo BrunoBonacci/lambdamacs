@@ -135,3 +135,12 @@
   "Switched to the selected alternative theme, check `lambdamacs/alternative-theme'"
   (interactive)
   (load-theme lambdamacs/alternative-theme t))
+
+
+
+;;
+;; Window and layout management
+;;
+(winner-mode 1)
+(global-set-key (kbd "<s-right>") 'winner-redo)
+(global-set-key (kbd "<s-left>") 'winner-undo)

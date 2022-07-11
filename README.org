@@ -171,7 +171,7 @@ and switch back to the default theme with ~M-x lambdamacs/switch-theme-to-defaul
 
 - TODO:
 - [ ] wsd
-- [ ] winner-mode / workgroups / persp-mode / toggle-zoom ??
+- [ ] workgroups / persp-mode / toggle-zoom ??
 - [ ] code rtf pygments
 - [ ] repl image hack
 
@@ -212,6 +212,8 @@ Here the keybindings added/defined by ~(λmacs)~:
 | editor         | ~s-w~ + char       | Jumps to the window selected with the given char          | ~avy~              |
 | editor         | ~C-c C-w~          | Opens the selected file in Github                         | ~browse-at-remote~ |
 | editor         | ~C-c C-S-w~        | Copy the link of the selected file in Github in kill-ring | ~browse-at-remote~ |
+| editor         | ~⌘-←~              | Restore previous window layout                            | ~winner~           |
+| editor         | ~⌘-→~              | Redo previous window layout                               | ~winner~           |
 | bookmarks      | ~s-1~              | Toggle bookmark                                           | ~bm~               |
 | bookmarks      | ~s-2~              | Cycle previous bookmarks                                  | ~bm~               |
 | bookmarks      | ~s-3~              | Cycle next bookmarks                                      | ~bm~               |
