@@ -226,6 +226,7 @@ Here the keybindings added/defined by ~(λmacs)~:
 | files/buffers  | ~C-u C-x 0~        | Closes a locked window (via ~C-x 9~)                      | ~sticky-windows~   |
 | files/buffers  | ~C-x t t~          | Open *Treemacs* project tree.                             | ~treemacs~         |
 | files/buffers  | ~M-s-~ + ~← → ↑ ↓~ | Move between windows (same keys as iTerm)                 | ~(λmacs)~          |
+| windows        | ~C-S-~ + ~← → ↑ ↓~ | Resize current window using keybindings                   | ~windsize~         |
 | processes      | ~C-x p~            | Open *Prodigy*'s status buffer (start/stop processes)     | ~prodigy~          |
 | project        | ~C-x g~            | Open *Magit* status                                       | ~magit~            |
 | project        | ~C-x M-g~          | Minibuffer popup with *Magit* dispatch functions          | ~magit~            |

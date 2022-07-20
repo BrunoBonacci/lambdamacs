@@ -403,6 +403,14 @@
 
 
 ;;
+;; Intuitive window resizing
+;;
+(use-package windsize
+  :init
+  (windsize-default-keybindings))
+
+
+;;
 ;; Allows to move the windows transposing them
 ;;
 (use-package transpose-frame
