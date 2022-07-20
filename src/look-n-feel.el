@@ -85,11 +85,13 @@
 (use-package paren
   :config
   (setq show-paren-delay 0)
-  (set-face-background 'show-paren-match nil)
-  (set-face-foreground 'show-paren-match "yellow")
-  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
-  (add-hook 'clojure-mode-hook #'show-paren-mode)
-  (add-hook 'emacs-lisp-mode-hook #'show-paren-mode))
+  (set-face-attribute  'show-paren-match nil :weight 'extra-bold)
+  (set-face-background 'show-paren-match "DeepSkyBlue3")
+  (set-face-foreground 'show-paren-match "white")
+  (show-paren-mode +1)
+  ;;(add-hook 'clojure-mode-hook #'show-paren-mode)
+  ;;(add-hook 'emacs-lisp-mode-hook #'show-paren-mode)
+  )
 
 
 

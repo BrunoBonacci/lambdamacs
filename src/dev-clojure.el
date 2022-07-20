@@ -12,7 +12,7 @@
     (setq sp-autoskip-closing-pair 'always)
     (setq sp-hybrid-kill-entire-symbol nil)
     (sp-use-paredit-bindings)
-    (show-smartparens-global-mode t)))
+    (show-smartparens-global-mode 0)))
 
 
 
