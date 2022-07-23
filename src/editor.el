@@ -149,6 +149,12 @@
          ("C-c t" . crux-visit-term-buffer)
          ("s-r"   . crux-recentf-find-file)))
 
+
+;; enable paste with Cmd-v
+(eval-after-load "term"
+  '(define-key term-raw-map (kbd "s-v") 'term-paste))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                     ----==| U N D O - T R E E |==----                      ;;
