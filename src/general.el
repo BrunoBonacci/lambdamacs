@@ -83,6 +83,19 @@
 
 
 ;;
+;; super-save seems to have some problem recently
+;; so implementing this hack
+;;
+(defun lambdamacs/save-all-modified-buffers ()
+  (interactive)
+  (setq current-prefix-arg '(4)) ; C-u
+  (call-interactively 'save-some-buffers))
+
+;; replace the standard save-buffer with save all
+(global-set-key (kbd "C-x C-s") 'lambdamacs/save-all-modified-buffers)
+
+
+;;
 ;; Fixing PATH and env var issues
 ;;
 (use-package exec-path-from-shell
