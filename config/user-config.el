@@ -44,3 +44,173 @@
 ;; base directory where all the JDK versions are installed
 ;; use `M-x switch-java' to select the JVM to use
 (setq JAVA_BASE "/Library/Java/JavaVirtualMachines")
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;             ----==| W I N D O W   M A N A G E M E N T |==----              ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'dash)
+
+
+(defun as-regexp (string-list)
+  (->> string-list
+       (-map (lambda (s) (replace-regexp-in-string "\\*" "\\\\*" s)))
+       (-map (lambda (s) (replace-regexp-in-string "\\?" "\\\\?" s)))
+       (-map (lambda (s) (replace-regexp-in-string "\\[" "\\\\[" s)))
+       (-map (lambda (s) (replace-regexp-in-string "\\]" "\\\\]" s)))
+       ((lambda (it) (mapconcat 'identity it "\\|")))
+       ((lambda (it) (concat "\\(" it "\\)")))))
+
+
+
+(defun lambdamacs/win-reset ()
+  (interactive)
+  (setq display-buffer-alist nil))
+
+
+
+;; test with
+;;; (string-match (as-regexp '("magit-diff:")) "magit-diff: foo.clj")
+
+
+(defun lambdamacs/win-dev-mode-large ()
+  (interactive)
+
+  (setq display-buffer-alist
+        `((,(as-regexp '("cider-clojuredocs" "cider-doc" "cider-error"
+                          "Warnings" "Help" "help" "*scratch*" "Backtrace"
+                          "magit:" "ansi-term" "info" "Kill Ring" "sesman CIDER"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . right)
+            (slot . -1))
+
+          (,(as-regexp '("magit-diff:"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . right)
+            (slot . 1))
+
+
+          (,(as-regexp '("cider-result"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . left)
+            (slot . -1))
+
+          (,(as-regexp '("cider-macroexpansion"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . left)
+            (slot . 0))
+
+          ( ,(as-regexp '("cider-repl"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . left)
+            (slot . 1)))))
+
+
+
+(defun lambdamacs/win-dev-mode-large2 ()
+  (interactive)
+
+  (setq display-buffer-alist
+        `(;; cider repl, results and macroexpand
+          (,(as-regexp '("cider-result"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . left)
+            (slot . -1))
+
+          (,(as-regexp '("cider-macroexpansion"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . left)
+            (slot . 0))
+
+          (,(as-regexp '("cider-repl"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . left)
+            (slot . 1))
+
+          ;; dev modes as central windows
+          ((mode . (cider-mode
+                    clojure-mode
+                    lisp-mode
+                    emacs-lisp-mode
+                    java-mode
+                    javascript-mode
+                    c-mode
+                    prog-mode))
+           (display-buffer-reuse-window)
+           (window-width . 0.20)
+           (preserve-size . (t . nil))
+           (side . left)
+           (slot . -1))
+
+          ;; if this the previous doesn't work,
+          ;;; try this
+          (,(as-regexp '("\\.clj"  "\\.cljc" "\\.cljs" "\\.edn"
+                         "\\.java" "\\.js"   "\\.json" "\\.org"
+                         "\\.xml"  "\\.el"))
+           (display-buffer-reuse-window)
+           (window-width . 0.20)
+           (preserve-size . (t . nil))
+           (side . left)
+           (slot . -1))
+
+          ;; help & doc in side windows
+          ;; without switching
+          ((mode . (helpful-mode help-mode))
+           (display-buffer-in-side-window)
+           (inhibit-switch-frame . t)
+           (window-width . 0.20)
+           (preserve-size . (t . nil))
+           (side . right)
+           (slot . -1))
+
+          (,(as-regexp '("cider-clojuredocs" "cider-doc" "cider-error"))
+           (display-buffer-in-side-window)
+           (inhibit-switch-frame . t)
+           (window-width . 0.20)
+           (preserve-size . (t . nil))
+           (side . right)
+           (slot . -1))
+
+          ;; so that it won't overlap with the commit msg
+          (,(as-regexp '("magit-diff:"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . right)
+            (slot . 1))
+
+          ;; everything else on the right side
+          ;; out of my way
+          (".*"
+           (display-buffer-in-side-window)
+           (window-width . 0.20)
+           (preserve-size . (t . nil))
+           (side . right)
+           (slot . -1))
+          )))
+
+
+
+
+;;; end user-config.el
