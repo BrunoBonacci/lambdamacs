@@ -574,6 +574,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'dash)
+(require 'proced)
 (push '(simple  pid pcpu pmem rss state thcount comm args) proced-format-alist)
 (push '(java-all (comm . "java")) proced-filter-alist)
 (push '(java-no-lein (args . "java -classpath")) proced-filter-alist)

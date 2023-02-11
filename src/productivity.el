@@ -171,6 +171,11 @@
       '(("t" "Generic TODO item (scheduled)"
          entry
          (file org-default-notes-file)
+         "* TODO %? \n  SCHEDULED: %^t\n")
+
+        ("T" "Generic TODO item (scheduled)"
+         entry
+         (file org-default-notes-file)
          "* TODO (%^{SIZE[0-9]|0}) %? %^g\n  SCHEDULED: %^t\n  %i")
 
         ("d" "Deadline)"

@@ -188,4 +188,7 @@
   (global-set-key (kbd "s-w") 'ace-window))
 
 
+;; unbing goto-line
+(global-unset-key (kbd "s-l"))
+
 ;;; editor.el ends here
