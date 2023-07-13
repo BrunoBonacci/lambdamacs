@@ -20,3 +20,5 @@
 /elpa/
 /.trello/
 .yas-compiled-snippets.el
+/eln-cache/
+/bookmarks
