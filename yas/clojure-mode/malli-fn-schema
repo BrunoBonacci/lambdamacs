@@ -1,0 +1,12 @@
+# name: malli-function-schema
+# key: mfn
+# --
+(m/=> ${1:function-name}
+  [:=>
+    ;; input arguments
+    [:catn
+        $0[:arg1 [:map-of :any :any]] ;; arg1
+        [:arg2 :any]                ;; arg2
+        [:arg3 :any]]               ;; arg3
+    ;; returned value
+   :any])

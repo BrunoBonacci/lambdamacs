@@ -1,0 +1,11 @@
+#name: mulog-stop
+# --
+(comment
+
+  (require '[com.brunobonacci.mulog.core :as ucore])
+  ;; list registered publishers
+  (ucore/registered-publishers)
+  ;; STOP LAST publisher
+  (ucore/stop-publisher! (->> (ucore/registered-publishers) last :id))
+
+  )

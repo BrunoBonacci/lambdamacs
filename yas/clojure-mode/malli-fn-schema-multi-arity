@@ -1,0 +1,20 @@
+# name: malli-function-schema-multi-arity
+# key: mfnx
+# --
+(m/=> ${1:function-name}
+  [:function
+    ;; artiy 1
+    [:=> [:cat $0[:arg1 [:map-of :any :any]]] ;; arg1
+      ;; returned value
+     :any]
+
+    ;; artiy 3
+    [:=>
+      ;; input arguments
+      [:catn
+          [:arg1 [:map-of :any :any]] ;; arg1
+          [:arg2 :any]                ;; arg2
+          [:arg3 :any]]               ;; arg3
+      ;; returned value
+     :any]
+     ])

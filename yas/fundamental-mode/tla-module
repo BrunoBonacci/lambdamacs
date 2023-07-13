@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: tla-module
+# key: #tla
+# --
+\* -*- compile-command: "../../../bin/tlaplus compile ${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}.tla"; default-directory: "."; -*-
+\* run M-x normal-mode to apply changes compilation configuration
+
+--------------------------------- MODULE $1 ----------------------------------
+
+EXTENDS Integers, Sequences, TLC, FiniteSets
+
+(* ------------------------------------------------------------
+--algorithm $1
+
+variables
+    foo = 1;
+
+begin
+
+   $0skip;
+
+end algorithm;
+
+------------------------------------------------------------ *)
+================================================================================

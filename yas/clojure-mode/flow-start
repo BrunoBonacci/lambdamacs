@@ -1,0 +1,5 @@
+#name: flow-start
+# --
+(do
+  (require '[flow-storm.api])
+  (flow-storm.api/local-connect))

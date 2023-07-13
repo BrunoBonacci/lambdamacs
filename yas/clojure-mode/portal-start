@@ -1,0 +1,6 @@
+#name: portal-start
+# --
+(do
+  (require '[portal.api :as p]
+           '[repl])
+  (intern 'repl 'p  (p/open)))
