@@ -148,9 +148,7 @@
 (define-key lsp-mode-map (kbd "s-l h q") '("Show Signature" . lsp-signature-activate))
 
 
-
 (use-package lsp-ivy      :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-error-list)
 
 (use-package cider-eval-sexp-fu
   :defer t)

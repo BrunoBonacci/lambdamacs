@@ -161,7 +161,6 @@ and switch back to the default theme with ~M-x lambdamacs/switch-theme-to-defaul
  | ~restclient~           | Turn simple text buffer into HTTP REST calls                        |
  | ~sticky-windows~       | Stick windows in place (no auto close)                              |
  | ~switch-java~          | Enables to select the JVM version while inside emacs                |
- | ~treemacs~             | Project tree navigation                                             |
  | ~undo-tree~            | Powerful multi-state undo                                           |
  | ~wgrep~                | Editable search buffers                                             |
  | ~witespace~            | To clean trailing whitespaces in the code                           |
@@ -225,7 +224,6 @@ Here the keybindings added/defined by ~(λmacs)~:
 | files/buffers  | ~C-c t~            | Open a shell terminal                                     | ~crux~             |
 | files/buffers  | ~s-r~              | Open a recently opened file                               | ~crux~             |
 | files/buffers  | ~C-u C-x 0~        | Closes a locked window (via ~C-x 9~)                      | ~sticky-windows~   |
-| files/buffers  | ~C-x t t~          | Open *Treemacs* project tree.                             | ~treemacs~         |
 | files/buffers  | ~M-s-~ + ~← → ↑ ↓~ | Move between windows (same keys as iTerm)                 | ~(λmacs)~          |
 | windows        | ~C-S-~ + ~← → ↑ ↓~ | Resize current window using keybindings                   | ~windsize~         |
 | processes      | ~C-x p~            | Open *Prodigy*'s status buffer (start/stop processes)     | ~prodigy~          |
