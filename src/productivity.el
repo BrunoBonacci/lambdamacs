@@ -333,6 +333,7 @@
 (use-package carbon-now-sh
   :ensure t)
 
+(define-key global-map (kbd "M-s-c") 'carbon-now-sh)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

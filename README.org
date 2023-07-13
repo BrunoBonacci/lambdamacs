@@ -214,6 +214,7 @@ Here the keybindings added/defined by ~(λmacs)~:
 | editor         | ~C-c C-S-w~        | Copy the link of the selected file in Github in kill-ring | ~browse-at-remote~ |
 | editor         | ~⌘-←~              | Restore previous window layout                            | ~winner~           |
 | editor         | ~⌘-→~              | Redo previous window layout                               | ~winner~           |
+| editor         | ~M-s-c~            | Calls carbon-now-sh and generate an image with your code  | ~carbon-now-sh~    |
 | bookmarks      | ~s-1~              | Toggle bookmark                                           | ~bm~               |
 | bookmarks      | ~s-2~              | Cycle previous bookmarks                                  | ~bm~               |
 | bookmarks      | ~s-3~              | Cycle next bookmarks                                      | ~bm~               |
