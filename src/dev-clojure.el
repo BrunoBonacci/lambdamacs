@@ -76,6 +76,8 @@
         ;; disable Omit stack traces
         cider-clojure-cli-global-options "-J-XX:-OmitStackTraceInFastThrow"
         ;;cider-format-code-options '(("indents" ((".*" (("inner" 0))))))
+        cider-show-error-buffer t
+        cider-auto-select-error-buffer nil
         )
   (cider-repl-toggle-pretty-printing))
 
@@ -446,10 +448,14 @@ This is used by pretty-printing commands."
   (save-restriction
     (clean-clojure-indent)
     (let* ((pos     (point))
-           (content (replace-regexp-in-string
-                     ")\\s-*\n+\\((def[^ ]*\\|(comment\\|(facts?\\|(repl-test\\|;\\)"
-                     ")\n\n\n\n\\1"
-                     (buffer-string))))
+           (content
+            (replace-regexp-in-string
+             ")\\s-*\n+\\((def[^ ]*\\|(comment\\|(facts?\\|(repl-test\\|;\\)"
+             ")\n\n\n\n\\1"
+             (replace-regexp-in-string
+              "\\(;.*)\\)\n"
+              "\\1,\n"
+              (buffer-string)))))
       (erase-buffer)
       (insert content)
       (goto-char pos))))
