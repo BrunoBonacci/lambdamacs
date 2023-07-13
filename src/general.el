@@ -14,12 +14,6 @@
 ;; warn when opening files bigger than 50MB
 (setq large-file-warning-threshold 50000000)
 
-;; expand to full screeen
-(when (member initial-window-system '(x w32 ns))
-  (toggle-frame-maximized)
-  ;;(toggle-frame-fullscreen)
-  )
-
 ;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 

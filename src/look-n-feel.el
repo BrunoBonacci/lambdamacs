@@ -12,11 +12,25 @@
 (set-fringe-mode 10)        ; Give some breathing room
 (menu-bar-mode -1)          ; Disable the menu bar
 
-;; remove gaps between windows
+;; remove gaps between windows & titlebar
 (if (<= emacs-major-version 28)
     (setq frame-resize-pixelwise t)
   ;; from emacs 29
-  (add-to-list 'default-frame-alist '(undecorated . t)))
+  (setq default-frame-alist
+        (append
+         '((undecorated . t)
+           (drag-internal-border . t)
+           (internal-border-width . 15))
+         default-frame-alist)))
+
+(setq initial-frame-alist default-frame-alist)
+
+;; expand to full screeen
+(when (member initial-window-system '(x w32 ns))
+  (toggle-frame-maximized)
+  ;;(toggle-frame-fullscreen)
+  )
+
 
 ;; disable visible bell
 (setq visible-bell nil)
