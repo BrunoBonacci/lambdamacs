@@ -82,7 +82,7 @@
   (interactive)
 
   (setq display-buffer-alist
-        `((,(as-regexp '("cider-clojuredocs" "cider-doc" "cider-error"
+        `((,(as-regexp '("cider-clojuredocs" "cider-doc"
                           "Warnings" "Help" "help" "*scratch*" "Backtrace"
                           "magit:" "ansi-term" "info" "Kill Ring" "sesman CIDER"))
             (display-buffer-in-side-window)
@@ -107,6 +107,13 @@
             (slot . -1))
 
           (,(as-regexp '("cider-macroexpansion"))
+            (display-buffer-in-side-window)
+            (window-width . 0.20)
+            (preserve-size . (t . nil))
+            (side . left)
+            (slot . 0))
+
+          (,(as-regexp '("cider-error"))
             (display-buffer-in-side-window)
             (window-width . 0.20)
             (preserve-size . (t . nil))
