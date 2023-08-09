@@ -20,7 +20,4 @@
   (setq lsp-completion-enable-additional-text-edit nil))
 (use-package hydra)
 (use-package lsp-ui)
-(use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
-(use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
-(use-package dap-java :ensure nil)
-(use-package lsp-treemacs)
+;;(use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
