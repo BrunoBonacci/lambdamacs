@@ -162,6 +162,19 @@
 ;;  :config (cljr-add-keybindings-with-prefix "C-c C-r"))
 
 
+(use-package clj-decompiler
+  :init
+  (progn
+    (add-hook 'cider-mode-hook
+              (lambda ()
+                (eval-after-load 'cider
+                  '(progn
+                     (require 'clj-decompiler)
+                     (clj-decompiler-setup)))))))
+
+
+(define-key cider-mode-map (kbd "C-c C-{") #'clj-decompiler-decompile)
+
 
 (use-package paredit
   :ensure t  ;; if you need it

@@ -194,6 +194,7 @@ Here the keybindings added/defined by ~(λmacs)~:
 | ~clojure-mode~ | ~M-SPC~            | Removes all the blanks between two forms except one       | ~(λmacs)~          |
 | ~clojure-mode~ | ~s-b~              | Adds a nice comment box with current line.                | ~(λmacs)~          |
 | ~clojure-mode~ | ~C-c C-r~          | Prefix for Clojure refactoring functions                  | ~clj-refactor~     |
+| ~cider-mode~   | ~C-c C-{~          | Decompiles the previous form (into Java code)             | ~clj-decompiler~   |
 | editor         | ~M-y~              | Browse the content of the ~kill-ring~                     | ~browse-kill-ring~ |
 | editor         | ~C-a~              | Smart beginning of the line (non blank)                   | ~crux~             |
 | editor         | ~⌘-c~              | Copy selected region (like macOS - more natural)          | ~cua-mode~         |
