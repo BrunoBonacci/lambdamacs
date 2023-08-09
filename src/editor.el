@@ -63,13 +63,16 @@
 ;;
 ;; Creates multiple cursors in the buffer and allows to edit content
 ;; in different places at the same time.
-;;
+;; to insert a new-line in multiple cursors use C-j C-i C-n
 (use-package multiple-cursors
   :bind
   (("C-M-s-. C-M-s-." . mc/edit-lines)
-   ("C->" . mc/mark-next-like-this)
-   ("C-<" . mc/mark-previous-like-this)
-   ("C-c C-<" . mc/mark-all-like-this)))
+   ("C->" .      mc/mark-next-like-this)
+   ("C-<" .      mc/mark-previous-like-this)
+   ("C-M->" .    mc/skip-to-next-like-this)
+   ("C-M-<" .    mc/skip-to-previous-like-this)
+   ("C-c C-<" .  mc/mark-all-like-this)
+   ("C-M-@" .    mc/mark-all-dwim)))
 
 
 ;;
