@@ -211,7 +211,8 @@
     (mermaid . t)
     (http . t)
     (restclient . t)
-    (latex . t)))
+    (latex . t)
+    (mermaid . t)))
 
 ;; don't ask for confirmation
 (setq org-confirm-babel-evaluate nil)
