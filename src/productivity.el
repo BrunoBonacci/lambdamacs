@@ -181,12 +181,12 @@
         ("d" "Deadline)"
          entry
          (file org-default-notes-file)
-         "* TODO (%^{SIZE[0-9]}|0) %? %^g\n  DEADLINE: %^t\n  %i")
+         "* TODO (%^{SIZE[0-9]|0}) %? %^g\n  DEADLINE: %^t\n  %i")
 
         ("l" "Linked TODO item"
          entry
          (file org-default-notes-file)
-         "* TODO (%^{SIZE[0-9]}|0) %? %^g\n  SCHEDULED: %^t\n  %i\n  %a")))
+         "* TODO (%^{SIZE[0-9]|0}) %? %^g\n  SCHEDULED: %^t\n  %i\n  %a")))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -200,19 +200,20 @@
 (use-package ob-restclient)
 (use-package ob-mermaid)
 
+
 ;; which languages you can run
 (org-babel-do-load-languages
-  'org-babel-load-languages
-  '((emacs-lisp . t)
-    (org . t)
-    (shell . t)
-    (clojure . t)
-    (dot . t)
-    (mermaid . t)
-    (http . t)
-    (restclient . t)
-    (latex . t)
-    (mermaid . t)))
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (org . t)
+   (shell . t)
+   (clojure . t)
+   (dot . t)
+   (mermaid . t)
+   (http . t)
+   (restclient . t)
+   (latex . t)
+   (mermaid . t)))
 
 ;; don't ask for confirmation
 (setq org-confirm-babel-evaluate nil)

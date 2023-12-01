@@ -38,8 +38,15 @@
 ;; set preferref font
 (set-face-attribute 'default nil
         :font   lambdamacs/default-font
+        :weight lambdamacs/default-font-weight
         :height lambdamacs/default-font-size)
 
+
+;;
+;; run this in the *scratch* to see all available fonts
+;;
+;; (dolist (font (x-list-fonts "*"))
+;;   (insert (format "%s\n" font)))
 
 ;;
 ;; Change font size utility function (globally, all windows)
@@ -60,6 +67,13 @@
 ;;
 ;; better modeline
 ;;
+(use-package nerd-icons
+  :custom
+  ;; The Nerd Font you want to use in GUI
+  ;; "Symbols Nerd Font Mono" is the default and is recommended
+  ;; but you can use any other Nerd Font if you want
+  (nerd-icons-font-family "Symbols Nerd Font Mono"))
+
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))

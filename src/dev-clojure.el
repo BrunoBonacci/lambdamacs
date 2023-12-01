@@ -78,6 +78,9 @@
         ;;cider-format-code-options '(("indents" ((".*" (("inner" 0))))))
         cider-show-error-buffer t
         cider-auto-select-error-buffer nil
+        cider-eval-spinner-type 'progress-bar-filled
+        cider-eval-spinner-delay 1
+        cider-show-eval-spinner t
         )
   (cider-repl-toggle-pretty-printing))
 
