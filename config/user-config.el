@@ -7,10 +7,15 @@
 ;;       user-mail-address "your-email@email.org")
 
 ;; system-wide font size
-(setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
+;;(setq lambdamacs/default-font "Roboto Mono Thin for Powerline")
+;;(setq lambdamacs/default-font "RobotoMono Nerd Font Mono")
 ;;(setq lambdamacs/default-font "Victor Mono")
+;;(setq lambdamacs/default-font "VictorMono Nerd Font")
 ;;(setq lambdamacs/default-font "Fira Code")
-(setq lambdamacs/default-font-size 150)
+;;(setq lambdamacs/default-font "FiraMono Nerd Font")
+(setq lambdamacs/default-font "VictorMono Nerd Font")
+(setq lambdamacs/default-font-size 160)
+(setq lambdamacs/default-font-weight 'light)
 
 ;; themes to use
 ;; suggestion: choose a dark and a light one, you will be switch between them
@@ -54,6 +59,7 @@
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-package dash)
 (require 'dash)
 
 
