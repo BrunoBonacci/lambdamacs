@@ -40,10 +40,22 @@
 ;;               ;;(mode 16 16 :left :elide)
 ;;               ;;" "
 ;;               project-relative-file))))
+;;
+;; alternatives
+;; (use-package ibuffer-projectile)
+(use-package ibuffer-vc
+  :init
+  (add-hook 'ibuffer-hook
+            (lambda ()
+              (ibuffer-vc-set-filter-groups-by-vc-root)
+              (unless (eq ibuffer-sorting-mode 'alphabetic)
+                (ibuffer-do-sort-by-alphabetic)))))
 
 ;;
 ;; gpg password in minibuffer
 ;;
+;; works with GnuPG 2.2.41
+;; it doesn't seem to work with GnuPG 2.4.3
 (use-package pinentry
   :ensure t
   :init

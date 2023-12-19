@@ -197,7 +197,7 @@
    yas-verbosity 1                      ; No need to be so verbose
    yas-wrap-around-region t)
 
-  (add-to-list 'yas-snippet-dirs 'yasnippet-snippets-dir t)
+  ;;(add-to-list 'yas-snippet-dirs yasnippet-snippets-dir t)
   (add-to-list 'yas-snippet-dirs (expand-file-name "yas" user-emacs-directory) t)
 
   (yas-reload-all)
