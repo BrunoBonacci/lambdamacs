@@ -51,7 +51,6 @@
 (use-package cider
   :ensure t
   :defer t
-  :init (add-hook 'cider-mode-hook #'clj-refactor-mode)
   :diminish subword-mode
   :bind (:map cider-mode-map
               ("C-c r" . cider-open-result-window)
@@ -81,6 +80,7 @@
         cider-eval-spinner-type 'progress-bar-filled
         cider-eval-spinner-delay 1
         cider-show-eval-spinner t
+        cider-clojure-cli-global-options "-A:dev"
         )
   (cider-repl-toggle-pretty-printing))
 
@@ -425,23 +425,51 @@
 ;; Hack for cider-popup eval inspired by
 ;; from: https://github.com/clojure-emacs/cider/issues/2580#issuecomment-606708789
 ;;
-(defun cider-popup-eval-handler (&optional buffer)
-  "Make a handler for printing evaluation results in popup BUFFER.
-This is used by pretty-printing commands."
-  (nrepl-make-response-handler
-   (or buffer (current-buffer))
-   (lambda (buffer value)
-     (cider-emit-into-popup-buffer buffer (ansi-color-apply value) nil t))
-   (lambda (buffer out)
-     (cider-emit-into-popup-buffer buffer (ansi-color-apply out) nil t))
-   (lambda (buffer err)
-     (cider-emit-into-popup-buffer buffer (ansi-color-apply err) nil t))
-   nil
-   nil
-   nil
-   (lambda (buffer warning)
-     (cider-emit-into-popup-buffer buffer warning 'font-lock-warning-face t))))
+(defun cider-popup-eval-handler (&optional buffer bounds source-buffer)
+  "Make a handler for printing evaluation results in popup BUFFER,
+BOUNDS representing the buffer bounds of the evaled input,
+and SOURCE-BUFFER the original buffer
 
+This is used by pretty-printing commands."
+  ;; NOTE: cider-eval-register behavior is not implemented here for performance reasons.
+  ;; See https://github.com/clojure-emacs/cider/pull/3162
+  (let ((chosen-buffer (or buffer (current-buffer))))
+    (nrepl-make-response-handler
+     chosen-buffer
+     ;; value handler:
+     (lambda (buffer value)
+       (cider-emit-into-popup-buffer buffer (ansi-color-apply value) nil t))
+     ;; stdout handler:
+     (lambda (buffer out)
+       (cider-emit-into-popup-buffer buffer (ansi-color-apply out) nil t))
+     ;; stderr handler:
+     (lambda (buffer err)
+       (cider-emit-into-popup-buffer buffer (ansi-color-apply err) nil t)
+       (when (and source-buffer
+                  (listp bounds)) ;; if it's a list, it represents bounds, otherwise it's a string (code) and we can't display the overlay
+         (with-current-buffer source-buffer
+           (let* ((phase (cider--error-phase-of-last-exception buffer))
+                  (end (or (car-safe (cdr-safe bounds)) bounds))
+                  (end (when end
+                         (copy-marker end))))
+             (cider--maybe-display-error-as-overlay phase err end)))))
+     ;; done handler:
+     nil
+     ;; eval-error handler:
+     (lambda ()
+       (when (and (buffer-live-p chosen-buffer)
+                  (member (buffer-name chosen-buffer)
+                          cider-ancillary-buffers))
+         (with-selected-window (get-buffer-window chosen-buffer)
+           (cider-popup-buffer-quit-function t)))
+       ;; also call the default nrepl-err-handler, so that our custom behavior doesn't void the base behavior:
+       (when nrepl-err-handler
+         (funcall nrepl-err-handler)))
+     ;; content type handler:
+     nil
+     ;; truncated handler:
+     (lambda (buffer warning)
+       (cider-emit-into-popup-buffer buffer warning 'font-lock-warning-face t)))))
 
 
 ;; ------------------------------------------------------------
@@ -591,3 +619,47 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package jet)
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                        ----==| P O R T A L |==----                         ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Leverage an existing cider nrepl connection to evaluate portal.api functions
+;; and map them to convenient key bindings.
+
+;; def portal to the dev namespace to allow dereferencing via @dev/portal
+(defun portal.api/open ()
+  (interactive)
+  (cider-nrepl-sync-request:eval
+    "(do (ns dev)
+         (require '[portal.api :as p])
+         (def portal (p/open {:theme :portal.colors/zerodark}))
+         (defn portal-submit [value]
+           (if (-> value meta :portal.nrepl/eval)
+             (let [{:keys [stdio report result]} value]
+               (when stdio (p/submit stdio))
+               (when report (p/submit report))
+               (p/submit result))
+             (p/submit value)))
+         (add-tap portal-submit))"))
+
+
+(defun portal.api/clear ()
+  (interactive)
+  (cider-nrepl-sync-request:eval "(portal.api/clear)"))
+
+(defun portal.api/close ()
+  (interactive)
+  (cider-nrepl-sync-request:eval "(portal.api/close)"))
+
+
+(define-key clojure-mode-map
+  (kbd "s-o") 'portal.api/open)
+
+(define-key clojure-mode-map
+  (kbd "C-S-l") 'portal.api/clear)
