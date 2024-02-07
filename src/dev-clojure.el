@@ -638,14 +638,18 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
   (cider-nrepl-sync-request:eval
     "(do (ns dev)
          (require '[portal.api :as p])
+         (defn with-viewer [v]
+           (vary-meta v
+             (fn [{:keys [portal.viewer/default] :as m}]
+               (assoc m :portal.viewer/default (or default :portal.viewer/tree)))))
          (def portal (p/open {:theme :portal.colors/zerodark}))
          (defn portal-submit [value]
            (if (-> value meta :portal.nrepl/eval)
              (let [{:keys [stdio report result]} value]
                (when stdio (p/submit stdio))
                (when report (p/submit report))
-               (p/submit result))
-             (p/submit value)))
+               (p/submit (with-viewer result)))
+             (p/submit (with-viewer value))))
          (add-tap portal-submit))"))
 
 
@@ -655,7 +659,8 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 
 (defun portal.api/close ()
   (interactive)
-  (cider-nrepl-sync-request:eval "(portal.api/close)"))
+  (cider-nrepl-sync-request:eval
+   "(do (remove-tap dev/portal-submit) (portal.api/close))"))
 
 
 (define-key clojure-mode-map
@@ -663,3 +668,7 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
 
 (define-key clojure-mode-map
   (kbd "C-S-l") 'portal.api/clear)
+
+
+(define-key clojure-mode-map
+  (kbd "M-s-o") 'portal.api/close)
