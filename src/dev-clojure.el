@@ -81,6 +81,7 @@
         cider-eval-spinner-delay 1
         cider-show-eval-spinner t
         cider-clojure-cli-global-options "-A:dev"
+        cider-ns-code-reload-tool 'clj-reload
         )
   (cider-repl-toggle-pretty-printing))
 
