@@ -642,15 +642,16 @@ White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
          (defn with-viewer [v]
            (vary-meta v
              (fn [{:keys [portal.viewer/default] :as m}]
-               (assoc m :portal.viewer/default (or default :portal.viewer/tree)))))
+               (assoc m :portal.viewer/default (or default :portal.viewer/inspector )))))
          (def portal (p/open {:theme :portal.colors/zerodark}))
-         (defn portal-submit [value]
-           (if (-> value meta :portal.nrepl/eval)
-             (let [{:keys [stdio report result]} value]
-               (when stdio (p/submit stdio))
-               (when report (p/submit report))
-               (p/submit (with-viewer result)))
-             (p/submit (with-viewer value))))
+         (defonce portal-submit
+           (fn portal-submit [value]
+             (if (-> value meta :portal.nrepl/eval)
+               (let [{:keys [stdio report result]} value]
+                 (when stdio (p/submit stdio))
+                 (when report (p/submit report))
+                 (p/submit result))
+               (p/submit value))))
          (add-tap portal-submit))"))
 
 
