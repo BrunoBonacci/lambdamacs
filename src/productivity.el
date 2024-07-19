@@ -186,7 +186,13 @@
         ("l" "Linked TODO item"
          entry
          (file org-default-notes-file)
-         "* TODO (%^{SIZE[0-9]|0}) %? %^g\n  SCHEDULED: %^t\n  %i\n  %a")))
+         "* TODO (%^{SIZE[0-9]|0}) %? %^g\n  SCHEDULED: %^t\n  %i\n  %a")
+
+        ("j" "Journal"
+         entry
+         (file+datetree "/Users/bruno/work/projects/redefine/journal/journal.org")
+        "* Event: %?\n"
+        :empty-lines-before 2)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
