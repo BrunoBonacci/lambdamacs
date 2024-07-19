@@ -9,6 +9,6 @@
 # ------------------------------------------------------------------------------
 #+LANGUAGE:  en
 #+STARTUP:   showeverything showstars indent inlineimages showblocks latexpreview
-#+SETUPFILE: https://rawcdn.githack.com/BrunoBonacci/org-doc/master/org-theme-gtd.setup
+#+SETUPFILE: https://cdn.jsdelivr.net/gh/BrunoBonacci/org-doc/org-theme-gtd.setup
 # ------------------------------------------------------------------------------
 $0

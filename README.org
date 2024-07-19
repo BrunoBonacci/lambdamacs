@@ -5,7 +5,7 @@
 #+AUTHOR:    Bruno Bonacci
 #+LANGUAGE:  en
 #+STARTUP:   content showstars indent inlineimages showblocks
-#+SETUPFILE: https://rawcdn.githack.com/BrunoBonacci/org-doc/master/org-theme-gtd.setup
+#+SETUPFILE: https://cdn.jsdelivr.net/gh/BrunoBonacci/org-doc/org-theme-gtd.setup
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
@@ -18,7 +18,7 @@
 #+ATTR_HTML: :width 800
 [[./assets/lambdamacs_600.png]]
 
-- Check [[https://rawcdn.githack.com/BrunoBonacci/lambdamacs/master/README.html][documentation online]].
+- Check [[https://cdn.jsdelivr.net/gh/BrunoBonacci/lambdamacs/README.html][documentation online]].
 - Check the code on [[https://github.com/BrunoBonacci/lambdamacs][Github]].
 
 ** Motivation
