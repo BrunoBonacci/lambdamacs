@@ -4,12 +4,9 @@
 #+SUBTITLE:  Emacs for Clojure development on macOS X.
 #+AUTHOR:    Bruno Bonacci
 #+LANGUAGE:  en
-#+STARTUP:   content showstars indent inlineimages showblocks
+#+STARTUP:   content inlineimages showblocks
 #+SETUPFILE: https://cdn.jsdelivr.net/gh/BrunoBonacci/org-doc/org-theme-gtd.setup
 # ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
-* Intro
 
 (λmacs) is Emacs for Clojure development on macOS X.
 
@@ -20,6 +17,10 @@
 
 - Check [[https://cdn.jsdelivr.net/gh/BrunoBonacci/lambdamacs/README.html][documentation online]].
 - Check the code on [[https://github.com/BrunoBonacci/lambdamacs][Github]].
+
+
+# ------------------------------------------------------------------------------
+* Intro
 
 ** Motivation
 For a number of years I've been using Emacs as my primary/only IDE.  I
@@ -48,7 +49,7 @@ Alternatively you can install it via:
 sudo mkdir /usr/local/Frameworks
 sudo chown $(whoami):admin /usr/local/Frameworks
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@28 --with-no-frame-refocus --with-xwidgets --with-imagemagick --with-native-comp --with-elrumo2-icon
+brew install emacs-plus@29 --with-no-frame-refocus --with-xwidgets --with-imagemagick --with-native-comp --with-elrumo2-icon
 #+end_src
 
 You can check [[https://github.com/d12frosted/homebrew-emacs-plus][github://d12frosted/homebrew-emacs-plus]] what each option does.
