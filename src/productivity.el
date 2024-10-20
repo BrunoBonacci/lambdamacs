@@ -289,6 +289,33 @@
 
     (customize-set-variable 'org-babel-clojure-backend 'bb))
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                  ----==| O R G - D O W N L O A D |==----                   ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;
+;; Copy/Paste images into org-mode files
+;;
+
+(use-package org-download
+  :ensure t
+  :init
+  (add-hook dired-mode-hook 'org-download-enable)
+  :config
+  (setq-default
+   org-download-method 'directory
+   org-download-image-dir "./images"
+   org-download-heading-lvl nil)
+  :bind (:map org-mode-map
+       ("C-s-v" . org-download-clipboard)
+       ("s-V" . org-download-clipboard)))
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
 ;;                   ----==| S P E L L - C H E C K |==----                    ;;
