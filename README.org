@@ -146,10 +146,15 @@ and switch back to the default theme with ~M-x lambdamacs/switch-theme-to-defaul
  | ~command-log~          | Displays a buffer with the keys and commands you type               |
  | ~doom-modeline~        | cool minimalistic modeline                                          |
  | ~doom-theme~           | a collection of well curated themes                                 |
+ | ~emmet~                | shorthand expansions for HTML and CSS                               |
  | ~flycheck~             | Run checks on the fly                                               |
+ | ~flymd~                | Live preview for Markdown editing                                   |
  | ~flyspell~             | Spell checking                                                      |
  | ~forge~                | Magit extension for Pull Requests and Issues                        |
  | ~google-this~          | Quickly Google something at point                                   |
+ | ~gptel~                | extentsion to connect to various local and remote LLMs like ChatGPT |
+ | ~impatient~            | live preview for HTML editing                                       |
+ | ~impatient-showdown~   | live preview for Markdown editing                                   |
  | ~magit~                | Git controls                                                        |
  | ~markdown~             | Markdown mode support with TOC and Live preview (via ~flymd~)       |
  | ~multiple-cursors~     | Multiple cursors for editing                                        |
@@ -157,12 +162,14 @@ and switch back to the default theme with ~M-x lambdamacs/switch-theme-to-defaul
  | ~paradox~              | A package manager which makes very easy to update your installation |
  | ~paredit~              | Can't develop Clojure without structural editing                    |
  | ~password-generator~   | Generate strong random passwords                                    |
+ | ~perspective~          | Group buffers into projects and swtich between them                 |
  | ~prodigy~              | Local process management                                            |
  | ~projectile~           | Useful functions for working with projecs                           |
  | ~restclient~           | Turn simple text buffer into HTTP REST calls                        |
  | ~sticky-windows~       | Stick windows in place (no auto close)                              |
  | ~switch-java~          | Enables to select the JVM version while inside emacs                |
  | ~undo-tree~            | Powerful multi-state undo                                           |
+ | ~vertico~              | minibuffer completion                                               |
  | ~wgrep~                | Editable search buffers                                             |
  | ~witespace~            | To clean trailing whitespaces in the code                           |
  | ~wsd~                  | WebSequenceDiagrams                                                 |
@@ -171,7 +178,6 @@ and switch back to the default theme with ~M-x lambdamacs/switch-theme-to-defaul
 
 - TODO:
 - [ ] wsd
-- [ ] workgroups / persp-mode / toggle-zoom ??
 - [ ] code rtf pygments
 - [ ] repl image hack
 
@@ -196,10 +202,11 @@ Here the keybindings added/defined by ~(λmacs)~:
 | ~clojure-mode~ | ~s-b~              | Adds a nice comment box with current line.                | ~(λmacs)~          |
 | ~clojure-mode~ | ~C-c C-r~          | Prefix for Clojure refactoring functions                  | ~clj-refactor~     |
 | ~cider-mode~   | ~C-c C-{~          | Decompiles the previous form (into Java code)             | ~clj-decompiler~   |
+| ~emmet-mode~   | ~C-j~ or ~C-u C-j~ | Expand emmet' style abbreviations                         | ~emmet~            |
 | editor         | ~M-y~              | Browse the content of the ~kill-ring~                     | ~browse-kill-ring~ |
 | editor         | ~C-a~              | Smart beginning of the line (non blank)                   | ~crux~             |
-| editor         | ~⌘-c~              | Copy selected region (like macOS - more natural)          | ~cua-mode~         |
-| editor         | ~⌘-v~              | Paste selected region (like macOS - more natural)         | ~cua-mode~         |
+| editor         | ~⌘-c~             | Copy selected region (like macOS - more natural)          | ~cua-mode~         |
+| editor         | ~⌘-v~             | Paste selected region (like macOS - more natural)         | ~cua-mode~         |
 | editor         | ~C-RET~            | Toggle rectangular selection                              | ~cua-mode~         |
 | editor         | ~C-=~              | Expands the selection to the larger surrounding form.     | ~expand-region~    |
 | editor         | ~M-/~ or ~s-/~     | Hippie expansion (completion)                             | ~hippie~           |
@@ -213,8 +220,8 @@ Here the keybindings added/defined by ~(λmacs)~:
 | editor         | ~s-w~ + char       | Jumps to the window selected with the given char          | ~avy~              |
 | editor         | ~C-c C-w~          | Opens the selected file in Github                         | ~browse-at-remote~ |
 | editor         | ~C-c C-S-w~        | Copy the link of the selected file in Github in kill-ring | ~browse-at-remote~ |
-| editor         | ~⌘-←~              | Restore previous window layout                            | ~winner~           |
-| editor         | ~⌘-→~              | Redo previous window layout                               | ~winner~           |
+| editor         | ~⌘-←~             | Restore previous window layout                            | ~winner~           |
+| editor         | ~⌘-→~             | Redo previous window layout                               | ~winner~           |
 | editor         | ~M-s-c~            | Calls carbon-now-sh and generate an image with your code  | ~carbon-now-sh~    |
 | bookmarks      | ~s-1~              | Toggle bookmark                                           | ~bm~               |
 | bookmarks      | ~s-2~              | Cycle previous bookmarks                                  | ~bm~               |
@@ -235,6 +242,8 @@ Here the keybindings added/defined by ~(λmacs)~:
 | project        | ~C-c p~  or ~s-p~  | *Projectile*'s prefix                                     | ~projectile~       |
 | project        | ~C-x 9~            | Locks the window in place so that it can't be closed.     | ~sticky-windows~   |
 | all            | ~s-g~              | Google word or region at point                            | ~google-this~      |
+| all            | ~C-c C-RET~        | Send to gptel, use prefix for options                     | ~gptel~            |
+|----------------+--------------------+-----------------------------------------------------------+--------------------|
 
 
 
@@ -375,6 +384,15 @@ configuration.
 
 You can toggle the value with ~M-x cljfmt-toggle-reformat~.
 
+** Web development
+
+Start ~impatient~ mode on the HTML page your are working on via:
+
+- ~M-x httpd-start~
+- ~M-x impatient-mode~
+- Open your browser at http://localhost:8080/imp/
+- Edit the LIVE HTML and
+- use ~C-j~ to expand [[https://github.com/smihica/emmet-mode#html-abbreviations][emmet's abbreviations]], use ~C-u C-j~ to preview the expansion
 
 * Get involved
 
@@ -398,5 +416,5 @@ the following references:
 /Thank you to all of you!/
 
 ** License
-Copyright © 2020 Bruno Bonacci and contributors.
+Copyright © 2020-2025 Bruno Bonacci and contributors.
 Distributed under the GNU General Public License, version 3.

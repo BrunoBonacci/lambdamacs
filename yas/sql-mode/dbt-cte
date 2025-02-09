@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+#name : dbt-cte
+#key : dbt-cte
+# --
+WITH $1 AS (
+    SELECT
+         *
+    FROM {{ ref('$1') }}
+)
+SELECT
+    $0
+FROM
+    $1

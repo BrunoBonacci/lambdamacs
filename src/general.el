@@ -14,43 +14,6 @@
 ;; warn when opening files bigger than 50MB
 (setq large-file-warning-threshold 50000000)
 
-;; replace buffer-menu with ibuffer
-(global-set-key (kbd "C-x C-b") #'ibuffer)
-
-
-;;
-;; Groups buffers by project in iBuffer
-;; FIXME: very slow
-;;
-;; (use-package ibuffer-projectile
-;;   :ensure t
-;;   :config
-;;   (add-hook 'ibuffer-hook
-;;     (lambda ()
-;;       (ibuffer-projectile-set-filter-groups)
-;;       (unless (eq ibuffer-sorting-mode 'alphabetic)
-;;         (ibuffer-do-sort-by-alphabetic))))
-;;
-;;   (setq ibuffer-formats
-;;       '((mark modified read-only "  "
-;;               (name 25 25 :left :elide)
-;;               " "
-;;               (size 9 -1 :right)
-;;               " "
-;;               ;;(mode 16 16 :left :elide)
-;;               ;;" "
-;;               project-relative-file))))
-;;
-;; alternatives
-;; (use-package ibuffer-projectile)
-(use-package ibuffer-vc
-  :init
-  (add-hook 'ibuffer-hook
-            (lambda ()
-              (ibuffer-vc-set-filter-groups-by-vc-root)
-              (unless (eq ibuffer-sorting-mode 'alphabetic)
-                (ibuffer-do-sort-by-alphabetic)))))
-
 ;;
 ;; gpg password in minibuffer
 ;;
@@ -116,47 +79,86 @@
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 
-;;
-;; minibuffer long
-;;
-(defun switch-to-minibuffer ()
-  "Switch to minibuffer window."
-  (interactive)
-  (if (active-minibuffer-window)
-      (select-window (active-minibuffer-window))
-    (error "Minibuffer is not active")))
 
-(global-set-key "\C-co" 'switch-to-minibuffer) ;; Bind to `C-c o'
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                            ;;
-;;                           ----==| I V Y |==----                            ;;
+;;                    ----==| C O M P L E T I O N |==----                     ;;
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;
-;; helper
-;;
-(use-package ivy
-  :diminish
-  :bind (("s-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill))
+(use-package vertico
+  :ensure t
+  :demand t
+;;  :bind (:map vertico-map
+;;              ("C-j" . vertico-next)
+;;              ("C-k" . vertico-previous)
+;;              ("C-f" . vertico-exit-input)
+;;              :map minibuffer-local-map
+;;              ("M-h" . vertico-directory-up))
+  :custom
+  (vertico-cycle t)
+
+  :custom-face
+  (vertico-current ((t (:background "#3a3f5a"))))
+
   :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (global-set-key (kbd "<f6>") 'ivy-resume))
+  (require 'vertico-directory)
+  (vertico-mode))
+
+
+(use-package corfu
+  ;; Optional customizations
+  :custom
+  (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  (corfu-auto t)                 ;; Enable auto completion
+  (corfu-separator ?\s)          ;; Orderless field separator
+  (corfu-quit-at-boundary t)     ;; always quit at completion boundary
+  (corfu-quit-no-match t)        ;; always quit, even if there is no match
+  (corfu-preview-current nil)    ;; Disable current candidate preview
+  (corfu-preselect 'prompt)      ;; Preselect the prompt
+  (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+  (corfu-scroll-margin 5)        ;; Use scroll margin
+
+  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+  ;; :hook ((prog-mode . corfu-mode)
+  ;;        (shell-mode . corfu-mode)
+  ;;        (eshell-mode . corfu-mode))
+
+  ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+  ;; be used globally (M-/).  See also the customization variable
+  ;; `global-corfu-modes' to exclude certain modes.
+  :init
+  (global-corfu-mode))
+
+
+
+(use-package orderless
+  :ensure t
+  :demand t
+  :config
+  (orderless-define-completion-style orderless+initialism
+    (orderless-matching-styles '(orderless-initialism
+                                 orderless-literal
+                                 orderless-regexp)))
+
+  (setq completion-styles '(orderless)
+        completion-category-defaults nil
+        orderless-matching-styles '(orderless-literal orderless-regexp)
+        completion-category-overrides
+        '((file (styles partial-completion)))))
+
+
+
+(use-package marginalia
+  :ensure t
+  :after vertico
+  :custom
+  (marginalia-annotators '(marginalia-annotators-heavy
+                           marginalia-annotators-light
+                           nil))
+  :config
+  (marginalia-mode))
 
 
 
@@ -164,30 +166,7 @@
 ;; Commands descriptions for M-x commands
 ;;
 (use-package counsel
-  :bind (("M-x"     . counsel-M-x)
-         ("C-x b"   . counsel-ibuffer)
-         ("C-x C-f" . counsel-find-file)
-         ("C-x j"   . counsel-imenu)
-         :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history)))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1)
-  :config
-  (setq ivy-re-builders-alist
-	'((t . ivy--regex-plus))))
-
-
-(use-package helpful
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
+  :bind (("C-x j"   . counsel-imenu)))
 
 
 ;;
@@ -266,6 +245,7 @@
         savehist-file
         (expand-file-name "savehist" lambdamacs-save-dir))
   (savehist-mode +1))
+
 
 (use-package recentf
   :config
@@ -378,9 +358,9 @@
 ;;
 ;; Allows to move the windows transposing them
 ;;
-(use-package transpose-frame
-  :bind
-  ("C-c s" . flop-frame))
+;;(use-package transpose-frame
+;;  :bind
+;;  ("C-c s" . flop-frame))
 
 ;;
 ;; FIXME: weird behaviour on small screens
@@ -430,19 +410,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(use-package company
-  :ensure t
-  :config
-  (setq company-idle-delay 0.5)
-  (setq company-show-numbers t)
-  (setq company-tooltip-limit 10)
-  (setq company-minimum-prefix-length 2)
-  (setq company-tooltip-align-annotations t)
-  ;; invert the navigation direction if the the completion popup-isearch-match
-  ;; is displayed on top (happens near the bottom of windows)
-  (setq company-tooltip-flip-when-above t)
-  (global-company-mode))
-
+;; (use-package company
+;;   :ensure t
+;;   :config
+;;   (setq company-idle-delay 0.5)
+;;   (setq company-show-numbers t)
+;;   (setq company-tooltip-limit 10)
+;;   (setq company-minimum-prefix-length 1)
+;;   (setq company-tooltip-align-annotations t)
+;;   ;; invert the navigation direction if the the completion popup-isearch-match
+;;   ;; is displayed on top (happens near the bottom of windows)
+;;   (setq company-tooltip-flip-when-above t)
+;;   (global-company-mode))
 
 
 

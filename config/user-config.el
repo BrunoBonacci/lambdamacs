@@ -224,6 +224,23 @@
           )))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                   ----==| W O R L D   C L O C K |==----                    ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq display-time-world-list
+  '(("Etc/UTC" "UTC")
+    ("Europe/London" "London")
+    ("Europe/Rome" "Rome")
+    ("America/New_York" "New York")
+    ("America/Los_Angeles" "Seattle")
+    ("Asia/Kolkata" "Hyderabad")
+    ("Asia/Shanghai" "Shanghai")))
+
+(setq display-time-world-time-format "%a, %d %b %I:%M %p %Z")
+
 
 
 ;;; end user-config.el

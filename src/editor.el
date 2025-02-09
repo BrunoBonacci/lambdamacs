@@ -95,26 +95,6 @@
   (global-anzu-mode))
 
 
-;; hippie expand / completion
-(setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill
-        try-complete-file-name-partially
-        try-complete-file-name
-        try-expand-all-abbrevs
-        try-expand-list
-        try-expand-line
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
-
-
-;; use hippie-expand instead of dabbrev
-(global-set-key (kbd "M-/") #'hippie-expand)
-(global-set-key (kbd "s-/") #'hippie-expand)
-
-
-
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -130,6 +110,11 @@
 (require 'cua-rect)
 (cua-mode 1)
 (setq cua-enable-cua-keys nil)
+
+
+;; enable paste with Cmd-v
+(eval-after-load "term"
+  '(define-key term-raw-map (kbd "s-v") 'term-paste))
 
 
 ;;
@@ -151,11 +136,6 @@
   :bind (([remap move-beginning-of-line] . crux-move-beginning-of-line)
          ("C-c t" . crux-visit-term-buffer)
          ("s-r"   . crux-recentf-find-file)))
-
-
-;; enable paste with Cmd-v
-(eval-after-load "term"
-  '(define-key term-raw-map (kbd "s-v") 'term-paste))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -183,15 +163,31 @@
 ;;                   ----==| J U M P   A R O U N D |==----                    ;;
 ;;                                                                            ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package avy
-  :init
-  (global-set-key (kbd "s-j") 'avy-goto-word-or-subword-1)
-  (global-set-key (kbd "s-.") 'avy-goto-char)
-  (global-set-key (kbd "s-w") 'ace-window))
+;;
+;;(use-package avy
+;;  :init
+;;  (global-set-key (kbd "s-j") 'avy-goto-word-or-subword-1)
+;;  (global-set-key (kbd "s-.") 'avy-goto-char)
+;;  (global-set-key (kbd "s-w") 'ace-window))
 
 
 ;; unbing goto-line
 (global-unset-key (kbd "s-l"))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;        ----==| P E R S P E C T I V E   W O R K S P A C E S |==----         ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package perspective
+  :ensure t
+  :bind
+  ("C-x C-b" . persp-list-buffers)         ; or use a nicer switcher, see below
+  :custom
+  (persp-mode-prefix-key (kbd "C-x C-p"))
+  :init
+  (persp-mode))
 
 ;;; editor.el ends here

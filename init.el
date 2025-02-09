@@ -78,6 +78,9 @@
 (load  "dev.el")            ;; common dev tools
 (load  "dev-clojure.el")    ;; clojure settings
 (load  "dev-java.el")       ;; settings for java development
+(load  "dev-erlang.el")     ;; settings for erlang development
+(load  "dev-sql.el")        ;; settings for sql development
+(load  "dev-web.el")        ;; settings for web development
 (load  "productivity.el")   ;; org-mode and productivity tools
 (loadx "emacs-custom.el")   ;; load emacs customizations
 (loadx "post-init.el")      ;; load custom post configuration if present

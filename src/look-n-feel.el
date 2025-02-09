@@ -12,16 +12,18 @@
 (set-fringe-mode 10)        ; Give some breathing room
 (menu-bar-mode -1)          ; Disable the menu bar
 
+
+(setq frame-resize-pixelwise t)
+
 ;; remove gaps between windows & titlebar
-(if (<= emacs-major-version 28)
-    (setq frame-resize-pixelwise t)
-  ;; from emacs 29
-  (setq default-frame-alist
-        (append
-         '((undecorated . t)
-           (drag-internal-border . t)
-           (internal-border-width . 15))
-         default-frame-alist)))
+(when (> emacs-major-version 28)
+    ;; from emacs 29
+    (setq default-frame-alist
+          (append
+           '((undecorated . t)
+             (drag-internal-border . t)
+             (internal-border-width . 15))
+           default-frame-alist)))
 
 (setq initial-frame-alist default-frame-alist)
 

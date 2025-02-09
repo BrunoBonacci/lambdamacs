@@ -410,4 +410,60 @@
 
 
 
-;;; productivity ends here
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;;                           ----==| L L M |==----                            ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; ChatGPT, LLama and Mistral integration.
+;;
+;;(defun gptel-api-key* ()
+;;  "Retrieve OpenAI API key from authinfo."
+;;  (let ((cred (car (auth-source-search
+;;                    :max  1
+;;                    :host "api.openai.com"
+;;                    :user "apikey"
+;;                    :require '(:user :secret)))))
+;;    (if cred
+;;        (funcall (plist-get cred :secret))
+;;      (error "No OpenAI apikey found in .authinfo"))))
+
+;; (gptel-api-key-from-auth-source)
+
+
+(use-package gptel
+  :init
+  (setq
+   gptel-default-mode 'org-mode
+   gptel-expert-commands 't)
+
+  :bind (("C-c RET" . gptel-send)
+         ("C-c C-<return>" . gptel-send)))
+
+;; Quick test: State your name and respond concisely: which one is bigger 5 or 3?
+
+
+(with-eval-after-load 'gptel-ollama
+
+  (defvar gptel--ollama
+    (gptel-make-ollama "Ollama"
+      :host "localhost:11434"
+      :models '("mistral:latest" "zephyr:latest" "openhermes:latest" "llama3.2:latest"
+                "deepseek-r1:8b" "deepseek-r1:32b")
+      :stream t))
+
+  (defvar gptel--ollama
+    (gptel-make-ollama "Ollama-vision"
+      :host "localhost:11434"
+      :models '(mistral:latest
+                zephyr:latest
+                openhermes:latest
+                (llava:7b :description "Llava 1.6: Vision capable model"
+                          :capabilities (images)
+                          :mime-types ("image/jpeg" "image/png")))
+      :stream t)))
+
+
+;;; productivity.el ends here

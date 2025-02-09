@@ -172,6 +172,10 @@
 ;;
 ;; Live preview while editing
 ;;
+
+;;
+;; see issue: https://github.com/mola-T/flymd/issues/27
+;;
 (use-package flymd
   :config
   (defun my-flymd-browser-function (url)
@@ -183,6 +187,13 @@
              (list "-a" "firefox" url))))
   (setq flymd-browser-open-function 'my-flymd-browser-function))
 
+;; alternative
+
+(use-package impatient-showdown
+  :config
+  (setq
+   impatient-showdown-background-color "#888888"
+   impatient-showdown-markdown-background-color "#FFFFFF"))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -221,11 +232,11 @@
 ;;
 ;; restclient company--auto-completion
 ;;
-(use-package company-restclient
-  :config
-  (add-to-list 'company-backends 'company-restclient)
-  (setq auto-mode-alist
-      (append '(("\\.rest\\'" . restclient-mode)) auto-mode-alist)))
+;;(use-package company-restclient
+;;  :config
+;;  (add-to-list 'company-backends 'company-restclient)
+;;  (setq auto-mode-alist
+;;      (append '(("\\.rest\\'" . restclient-mode)) auto-mode-alist)))
 
 
 
