@@ -388,9 +388,8 @@ You can toggle the value with ~M-x cljfmt-toggle-reformat~.
 
 Start ~impatient~ mode on the HTML page your are working on via:
 
-- ~M-x httpd-start~
-- ~M-x impatient-mode~
-- Open your browser at http://localhost:8080/imp/
+- ~M-x impatient-start~
+- it will open your browser at http://localhost:8888/imp/
 - Edit the LIVE HTML and
 - use ~C-j~ to expand [[https://github.com/smihica/emmet-mode#html-abbreviations][emmet's abbreviations]], use ~C-u C-j~ to preview the expansion
 
